@@ -13,11 +13,10 @@ public:
 	~square();
 	void Holding(int new_holding);
 	int Holding();
-<<<<<<< HEAD
-=======
+
 	void AdjacentMines(int new_mines);
 	int AdjacentMines();
 };
->>>>>>> dcf8ab7b145b039f7a02b562a259f57fcee6d77f
 
-};
+
+

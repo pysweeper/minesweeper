@@ -4,6 +4,7 @@
 
 square::square()
 {
+	m_holding = NONE;
 }
 
 
