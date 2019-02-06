@@ -15,7 +15,7 @@ executive::~executive()
 void executive::Run()
 {
 	CreateBoard();
-	
+
 
 }
 
@@ -72,7 +72,7 @@ void executive::UpdateAdjacents()
 	{
 		for (int j = 0; j < m_row_size; j++)
 		{
-			
+
 			int counter = 0;
 			if (m_game_board[i][j].Holding() == NONE)
 			{
@@ -84,8 +84,8 @@ void executive::UpdateAdjacents()
 						counter++;
 					}
 				}
-			
-				
+
+
 				//check right
 				if (((i + 1) < m_row_size && (j) < m_row_size))
 				{
@@ -94,7 +94,7 @@ void executive::UpdateAdjacents()
 						counter++;
 					}
 				}
-				
+
 				//check down-right
 				if ((i + 1) < m_row_size && (j - 1) >=0)
 				{
@@ -103,7 +103,7 @@ void executive::UpdateAdjacents()
 						counter++;
 					}
 				}
-			
+
 				//check up
 				if (((i)<m_row_size && (j + 1)<m_row_size))
 				{
@@ -112,7 +112,7 @@ void executive::UpdateAdjacents()
 						counter++;
 					}
 				}
-			
+
 				//check down
 				if (((i)<m_row_size && (j - 1)>=0))
 				{
@@ -121,7 +121,7 @@ void executive::UpdateAdjacents()
 						counter++;
 					}
 				}
-			
+
 				//check left
 				if (((i - 1) >= 0 && (j)<m_row_size))
 				{
@@ -130,7 +130,7 @@ void executive::UpdateAdjacents()
 						counter++;
 					}
 				}
-			
+
 				//check up-left
 				if (((i - 1)>=0 && (j + 1)<m_row_size))
 				{
@@ -139,7 +139,7 @@ void executive::UpdateAdjacents()
 						counter++;
 					}
 				}
-			
+
 				//check down-left
 				if ((i - 1)>=0 && (j - 1)>=0)
 				{
@@ -148,7 +148,7 @@ void executive::UpdateAdjacents()
 						counter++;
 					}
 				}
-			
+
 				//update the adjacency number
 				m_game_board[i][j].AdjacentMines(counter);
 				if (counter > 0)
@@ -157,7 +157,7 @@ void executive::UpdateAdjacents()
 				}
 			}
 		}
-		 
+
 		}
 
 	//for testing purposes
@@ -169,6 +169,18 @@ void executive::UpdateAdjacents()
 
 	}
 
+	void NotAdjacent(int row, int col)
+	{
+		cin >> row;
+		cin >> col;
+		NotAdjacentHelper(row, col);
+	}
+
+	void NotAdjacentHelper(int row, int col)
+	{
+
+	}
+	
 void executive::Print()
 {
 	std::cout << "\n\n";
@@ -182,5 +194,3 @@ void executive::Print()
 		std::cout << "\n";
 	}
 }
-
-

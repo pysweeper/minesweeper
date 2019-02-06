@@ -11,7 +11,7 @@
 #include<iostream>
 #include<string>
 #include<cstdlib>
-
+#include <fstream>
 #include "square.h"
 class executive
 {
@@ -19,6 +19,7 @@ private:
  square** m_game_board;
  int m_row_size;
  int m_mine_number;
+ fstream adjacentCoordinates;
 protected:
 
 public:
@@ -28,4 +29,7 @@ public:
  void CreateBoard();
  void Print();
  void UpdateAdjacents();
+ void NotAdjacent(int row, int col);
+ void NotAdjacentHelper(int row, int col);
+
 };
