@@ -62,7 +62,7 @@ void executive::CreateBoard()
 
 	//for testing purposes.
 	Print();
-	
+	CreateFile();
 }
 
 void executive::Print()
@@ -75,5 +75,20 @@ void executive::Print()
 			std::cout << m_game_board[i][j].Holding() << " ";
 		}
 		std::cout << "\n";
+	}
+}
+
+void executive::CreateFile()
+{
+	std::ofstream board_file;
+	
+	board_file.open("board.txt");
+	for (int i = 0; i < m_row_size;i++)
+	{
+		for (int j = 0; j < m_row_size;j++)
+		{
+			board_file << "H" << " ";
+		}
+		board_file << "\n";
 	}
 }

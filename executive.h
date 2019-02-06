@@ -11,6 +11,8 @@
 #include<iostream>
 #include<string>
 #include<cstdlib>
+#include<fstream>
+#include<direct.h>
 
 #include "square.h"
 class executive
@@ -27,5 +29,6 @@ public:
 	void Run();
 	void CreateBoard();
 	void Print();
+	void CreateFile();
 };
 
