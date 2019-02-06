@@ -96,7 +96,7 @@ void executive::UpdateAdjacents()
 				}
 				
 				//check down-right
-				if ((i + 1) < m_row_size && (j - 1) >0)
+				if ((i + 1) < m_row_size && (j - 1) >=0)
 				{
 					if (m_game_board[i + 1][j - 1].Holding() == MINE)
 					{
@@ -114,7 +114,7 @@ void executive::UpdateAdjacents()
 				}
 			
 				//check down
-				if (((i)<m_row_size && (j - 1)>0))
+				if (((i)<m_row_size && (j - 1)>=0))
 				{
 					if (m_game_board[i][j - 1].Holding() == MINE)
 					{
@@ -123,7 +123,7 @@ void executive::UpdateAdjacents()
 				}
 			
 				//check left
-				if (((i - 1) > 0 && (j)<m_row_size))
+				if (((i - 1) >= 0 && (j)<m_row_size))
 				{
 					if (m_game_board[i - 1][j].Holding() == MINE)
 					{
@@ -132,7 +132,7 @@ void executive::UpdateAdjacents()
 				}
 			
 				//check up-left
-				if (((i - 1)>0 && (j + 1)<m_row_size))
+				if (((i - 1)>=0 && (j + 1)<m_row_size))
 				{
 					if (m_game_board[i - 1][j + 1].Holding() == MINE)
 					{
@@ -141,7 +141,7 @@ void executive::UpdateAdjacents()
 				}
 			
 				//check down-left
-				if ((i - 1)>0 && (j - 1)>0)
+				if ((i - 1)>=0 && (j - 1)>=0)
 				{
 					if (m_game_board[i - 1][j - 1].Holding() == MINE)
 					{
@@ -162,10 +162,10 @@ void executive::UpdateAdjacents()
 
 	//for testing purposes
 	Print();
-	//while (1)
-	//{
+	while (1)
+	{
 
-	//}
+	}
 
 	}
 
