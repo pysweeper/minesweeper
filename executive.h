@@ -28,6 +28,7 @@ public:
 	~executive();
 	void Run();
 	void CreateBoard();
+	void UpdateAdjacents();
 	void Print();
 	void CreateFile();
 };
