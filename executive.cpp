@@ -44,7 +44,7 @@ void executive::CreateBoard()
 			for (int j = 0; j < m_row_size;j++)
 			{
 				int result = rand() % 3;
-				if (result == MINE && m_mine_number > 0 && m_game_board[i][j].Holding()!=MINE)
+				if (result == MINE && m_mine_number > 0 && m_game_board[i][j].Holding() != MINE)
 				{
 					//place a mine
 					m_game_board[i][j].Holding(MINE);
@@ -62,7 +62,101 @@ void executive::CreateBoard()
 
 	//for testing purposes.
 	Print();
+<<<<<<< HEAD
 
+=======
+	CreateFile();
+	UpdateAdjacents();
+}
+
+void executive::UpdateAdjacents()
+{
+	for (int i = 0; i < m_row_size;i++)
+	{
+		for (int j = 0; j < m_row_size;j++)
+		{
+			int counter = 0;
+			if (m_game_board[i][j].Holding() == NONE)
+			{
+				//check up-right
+				if (((i + 1) < m_row_size && (j + 1) < m_row_size))
+				{
+					if (m_game_board[i + 1][j + 1].Holding() == MINE)
+					{
+						counter++;
+					}
+				}
+
+				//check right
+				if (((i + 1) < m_row_size && (j) < m_row_size))
+				{
+					if (m_game_board[i + 1][j].Holding() == MINE)
+					{
+						counter++;
+					}
+				}
+
+				//check down-right
+				if ((i + 1) < m_row_size && (j - 1) < m_row_size)
+				{
+					if (m_game_board[i + 1][j - 1].Holding() == MINE)
+					{
+						counter++;
+					}
+				}
+				
+				//check up
+				if (((i)<m_row_size && (j + 1)<m_row_size))
+				{
+					if (m_game_board[i][j + 1].Holding() == MINE)
+					{
+						counter++;
+					}
+				}
+			
+				//check down
+				if (((i)<m_row_size && (j - 1)<m_row_size))
+				{
+					if (m_game_board[i][j - 1].Holding() == MINE)
+					{
+						counter++;
+					}
+				}
+				
+				//check left
+				if (((i - 1)<m_row_size && (j)<m_row_size))
+				{
+					if (m_game_board[i - 1][j].Holding() == MINE)
+					{
+						counter++;
+					}
+				}
+				
+				//check up-left
+				if (((i - 1)<m_row_size && (j + 1)<m_row_size))
+				{
+					if (m_game_board[i - 1][j + 1].Holding() == MINE)
+					{
+						counter++;
+					}
+				}
+				
+				//check down-left
+				if (((i - 1)<m_row_size && (j - 1)<m_row_size))
+				{
+					if (m_game_board[i - 1][j - 1].Holding() == MINE)
+					{
+						counter++;
+					}
+				}
+				
+				//update the adjacency number
+				m_game_board[i][j].AdjacentMines(counter);
+			}
+		}
+		
+	}
+>>>>>>> dcf8ab7b145b039f7a02b562a259f57fcee6d77f
 }
 
 void executive::Print()
@@ -75,5 +169,20 @@ void executive::Print()
 			std::cout << m_game_board[i][j].Holding() << " ";
 		}
 		std::cout << "\n";
+	}
+}
+
+void executive::CreateFile()
+{
+	std::ofstream board_file;
+	
+	board_file.open("board.txt");
+	for (int i = 0; i < m_row_size;i++)
+	{
+		for (int j = 0; j < m_row_size;j++)
+		{
+			board_file << "H" << " ";
+		}
+		board_file << "\n";
 	}
 }

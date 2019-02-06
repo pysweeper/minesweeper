@@ -11,6 +11,8 @@
 #include<iostream>
 #include<string>
 #include<cstdlib>
+#include<fstream>
+#include<direct.h>
 
 #include "square.h"
 class executive
@@ -22,9 +24,19 @@ private:
 protected:
 
 public:
+<<<<<<< HEAD
  executive();
  ~executive();
  void Run();
  void CreateBoard();
  void Print();
+=======
+	executive();
+	~executive();
+	void Run();
+	void CreateBoard();
+	void UpdateAdjacents();
+	void Print();
+	void CreateFile();
+>>>>>>> dcf8ab7b145b039f7a02b562a259f57fcee6d77f
 };
