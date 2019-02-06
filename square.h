@@ -10,5 +10,8 @@ protected:
 public:
 	square();
 	~square();
+	void Holding(int new_holding);
+	int Holding();
+	
 };
 
