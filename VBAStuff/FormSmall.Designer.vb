@@ -206,7 +206,7 @@ Partial Class FormSmall
         '
         'Button9999
         '
-        Me.Button9999.BackColor = System.Drawing.SystemColors.ControlDark
+        Me.Button9999.BackColor = System.Drawing.Color.White
         Me.Button9999.Location = New System.Drawing.Point(203, 87)
         Me.Button9999.Name = "Button9999"
         Me.Button9999.Size = New System.Drawing.Size(39, 36)
@@ -216,12 +216,11 @@ Partial Class FormSmall
         '
         'Button1
         '
-        Me.Button1.BackColor = System.Drawing.SystemColors.ControlDark
+        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Button1.Location = New System.Drawing.Point(166, 87)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(39, 36)
         Me.Button1.TabIndex = 9
-        Me.Button1.Text = "Button1"
         Me.Button1.UseVisualStyleBackColor = False
         '
         'Button20
@@ -1344,10 +1343,23 @@ Partial Class FormSmall
 
     Private Sub Button1_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button1.MouseDown
         If e.Button = Windows.Forms.MouseButtons.Right Then
-            MessageBox.Show("mouse right click")
+            ''if right click and box is unclicked set it to flag
+            If Me.Button1.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button1.BackgroundImage) Then
+                Me.Button1.BackgroundImage = MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button1.BackColor = Color.FromArgb(0, 0, 0)
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button1.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button1.BackgroundImage = Nothing
+                Me.Button1.BackColor = Color.FromArgb(0, 0, 64)
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
         ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
-            MessageBox.Show("mouse left click")
+
         End If
+
+    End Sub
+
+    Private Sub FormSmall_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
 End Class
