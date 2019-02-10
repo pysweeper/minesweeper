@@ -169,18 +169,63 @@ void executive::UpdateAdjacents()
 
 	}
 
-	void NotAdjacent(int row, int col)
+	bool BoB(int col, int row)
 	{
-		cin >> row;
+		if (((col+1) < m_row_size) && ((row +1) < m_row_size))) {
+			/* code */
+		}
+	}
+	void NotAdjacent(int col, int row)
+	{
 		cin >> col;
-		NotAdjacentHelper(row, col);
+		cin >> row;
+		NotAdjacentHelper(col, row);
 	}
 
-	void NotAdjacentHelper(int row, int col)
+	void NotAdjacentHelper(int col, int row)
 	{
+		//checks if current square is blank
+		if (!(m_game_board[col][row].Holding() == ADJACENT))
+		{
 
+			/*
+			//check bounds of the board
+			if (((col + 1) < m_row_size && (row + 1) < m_row_size))
+			{
+				if (m_game_board[col + 1][row + 1].Holding() == NONE)
+				{
+					//recurses up-right if square is blank
+					NotAdjacentHelper(col +1, row +1);
+				}
+			}
+
+			//checks bounds of the board
+			if (((col + 1) < m_row_size && (row) < m_row_size))
+			{
+				if (m_game_board[col + 1][row].Holding() == NONE)
+				{
+					//recurses to the right if square is blank
+					NotAdjacentHelper(col +1, row);
+				}
+			}
+
+			//checks bounds of the board
+			if ((col + 1) < m_row_size && (row - 1) >=0)
+			{
+				if (m_game_board[col + 1][row - 1].Holding() == NONE)
+				{
+					//recurses down-right if square is blank
+					NotAdjacentHelper(col +1, row-1);
+				}
+			}
+			*/
+		}
+		else
+		{
+			//stops recursion and shows adjacent square
+		}
 	}
-	
+
 void executive::Print()
 {
 	std::cout << "\n\n";
