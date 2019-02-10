@@ -1,7 +1,6 @@
 #include "executive.h"
 
 
-
 executive::executive()
 {
 	m_game_board = nullptr;
@@ -14,10 +13,17 @@ executive::~executive()
 
 void executive::Run()
 {
+	int x=0, y=0;
 	CreateBoard();
-	
+
+	std:: cout << "Where would you like to check?\n" << "Please enter first coordinate: ";
+	std:: cin >> x;
+	std:: cout << "\n Please enter second coordinate: ";
+	std:: cin >> y;
 
 }
+
+
 
 void executive::CreateBoard()
 {
@@ -72,7 +78,7 @@ void executive::UpdateAdjacents()
 	{
 		for (int j = 0; j < m_row_size; j++)
 		{
-			
+
 			int counter = 0;
 			if (m_game_board[i][j].Holding() == NONE)
 			{
@@ -84,8 +90,8 @@ void executive::UpdateAdjacents()
 						counter++;
 					}
 				}
-			
-				
+
+
 				//check right
 				if (((i + 1) < m_row_size && (j) < m_row_size))
 				{
@@ -94,7 +100,7 @@ void executive::UpdateAdjacents()
 						counter++;
 					}
 				}
-				
+
 				//check down-right
 				if ((i + 1) < m_row_size && (j - 1) >=0)
 				{
@@ -103,7 +109,7 @@ void executive::UpdateAdjacents()
 						counter++;
 					}
 				}
-			
+
 				//check up
 				if (((i)<m_row_size && (j + 1)<m_row_size))
 				{
@@ -112,7 +118,7 @@ void executive::UpdateAdjacents()
 						counter++;
 					}
 				}
-			
+
 				//check down
 				if (((i)<m_row_size && (j - 1)>=0))
 				{
@@ -121,7 +127,7 @@ void executive::UpdateAdjacents()
 						counter++;
 					}
 				}
-			
+
 				//check left
 				if (((i - 1) >= 0 && (j)<m_row_size))
 				{
@@ -130,7 +136,7 @@ void executive::UpdateAdjacents()
 						counter++;
 					}
 				}
-			
+
 				//check up-left
 				if (((i - 1)>=0 && (j + 1)<m_row_size))
 				{
@@ -139,7 +145,7 @@ void executive::UpdateAdjacents()
 						counter++;
 					}
 				}
-			
+
 				//check down-left
 				if ((i - 1)>=0 && (j - 1)>=0)
 				{
@@ -148,7 +154,7 @@ void executive::UpdateAdjacents()
 						counter++;
 					}
 				}
-			
+
 				//update the adjacency number
 				m_game_board[i][j].AdjacentMines(counter);
 				if (counter > 0)
@@ -157,7 +163,7 @@ void executive::UpdateAdjacents()
 				}
 			}
 		}
-		 
+
 		}
 
 	//for testing purposes
@@ -182,5 +188,3 @@ void executive::Print()
 		std::cout << "\n";
 	}
 }
-
-
