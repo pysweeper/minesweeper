@@ -29,7 +29,7 @@ public:
  void CreateBoard();
  void Print();
  void UpdateAdjacents();
- void NotAdjacent(int row, int col);
- void NotAdjacentHelper(int row, int col);
-
+ void NotAdjacent(int col, int row);
+ void NotAdjacentHelper(int col, int row);
+ bool BoB(int col, int row);
 };
