@@ -162,10 +162,10 @@ void executive::UpdateAdjacents()
 
 	//for testing purposes
 	Print();
-	//while (1)
-	//{
+	while (1)
+	{
 
-	//}
+	}
 
 	}
 
