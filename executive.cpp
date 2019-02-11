@@ -24,7 +24,6 @@ bool executive::check_bomb(int x, int y, square** arr)
 				{
 					isfound=(true);
 				}
-
 	}
 
 	return(isfound);
@@ -32,7 +31,12 @@ bool executive::check_bomb(int x, int y, square** arr)
 
 void executive::you_lose()
 {
-	std::cout << "You Suck!" << '\n';
+  std::string newFile = "you_lose.txt";
+  std::ofstream outFile;
+  outFile.open(newFile);
+  outFile << "You suck!\n";
+  outFile.close();
+
 }
 
 void executive::Run()

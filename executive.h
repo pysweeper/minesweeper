@@ -11,6 +11,7 @@
 #include<iostream>
 #include<string>
 #include<cstdlib>
+#include<fstream>
 
 #include "square.h"
 class executive
