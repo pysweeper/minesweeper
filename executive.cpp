@@ -19,12 +19,12 @@ void executive::Run()
 {
 	int x=0, y=0;
 	CreateBoard();
-	std:: cout << "Where would you like to check?\n" << "Please enter row you would like to check: ";
-	std:: cin >> x;
-	std:: cout << "\n Please enter column you would ike to check: ";
-	std:: cin >> y;
 	while(!gameover)
 	{
+		std:: cout << "Where would you like to check?\n" << "Please enter row you would like to check: ";
+		std:: cin >> x;
+		std:: cout << "\n Please enter column you would ike to check: ";
+		std:: cin >> y;
 		Read(x,y);
 	}
 
