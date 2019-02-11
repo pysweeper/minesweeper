@@ -11,21 +11,42 @@ executive::~executive()
 {
 }
 
+
+bool executive::check_bomb(int x, int y, square** arr)
+{
+	bool isfound=false;
+	int row=x;
+	int column=y;
+	square** grid= arr;
+	if (isfound==false)
+	{
+				if (grid[row][column].Holding()==MINE)
+				{
+					isfound=(true);
+				}
+
+	}
+
+	return(isfound);
+}
+
 void executive::Run()
 {
+	bool isbomb=false;
 	int x=0, y=0;
-	CreateBoard();
+	m_game_board=CreateBoard();
 
-	std:: cout << "Where would you like to check?\n" << "Please enter first coordinate: ";
+	std:: cout << "Where would you like to check?\n" << "Please enter row you would like to check: ";
 	std:: cin >> x;
-	std:: cout << "\n Please enter second coordinate: ";
+	std:: cout << "\n Please enter column you would ike to check: ";
 	std:: cin >> y;
-
+	isbomb= check_bomb(x,y, m_game_board);
+	std::cout << "I can get here!\n" << isbomb << '\n';
 }
 
 
 
-void executive::CreateBoard()
+square** executive::CreateBoard()
 {
 	srand(3);
 	//This GUI will be interacted with "behind the scenes"
@@ -70,6 +91,7 @@ void executive::CreateBoard()
 	//for testing purposes.
 	Print();
 	UpdateAdjacents();
+	return(m_game_board);
 }
 
 void executive::UpdateAdjacents()

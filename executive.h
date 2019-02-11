@@ -25,7 +25,8 @@ public:
  executive();
  ~executive();
  void Run();
- void CreateBoard();
+ square** CreateBoard();
  void Print();
  void UpdateAdjacents();
+ bool check_bomb(int x, int y, square** arr);
 };
