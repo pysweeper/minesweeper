@@ -1,10 +1,10 @@
 #include "executive.h"
 
 
-
 executive::executive()
 {
 	m_game_board = nullptr;
+	gameover=false;
 }
 
 
@@ -12,12 +12,25 @@ executive::~executive()
 {
 }
 
+
+
+
 void executive::Run()
 {
+	int x=0, y=0;
 	CreateBoard();
-	
+	while(!gameover)
+	{
+		std:: cout << "Where would you like to check?\n" << "Please enter row you would like to check: ";
+		std:: cin >> x;
+		std:: cout << "\n Please enter column you would ike to check: ";
+		std:: cin >> y;
+		Read(x,y);
+	}
 
 }
+
+
 
 void executive::CreateBoard()
 {
@@ -72,7 +85,7 @@ void executive::UpdateAdjacents()
 	{
 		for (int j = 0; j < m_row_size; j++)
 		{
-			
+
 			int counter = 0;
 			if (m_game_board[i][j].Holding() == NONE)
 			{
@@ -84,8 +97,8 @@ void executive::UpdateAdjacents()
 						counter++;
 					}
 				}
-			
-				
+
+
 				//check right
 				if (((i + 1) < m_row_size && (j) < m_row_size))
 				{
@@ -94,7 +107,7 @@ void executive::UpdateAdjacents()
 						counter++;
 					}
 				}
-				
+
 				//check down-right
 				if ((i + 1) < m_row_size && (j - 1) >=0)
 				{
@@ -103,7 +116,7 @@ void executive::UpdateAdjacents()
 						counter++;
 					}
 				}
-			
+
 				//check up
 				if (((i)<m_row_size && (j + 1)<m_row_size))
 				{
@@ -112,7 +125,7 @@ void executive::UpdateAdjacents()
 						counter++;
 					}
 				}
-			
+
 				//check down
 				if (((i)<m_row_size && (j - 1)>=0))
 				{
@@ -121,7 +134,7 @@ void executive::UpdateAdjacents()
 						counter++;
 					}
 				}
-			
+
 				//check left
 				if (((i - 1) >= 0 && (j)<m_row_size))
 				{
@@ -130,7 +143,7 @@ void executive::UpdateAdjacents()
 						counter++;
 					}
 				}
-			
+
 				//check up-left
 				if (((i - 1)>=0 && (j + 1)<m_row_size))
 				{
@@ -139,7 +152,7 @@ void executive::UpdateAdjacents()
 						counter++;
 					}
 				}
-			
+
 				//check down-left
 				if ((i - 1)>=0 && (j - 1)>=0)
 				{
@@ -148,7 +161,7 @@ void executive::UpdateAdjacents()
 						counter++;
 					}
 				}
-			
+
 				//update the adjacency number
 				m_game_board[i][j].AdjacentMines(counter);
 				if (counter > 0)
@@ -157,7 +170,7 @@ void executive::UpdateAdjacents()
 				}
 			}
 		}
-		 
+
 		}
 
 	//for testing purposes
@@ -184,3 +197,45 @@ void executive::Print()
 }
 
 
+//Used to read in coordinate values and decide which button path to choose.
+void executive::Read(int x, int y)
+{
+	if (m_game_board[x][y].Holding() == MINE)
+	{
+		BombReveal();
+	}
+	if (m_game_board[x][y].Holding() == NONE)
+	{
+		//call recursive reveal function 'NoneReveal'
+	}
+	if (m_game_board[x][y].Holding() == ADJACENT)
+	{
+		AdjacentReveal(x,y);
+	}
+}
+
+void executive::AdjacentReveal(int x, int y)
+{
+	//edit text file coordinate location and change value from hidden to corresponding adjacent value
+}
+
+void executive::BombReveal()
+{
+	gameover=true;
+	std::string newFile = "you_lose.txt";
+	std::ofstream outFile;
+	outFile.open(newFile);
+	outFile << "You suck!\n";
+	outFile.close();
+}
+
+void executive::NoneReveal()
+{
+	//Find coordinate within the array
+	//Call recRevea
+}
+
+void executive::recReveal()
+{
+	//Recursively reveal all the nearby 'none' and 'adjacent' values
+}
