@@ -20,15 +20,20 @@ private:
  square** m_game_board;
  int m_row_size;
  int m_mine_number;
+ bool gameover;
 protected:
 
 public:
  executive();
  ~executive();
  void Run();
- square** CreateBoard();
+ void CreateBoard();
  void Print();
  void UpdateAdjacents();
- bool check_bomb(int x, int y, square** arr);
- void you_lose();
+ void Read(int x, int y);
+ void AdjacentReveal(int x, int y);
+ void BombReveal();
+ void NoneReveal();
+ void recReveal();
+
 };

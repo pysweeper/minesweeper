@@ -4,6 +4,7 @@
 executive::executive()
 {
 	m_game_board = nullptr;
+	gameover=false;
 }
 
 
@@ -12,53 +13,26 @@ executive::~executive()
 }
 
 
-bool executive::check_bomb(int x, int y, square** arr)
-{
-	bool isfound=false;
-	int row=x;
-	int column=y;
-	square** grid= arr;
-	if (isfound==false)
-	{
-				if (grid[row][column].Holding()==MINE)
-				{
-					isfound=(true);
-				}
-	}
 
-	return(isfound);
-}
-
-void executive::you_lose()
-{
-  std::string newFile = "you_lose.txt";
-  std::ofstream outFile;
-  outFile.open(newFile);
-  outFile << "You suck!\n";
-  outFile.close();
-
-}
 
 void executive::Run()
 {
-	bool isbomb=false;
 	int x=0, y=0;
-	m_game_board=CreateBoard();
-
+	CreateBoard();
 	std:: cout << "Where would you like to check?\n" << "Please enter row you would like to check: ";
 	std:: cin >> x;
 	std:: cout << "\n Please enter column you would ike to check: ";
 	std:: cin >> y;
-	isbomb= check_bomb(x,y, m_game_board);
-	if (isbomb)
+	while(!gameover)
 	{
-		you_lose();
+		Read(x,y);
 	}
+
 }
 
 
 
-square** executive::CreateBoard()
+void executive::CreateBoard()
 {
 	srand(3);
 	//This GUI will be interacted with "behind the scenes"
@@ -103,7 +77,6 @@ square** executive::CreateBoard()
 	//for testing purposes.
 	Print();
 	UpdateAdjacents();
-	return(m_game_board);
 }
 
 void executive::UpdateAdjacents()
@@ -221,4 +194,48 @@ void executive::Print()
 		}
 		std::cout << "\n";
 	}
+}
+
+
+//Used to read in coordinate values and decide which button path to choose.
+void executive::Read(int x, int y)
+{
+	if (m_game_board[x][y].Holding() == MINE)
+	{
+		BombReveal();
+	}
+	if (m_game_board[x][y].Holding() == NONE)
+	{
+		//call recursive reveal function 'NoneReveal'
+	}
+	if (m_game_board[x][y].Holding() == ADJACENT)
+	{
+		AdjacentReveal(x,y);
+	}
+}
+
+void executive::AdjacentReveal(int x, int y)
+{
+	//edit text file coordinate location and change value from hidden to corresponding adjacent value
+}
+
+void executive::BombReveal()
+{
+	gameover=true;
+	std::string newFile = "you_lose.txt";
+	std::ofstream outFile;
+	outFile.open(newFile);
+	outFile << "You suck!\n";
+	outFile.close();
+}
+
+void executive::NoneReveal()
+{
+	//Find coordinate within the array
+	//Call recRevea
+}
+
+void executive::recReveal()
+{
+	//Recursively reveal all the nearby 'none' and 'adjacent' values
 }
