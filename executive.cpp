@@ -171,14 +171,16 @@ void executive::UpdateAdjacents()
 
 	bool BoB(int col, int row)
 	{
-		if (((col+1) < m_row_size) && ((row +1) < m_row_size))) {
-			/* code */
+		if ((((col+1) < m_row_size) && ((row +1) < m_row_size)) && (((col-1) >= 0) && ((row+1) < m_row_size)) && (((col-1) >=0) && ((row-1) >=0)) && (((col+1) < m_row_size) && ((row -1) >=0))) {
+			return(true);
+		}
+		else
+		{
+			return(false);
 		}
 	}
 	void NotAdjacent(int col, int row)
 	{
-		cin >> col;
-		cin >> row;
 		NotAdjacentHelper(col, row);
 	}
 
@@ -187,42 +189,24 @@ void executive::UpdateAdjacents()
 		//checks if current square is blank
 		if (!(m_game_board[col][row].Holding() == ADJACENT))
 		{
-
-			/*
-			//check bounds of the board
-			if (((col + 1) < m_row_size && (row + 1) < m_row_size))
+			if (BoB(col, row) == true) {
+				NotAdjacentHelper(col+1, row+1);
+				NotAdjacentHelper(col+1, row);
+				NotAdjacentHelper(col+1, row-1);
+				NotAdjacentHelper(col, row-1);
+				NotAdjacentHelper(col-1, row-1);
+				NotAdjacentHelper(col-1, row);
+				NotAdjacentHelper(col-1, row+1);
+			}
+			else
 			{
-				if (m_game_board[col + 1][row + 1].Holding() == NONE)
-				{
-					//recurses up-right if square is blank
-					NotAdjacentHelper(col +1, row +1);
-				}
+				//blank else to force backtracking
 			}
 
-			//checks bounds of the board
-			if (((col + 1) < m_row_size && (row) < m_row_size))
-			{
-				if (m_game_board[col + 1][row].Holding() == NONE)
-				{
-					//recurses to the right if square is blank
-					NotAdjacentHelper(col +1, row);
-				}
-			}
-
-			//checks bounds of the board
-			if ((col + 1) < m_row_size && (row - 1) >=0)
-			{
-				if (m_game_board[col + 1][row - 1].Holding() == NONE)
-				{
-					//recurses down-right if square is blank
-					NotAdjacentHelper(col +1, row-1);
-				}
-			}
-			*/
 		}
 		else
 		{
-			//stops recursion and shows adjacent square
+			//stops recursion
 		}
 	}
 
