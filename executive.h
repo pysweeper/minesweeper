@@ -28,4 +28,10 @@ public:
  void CreateBoard();
  void Print();
  void UpdateAdjacents();
+ void Read(int x, int y);
+ void AdjacentReveal(int x, int y);
+ void BombReveal();
+ void NoneReveal();
+ void recReveal();
+
 };
