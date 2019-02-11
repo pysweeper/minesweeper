@@ -29,4 +29,5 @@ public:
  void Print();
  void UpdateAdjacents();
  bool check_bomb(int x, int y, square** arr);
+ void you_lose();
 };

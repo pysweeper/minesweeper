@@ -30,6 +30,11 @@ bool executive::check_bomb(int x, int y, square** arr)
 	return(isfound);
 }
 
+void executive::you_lose()
+{
+	std::cout << "You Suck!" << '\n';
+}
+
 void executive::Run()
 {
 	bool isbomb=false;
@@ -41,7 +46,10 @@ void executive::Run()
 	std:: cout << "\n Please enter column you would ike to check: ";
 	std:: cin >> y;
 	isbomb= check_bomb(x,y, m_game_board);
-	std::cout << "I can get here!\n" << isbomb << '\n';
+	if (isbomb)
+	{
+		you_lose();
+	}
 }
 
 
