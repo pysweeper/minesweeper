@@ -182,6 +182,47 @@ void executive::UpdateAdjacents()
 
 	}
 
+	bool executive::BoB(int col, int row)
+	{
+		if ((((col+1) < m_row_size) && ((row +1) < m_row_size)) && (((col-1) >= 0) && ((row+1) < m_row_size)) && (((col-1) >=0) && ((row-1) >=0)) && (((col+1) < m_row_size) && ((row -1) >=0))) {
+			return(true);
+		}
+		else
+		{
+			return(false);
+		}
+	}
+	void executive::NotAdjacent(int col, int row)
+	{
+		NotAdjacentHelper(col, row);
+	}
+
+	void executive::NotAdjacentHelper(int col, int row)
+	{
+		//checks if current square is blank
+		if (!(m_game_board[col][row].Holding() == ADJACENT))
+		{
+			if (BoB(col, row) == true) {
+				NotAdjacentHelper(col+1, row+1);
+				NotAdjacentHelper(col+1, row);
+				NotAdjacentHelper(col+1, row-1);
+				NotAdjacentHelper(col, row-1);
+				NotAdjacentHelper(col-1, row-1);
+				NotAdjacentHelper(col-1, row);
+				NotAdjacentHelper(col-1, row+1);
+			}
+			else
+			{
+				//blank else to force backtracking
+			}
+
+		}
+		else
+		{
+			//stops recursion
+		}
+	}
+
 void executive::Print()
 {
 	std::cout << "\n\n";

@@ -36,4 +36,7 @@ public:
  void NoneReveal();
  void recReveal();
 
+ void NotAdjacent(int col, int row);
+ void NotAdjacentHelper(int col, int row);
+ bool BoB(int col, int row);
 };
