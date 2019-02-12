@@ -24,13 +24,13 @@ Partial Class FormSmall
     Private Sub InitializeComponent()
         Me.Button10 = New System.Windows.Forms.Button()
         Me.Button9 = New System.Windows.Forms.Button()
-        Me.Button8 = New System.Windows.Forms.Button()
-        Me.Button7 = New System.Windows.Forms.Button()
-        Me.Button6 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button8888 = New System.Windows.Forms.Button()
-        Me.Button9999 = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.Button6 = New System.Windows.Forms.Button()
+        Me.Button7 = New System.Windows.Forms.Button()
+        Me.Button8 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button20 = New System.Windows.Forms.Button()
         Me.Button19 = New System.Windows.Forms.Button()
@@ -144,75 +144,75 @@ Partial Class FormSmall
         Me.Button9.Text = "Button9"
         Me.Button9.UseVisualStyleBackColor = False
         '
-        'Button8
+        'Button3
         '
-        Me.Button8.BackColor = System.Drawing.SystemColors.ControlDark
-        Me.Button8.Location = New System.Drawing.Point(240, 87)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(39, 36)
-        Me.Button8.TabIndex = 2
-        Me.Button8.Text = "Button8"
-        Me.Button8.UseVisualStyleBackColor = False
+        Me.Button3.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Button3.Location = New System.Drawing.Point(240, 87)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(39, 36)
+        Me.Button3.TabIndex = 2
+        Me.Button3.Text = "Button8"
+        Me.Button3.UseVisualStyleBackColor = False
         '
-        'Button7
+        'Button4
         '
-        Me.Button7.BackColor = System.Drawing.SystemColors.ControlDark
-        Me.Button7.Location = New System.Drawing.Point(277, 87)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(39, 36)
-        Me.Button7.TabIndex = 3
-        Me.Button7.Text = "Button7"
-        Me.Button7.UseVisualStyleBackColor = False
-        '
-        'Button6
-        '
-        Me.Button6.BackColor = System.Drawing.SystemColors.ControlDark
-        Me.Button6.Location = New System.Drawing.Point(314, 87)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(39, 36)
-        Me.Button6.TabIndex = 4
-        Me.Button6.Text = "Button6"
-        Me.Button6.UseVisualStyleBackColor = False
+        Me.Button4.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Button4.Location = New System.Drawing.Point(277, 87)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(39, 36)
+        Me.Button4.TabIndex = 3
+        Me.Button4.Text = "Button7"
+        Me.Button4.UseVisualStyleBackColor = False
         '
         'Button5
         '
         Me.Button5.BackColor = System.Drawing.SystemColors.ControlDark
-        Me.Button5.Location = New System.Drawing.Point(351, 87)
+        Me.Button5.Location = New System.Drawing.Point(314, 87)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(39, 36)
-        Me.Button5.TabIndex = 5
-        Me.Button5.Text = "Button5"
+        Me.Button5.TabIndex = 4
+        Me.Button5.Text = "Button6"
         Me.Button5.UseVisualStyleBackColor = False
         '
-        'Button4
+        'Button6
         '
-        Me.Button4.BackColor = System.Drawing.SystemColors.ControlDark
-        Me.Button4.Location = New System.Drawing.Point(388, 87)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(39, 36)
-        Me.Button4.TabIndex = 6
-        Me.Button4.Text = "Button4"
-        Me.Button4.UseVisualStyleBackColor = False
+        Me.Button6.BackColor = System.Drawing.SystemColors.ControlDark
+        Me.Button6.Location = New System.Drawing.Point(351, 87)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(39, 36)
+        Me.Button6.TabIndex = 5
+        Me.Button6.Text = "Button5"
+        Me.Button6.UseVisualStyleBackColor = False
         '
-        'Button8888
+        'Button7
         '
-        Me.Button8888.BackColor = System.Drawing.SystemColors.ControlDark
-        Me.Button8888.Location = New System.Drawing.Point(425, 87)
-        Me.Button8888.Name = "Button8888"
-        Me.Button8888.Size = New System.Drawing.Size(39, 36)
-        Me.Button8888.TabIndex = 7
-        Me.Button8888.Text = "Button3"
-        Me.Button8888.UseVisualStyleBackColor = False
+        Me.Button7.BackColor = System.Drawing.SystemColors.ControlDark
+        Me.Button7.Location = New System.Drawing.Point(388, 87)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(39, 36)
+        Me.Button7.TabIndex = 6
+        Me.Button7.Text = "Button4"
+        Me.Button7.UseVisualStyleBackColor = False
         '
-        'Button9999
+        'Button8
         '
-        Me.Button9999.BackColor = System.Drawing.Color.White
-        Me.Button9999.Location = New System.Drawing.Point(203, 87)
-        Me.Button9999.Name = "Button9999"
-        Me.Button9999.Size = New System.Drawing.Size(39, 36)
-        Me.Button9999.TabIndex = 8
-        Me.Button9999.Text = "Button2"
-        Me.Button9999.UseVisualStyleBackColor = False
+        Me.Button8.BackColor = System.Drawing.SystemColors.ControlDark
+        Me.Button8.Location = New System.Drawing.Point(425, 87)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(39, 36)
+        Me.Button8.TabIndex = 7
+        Me.Button8.Text = "Button3"
+        Me.Button8.UseVisualStyleBackColor = False
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Button2.Location = New System.Drawing.Point(203, 87)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(39, 36)
+        Me.Button2.TabIndex = 8
+        Me.Button2.Text = "Button2"
+        Me.Button2.UseVisualStyleBackColor = False
         '
         'Button1
         '
@@ -1220,13 +1220,13 @@ Partial Class FormSmall
         Me.Controls.Add(Me.Button19)
         Me.Controls.Add(Me.Button20)
         Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.Button9999)
-        Me.Controls.Add(Me.Button8888)
-        Me.Controls.Add(Me.Button4)
-        Me.Controls.Add(Me.Button5)
-        Me.Controls.Add(Me.Button6)
-        Me.Controls.Add(Me.Button7)
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button8)
+        Me.Controls.Add(Me.Button7)
+        Me.Controls.Add(Me.Button6)
+        Me.Controls.Add(Me.Button5)
+        Me.Controls.Add(Me.Button4)
+        Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button9)
         Me.Controls.Add(Me.Button10)
         Me.Name = "FormSmall"
@@ -1237,13 +1237,13 @@ Partial Class FormSmall
 
     Friend WithEvents Button10 As Button
     Friend WithEvents Button9 As Button
-    Friend WithEvents Button8 As Button
-    Friend WithEvents Button7 As Button
-    Friend WithEvents Button6 As Button
-    Friend WithEvents Button5 As Button
+    Friend WithEvents Button3 As Button
     Friend WithEvents Button4 As Button
-    Friend WithEvents Button8888 As Button
-    Friend WithEvents Button9999 As Button
+    Friend WithEvents Button5 As Button
+    Friend WithEvents Button6 As Button
+    Friend WithEvents Button7 As Button
+    Friend WithEvents Button8 As Button
+    Friend WithEvents Button2 As Button
     Friend WithEvents Button1 As Button
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button9.Click
@@ -1354,12 +1354,113 @@ Partial Class FormSmall
                 ''Naturally, in all other instances we will ignore a right click.
             End If
         ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("0")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("0")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                MsgBox("End of game")
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+
+            End If
+
+
+        End If
+
+    End Sub
+    Private Sub Button2_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button2.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button2.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button1.BackgroundImage) Then
+                Me.Button2.BackgroundImage = MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button2.BackColor = Color.FromArgb(0, 0, 0)
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button2.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button2.BackgroundImage = Nothing
+                Me.Button2.BackColor = Color.FromArgb(0, 0, 64)
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("0")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("1")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                MsgBox("End of game")
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+
+            End If
+
 
         End If
 
     End Sub
 
-    Private Sub FormSmall_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub Button3_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button3.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button3.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button1.BackgroundImage) Then
+                Me.Button3.BackgroundImage = MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button3.BackColor = Color.FromArgb(0, 0, 0)
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button3.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button3.BackgroundImage = Nothing
+                Me.Button3.BackColor = Color.FromArgb(0, 0, 64)
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("0")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("2")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                MsgBox("End of game")
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+
+            End If
+
+
+        End If
 
     End Sub
+
 End Class

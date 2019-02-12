@@ -11,5 +11,6 @@
         FormSmall.Show()
         AppActivate(cpp)
         SendKeys.Send(ComboBox1.Text)
+        SendKeys.Send("{ENTER}")
     End Sub
 End Class

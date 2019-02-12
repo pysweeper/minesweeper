@@ -3,7 +3,7 @@ Public Class Form1
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         SmallPickBombNum.Show()
         Me.Hide()
-        cpp = Shell("C:\\Program Files\\Minesweeper\\MineSweeper.exe")
+        cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
         Threading.Thread.Sleep(30)
         SendKeys.Send("10")
         Dim id As Long
