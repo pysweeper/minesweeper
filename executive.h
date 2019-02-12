@@ -35,8 +35,10 @@ public:
  void Read(int x, int y);
  void AdjacentReveal(int x, int y);
  void BombReveal();
+
  void NoneReveal(int x, int y);
  void NoneRevealMaster(int x, int y);
  void recReveal(int x, int y);
  void StartFilesForVBA();
+
 };

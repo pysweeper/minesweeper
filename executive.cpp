@@ -221,6 +221,10 @@ void executive::UpdateAdjacents()
 
 	}
 
+
+
+
+
 void executive::Print()
 {
 	std::cout << "\n\n";
@@ -349,6 +353,7 @@ void executive::NoneRevealMaster(int x, int y)
 			m_game_board[i][j].CheckedRecursively(false);
 		}
 	}
+	outFile.close();
 }
 
 void executive::recReveal(int x, int y)
