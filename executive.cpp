@@ -67,7 +67,7 @@ void executive::CreateBoard()
 	std::cin >> m_row_size;
 	std::cout << "Input m_mine_number: ";
 	std::cin >> m_mine_number;
-	system("CLS");
+	//system("CLS");
 	m_game_board = new square*[m_row_size];
 	for (int i = 0; i < m_row_size;i++)
 	{
@@ -103,7 +103,7 @@ void executive::CreateBoard()
 
 
 
-
+	m_show_board = new char*[m_row_size];
 	//occupy the show array
 	for (int i = 0; i < m_row_size; i++)
 	{
@@ -336,6 +336,8 @@ void executive::NoneRevealMaster(int x, int y)
 	NoneReveal(x, y);
 	//update a file;
 	std::ofstream outFile;
+	outFile.open("board.txt", std::ofstream::out | std::ofstream::trunc);
+	outFile.close();
 	outFile.open("board.txt");
 	for (int i = 0; i < m_row_size; i++)
 	{
