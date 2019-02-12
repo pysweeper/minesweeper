@@ -12,12 +12,14 @@
 #include<string>
 #include<cstdlib>
 #include<fstream>
+#include<experimental/filesystem>
 
 #include "square.h"
 class executive
 {
 private:
  square** m_game_board;
+ char** m_show_board;
  int m_row_size;
  int m_mine_number;
  bool gameover;
@@ -33,7 +35,8 @@ public:
  void Read(int x, int y);
  void AdjacentReveal(int x, int y);
  void BombReveal();
- void NoneReveal();
- void recReveal();
-
+ void NoneReveal(int x, int y);
+ void NoneRevealMaster(int x, int y);
+ void recReveal(int x, int y);
+ void StartFilesForVBA();
 };

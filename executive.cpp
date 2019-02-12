@@ -5,6 +5,7 @@ executive::executive()
 {
 	m_game_board = nullptr;
 	gameover=false;
+	m_show_board = nullptr;
 }
 
 
@@ -13,12 +14,34 @@ executive::~executive()
 }
 
 
-
+void executive::StartFilesForVBA()
+{
+	std::ofstream outFile;
+	outFile.open("map.txt");
+	for (int i = 0; i < m_row_size; i++)
+	{
+		for (int j = 0; j < m_row_size; j++)
+		{
+			outFile << std::to_string( m_game_board[i][j].Holding());
+		}
+	}
+	outFile.close();
+	outFile.open("board.txt");
+	for (int i = 0; i < m_row_size; i++)
+	{
+		for (int j = 0; j < m_row_size; j++)
+		{
+			outFile << "H ";
+		}
+		outFile << "\n";
+	}
+}
 
 void executive::Run()
 {
 	int x=0, y=0;
 	CreateBoard();
+	StartFilesForVBA();
 	while(!gameover)
 	{
 		std:: cout << "Where would you like to check?\n" << "Please enter row you would like to check: ";
@@ -77,6 +100,22 @@ void executive::CreateBoard()
 	//for testing purposes.
 	Print();
 	UpdateAdjacents();
+
+
+
+
+	//occupy the show array
+	for (int i = 0; i < m_row_size; i++)
+	{
+		m_show_board[i] = new char[m_row_size];
+	}
+	for (int i = 0; i < m_row_size; i++)
+	{
+		for (int j = 0; j < m_row_size; j++)
+		{
+			m_show_board[i][j] = 'H';
+		}
+	}
 }
 
 void executive::UpdateAdjacents()
@@ -175,10 +214,10 @@ void executive::UpdateAdjacents()
 
 	//for testing purposes
 	Print();
-	while (1)
-	{
+	//while (1)
+	//{
 
-	}
+	//}
 
 	}
 
@@ -202,11 +241,13 @@ void executive::Read(int x, int y)
 {
 	if (m_game_board[x][y].Holding() == MINE)
 	{
+		std::cout << "BOMB";
 		BombReveal();
 	}
 	if (m_game_board[x][y].Holding() == NONE)
 	{
 		//call recursive reveal function 'NoneReveal'
+		NoneRevealMaster(x, y);
 	}
 	if (m_game_board[x][y].Holding() == ADJACENT)
 	{
@@ -221,21 +262,111 @@ void executive::AdjacentReveal(int x, int y)
 
 void executive::BombReveal()
 {
-	gameover=true;
+	//namespace fs = std::experimental::filesystem;
+	//fs::path loserFile = "C:\Program Files\Minesweeper\you_lose.txt";
+	//fs::permissions(loserFile, fs::perms::owner_all);
 	std::string newFile = "you_lose.txt";
 	std::ofstream outFile;
 	outFile.open(newFile);
-	outFile << "You suck!\n";
+	outFile << "L\n";
 	outFile.close();
+	gameover = true;
+	while (1)
+	{
+
+	}
 }
 
-void executive::NoneReveal()
+void executive::NoneReveal(int x, int y)
 {
-	//Find coordinate within the array
-	//Call recRevea
+	
+	if (m_game_board[x][y].Holding() == ADJACENT)
+	{
+		return;
+	}
+	//recurse up-right
+	if (((x + 1) < m_row_size && (y + 1) < m_row_size))
+	{		
+
+			recReveal(x + 1, y + 1);		
+	}
+	//recurse right
+	if (((x + 1) < m_row_size && (y) < m_row_size))
+	{
+		recReveal(x + 1, y);
+	}
+	//recurse down-right
+	if ((x + 1) < m_row_size && (y - 1) >= 0)
+	{
+		recReveal(x + 1, y - 1);
+	}
+	//recurse up
+	if (((x) < m_row_size && (y + 1) < m_row_size))
+	{
+		recReveal(x, y + 1);
+	}
+	//recurse down
+	if (((x) < m_row_size && (y - 1) >= 0))
+	{
+		recReveal(x, y - 1);
+	}
+	//recurse left
+	if (((x - 1) >= 0 && (y) < m_row_size))
+	{
+		recReveal(x-1, y);
+	}
+	//recurse up-left
+	if (((x - 1) >= 0 && (y + 1) < m_row_size))
+	{
+		recReveal(x - 1, y+1);
+	}
+	//recurse down-left
+	if ((x - 1) >= 0 && (y - 1) >= 0)
+	{
+		recReveal(x - 1, y - 1);
+	}
 }
 
-void executive::recReveal()
+void executive::NoneRevealMaster(int x, int y)
 {
-	//Recursively reveal all the nearby 'none' and 'adjacent' values
+	NoneReveal(x, y);
+	//update a file;
+	std::ofstream outFile;
+	outFile.open("board.txt");
+	for (int i = 0; i < m_row_size; i++)
+	{
+		for (int j = 0; j < m_row_size; j++)
+		{
+			outFile << m_show_board[i][j] << " ";
+		}
+		outFile << "\n";
+	}
+	//reset the recursive checks.
+	for (int i = 0; i < m_row_size; i++)
+	{
+		for (int j = 0; j < m_row_size; j++)
+		{
+			m_game_board[i][j].CheckedRecursively(false);
+		}
+	}
 }
+
+void executive::recReveal(int x, int y)
+{
+	if (m_game_board[x][y].CheckedRecursively() == true)
+	{
+		return;
+	}
+	if (m_game_board[x][y].Holding() == ADJACENT)
+	{
+		m_show_board[x][y] = m_game_board[x][y].AdjacentMines();
+	}
+	else if (m_game_board[x][y].Holding() == NONE)
+	{
+		m_show_board[x][y] = '-';
+		m_game_board[x][y].CheckedRecursively(true);
+		NoneReveal(x, y);
+	}
+}
+
+

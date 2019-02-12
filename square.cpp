@@ -5,6 +5,7 @@
 square::square()
 {
 	m_holding = NONE;
+	m_checked_recursively = false;
 }
 
 
@@ -20,6 +21,16 @@ void square::Holding(int new_holding)
 int square::Holding()
 {
 	return m_holding;
+}
+
+void square::CheckedRecursively(bool status)
+{
+	m_checked_recursively = status;
+}
+
+bool square::CheckedRecursively()
+{
+	return m_checked_recursively;
 }
 
 void square::AdjacentMines(int new_mines)
