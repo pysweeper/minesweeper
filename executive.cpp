@@ -1,5 +1,5 @@
 #include "executive.h"
-
+#include <cstdlib>
 
 executive::executive()
 {
@@ -261,14 +261,14 @@ void executive::Read(int x, int y)
 
 void executive::AdjacentReveal(int x, int y)
 {
-	//edit text file coordinate location and change value from hidden to corresponding adjacent value
+	m_show_board[x][y] = itoa(m_game_board[x][y].AdjacentMines());
 }
 
 void executive::BombReveal()
 {
-	//namespace fs = std::experimental::filesystem;
-	//fs::path loserFile = "C:\Program Files\Minesweeper\you_lose.txt";
-	//fs::permissions(loserFile, fs::perms::owner_all);
+	namespace fs = std::experimental::filesystem;
+	fs::path loserFile = "C:\Program Files\Minesweeper\you_lose.txt";
+	fs::permissions(loserFile, fs::perms::owner_all);
 	std::string newFile = "you_lose.txt";
 	std::ofstream outFile;
 	outFile.open(newFile);
@@ -283,16 +283,16 @@ void executive::BombReveal()
 
 void executive::NoneReveal(int x, int y)
 {
-	
+
 	if (m_game_board[x][y].Holding() == ADJACENT)
 	{
 		return;
 	}
 	//recurse up-right
 	if (((x + 1) < m_row_size && (y + 1) < m_row_size))
-	{		
+	{
 
-			recReveal(x + 1, y + 1);		
+			recReveal(x + 1, y + 1);
 	}
 	//recurse right
 	if (((x + 1) < m_row_size && (y) < m_row_size))
@@ -375,5 +375,3 @@ void executive::recReveal(int x, int y)
 		NoneReveal(x, y);
 	}
 }
-
-
