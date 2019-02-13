@@ -266,9 +266,9 @@ void executive::AdjacentReveal(int x, int y)
 
 void executive::BombReveal()
 {
-	// namespace fs = std::experimental::filesystem;
-	// fs::path loserFile = "C:\Program Files\Minesweeper\you_lose.txt";
-	// fs::permissions(loserFile, fs::perms::owner_all);
+	namespace fs = std::experimental::filesystem;
+	fs::path loserFile = "C:\Program Files\Minesweeper\you_lose.txt";
+	fs::permissions(loserFile, fs::perms::owner_all);
 	std::string newFile = "you_lose.txt";
 	std::ofstream outFile;
 	outFile.open(newFile);
