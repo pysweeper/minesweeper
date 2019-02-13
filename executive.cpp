@@ -261,14 +261,14 @@ void executive::Read(int x, int y)
 
 void executive::AdjacentReveal(int x, int y)
 {
-	m_show_board[x][y] = itoa(m_game_board[x][y].AdjacentMines());
+	m_show_board[x][y] = (m_game_board[x][y].AdjacentMines());
 }
 
 void executive::BombReveal()
 {
-	namespace fs = std::experimental::filesystem;
-	fs::path loserFile = "C:\Program Files\Minesweeper\you_lose.txt";
-	fs::permissions(loserFile, fs::perms::owner_all);
+	// namespace fs = std::experimental::filesystem;
+	// fs::path loserFile = "C:\Program Files\Minesweeper\you_lose.txt";
+	// fs::permissions(loserFile, fs::perms::owner_all);
 	std::string newFile = "you_lose.txt";
 	std::ofstream outFile;
 	outFile.open(newFile);
