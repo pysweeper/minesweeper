@@ -26,7 +26,6 @@ Partial Class FormSmall
         Me.Button9 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Button7 = New System.Windows.Forms.Button()
         Me.Button8 = New System.Windows.Forms.Button()
@@ -122,6 +121,7 @@ Partial Class FormSmall
         Me.Button93 = New System.Windows.Forms.Button()
         Me.Button92 = New System.Windows.Forms.Button()
         Me.Button91 = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Button10
@@ -131,7 +131,6 @@ Partial Class FormSmall
         Me.Button10.Name = "Button10"
         Me.Button10.Size = New System.Drawing.Size(39, 36)
         Me.Button10.TabIndex = 0
-        Me.Button10.Text = "Button1"
         Me.Button10.UseVisualStyleBackColor = False
         '
         'Button9
@@ -141,7 +140,6 @@ Partial Class FormSmall
         Me.Button9.Name = "Button9"
         Me.Button9.Size = New System.Drawing.Size(39, 36)
         Me.Button9.TabIndex = 1
-        Me.Button9.Text = "Button9"
         Me.Button9.UseVisualStyleBackColor = False
         '
         'Button3
@@ -151,7 +149,6 @@ Partial Class FormSmall
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(39, 36)
         Me.Button3.TabIndex = 2
-        Me.Button3.Text = "Button8"
         Me.Button3.UseVisualStyleBackColor = False
         '
         'Button4
@@ -161,18 +158,7 @@ Partial Class FormSmall
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(39, 36)
         Me.Button4.TabIndex = 3
-        Me.Button4.Text = "Button7"
         Me.Button4.UseVisualStyleBackColor = False
-        '
-        'Button5
-        '
-        Me.Button5.BackColor = System.Drawing.SystemColors.ControlDark
-        Me.Button5.Location = New System.Drawing.Point(314, 87)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(39, 36)
-        Me.Button5.TabIndex = 4
-        Me.Button5.Text = "Button6"
-        Me.Button5.UseVisualStyleBackColor = False
         '
         'Button6
         '
@@ -181,7 +167,6 @@ Partial Class FormSmall
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(39, 36)
         Me.Button6.TabIndex = 5
-        Me.Button6.Text = "Button5"
         Me.Button6.UseVisualStyleBackColor = False
         '
         'Button7
@@ -191,7 +176,6 @@ Partial Class FormSmall
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(39, 36)
         Me.Button7.TabIndex = 6
-        Me.Button7.Text = "Button4"
         Me.Button7.UseVisualStyleBackColor = False
         '
         'Button8
@@ -201,7 +185,6 @@ Partial Class FormSmall
         Me.Button8.Name = "Button8"
         Me.Button8.Size = New System.Drawing.Size(39, 36)
         Me.Button8.TabIndex = 7
-        Me.Button8.Text = "Button3"
         Me.Button8.UseVisualStyleBackColor = False
         '
         'Button2
@@ -211,7 +194,6 @@ Partial Class FormSmall
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(39, 36)
         Me.Button2.TabIndex = 8
-        Me.Button2.Text = "Button2"
         Me.Button2.UseVisualStyleBackColor = False
         '
         'Button1
@@ -230,7 +212,6 @@ Partial Class FormSmall
         Me.Button20.Name = "Button20"
         Me.Button20.Size = New System.Drawing.Size(39, 36)
         Me.Button20.TabIndex = 10
-        Me.Button20.Text = "Button20"
         Me.Button20.UseVisualStyleBackColor = False
         '
         'Button19
@@ -240,7 +221,6 @@ Partial Class FormSmall
         Me.Button19.Name = "Button19"
         Me.Button19.Size = New System.Drawing.Size(39, 36)
         Me.Button19.TabIndex = 11
-        Me.Button19.Text = "Button19"
         Me.Button19.UseVisualStyleBackColor = False
         '
         'Button18
@@ -250,7 +230,6 @@ Partial Class FormSmall
         Me.Button18.Name = "Button18"
         Me.Button18.Size = New System.Drawing.Size(39, 36)
         Me.Button18.TabIndex = 12
-        Me.Button18.Text = "Button18"
         Me.Button18.UseVisualStyleBackColor = False
         '
         'Button17
@@ -260,7 +239,6 @@ Partial Class FormSmall
         Me.Button17.Name = "Button17"
         Me.Button17.Size = New System.Drawing.Size(39, 36)
         Me.Button17.TabIndex = 13
-        Me.Button17.Text = "Button17"
         Me.Button17.UseVisualStyleBackColor = False
         '
         'Button16
@@ -270,7 +248,6 @@ Partial Class FormSmall
         Me.Button16.Name = "Button16"
         Me.Button16.Size = New System.Drawing.Size(39, 36)
         Me.Button16.TabIndex = 14
-        Me.Button16.Text = "Button16"
         Me.Button16.UseVisualStyleBackColor = False
         '
         'Button15
@@ -280,7 +257,6 @@ Partial Class FormSmall
         Me.Button15.Name = "Button15"
         Me.Button15.Size = New System.Drawing.Size(39, 36)
         Me.Button15.TabIndex = 15
-        Me.Button15.Text = "Button15"
         Me.Button15.UseVisualStyleBackColor = False
         '
         'Button14
@@ -290,7 +266,6 @@ Partial Class FormSmall
         Me.Button14.Name = "Button14"
         Me.Button14.Size = New System.Drawing.Size(39, 36)
         Me.Button14.TabIndex = 16
-        Me.Button14.Text = "Button14"
         Me.Button14.UseVisualStyleBackColor = False
         '
         'Button13
@@ -300,7 +275,6 @@ Partial Class FormSmall
         Me.Button13.Name = "Button13"
         Me.Button13.Size = New System.Drawing.Size(39, 36)
         Me.Button13.TabIndex = 17
-        Me.Button13.Text = "Button13"
         Me.Button13.UseVisualStyleBackColor = False
         '
         'Button12
@@ -310,7 +284,6 @@ Partial Class FormSmall
         Me.Button12.Name = "Button12"
         Me.Button12.Size = New System.Drawing.Size(39, 36)
         Me.Button12.TabIndex = 18
-        Me.Button12.Text = "Button12"
         Me.Button12.UseVisualStyleBackColor = False
         '
         'Button11
@@ -320,7 +293,6 @@ Partial Class FormSmall
         Me.Button11.Name = "Button11"
         Me.Button11.Size = New System.Drawing.Size(39, 36)
         Me.Button11.TabIndex = 19
-        Me.Button11.Text = "Button11"
         Me.Button11.UseVisualStyleBackColor = False
         '
         'Button30
@@ -400,7 +372,6 @@ Partial Class FormSmall
         Me.Button23.Name = "Button23"
         Me.Button23.Size = New System.Drawing.Size(39, 36)
         Me.Button23.TabIndex = 27
-        Me.Button23.Text = "Button23"
         Me.Button23.UseVisualStyleBackColor = False
         '
         'Button22
@@ -410,7 +381,6 @@ Partial Class FormSmall
         Me.Button22.Name = "Button22"
         Me.Button22.Size = New System.Drawing.Size(39, 36)
         Me.Button22.TabIndex = 28
-        Me.Button22.Text = "Button22"
         Me.Button22.UseVisualStyleBackColor = False
         '
         'Button21
@@ -420,7 +390,6 @@ Partial Class FormSmall
         Me.Button21.Name = "Button21"
         Me.Button21.Size = New System.Drawing.Size(39, 36)
         Me.Button21.TabIndex = 29
-        Me.Button21.Text = "Button21"
         Me.Button21.UseVisualStyleBackColor = False
         '
         'Button40
@@ -1123,6 +1092,15 @@ Partial Class FormSmall
         Me.Button91.Text = "Button91"
         Me.Button91.UseVisualStyleBackColor = False
         '
+        'Button5
+        '
+        Me.Button5.BackColor = System.Drawing.SystemColors.ControlDark
+        Me.Button5.Location = New System.Drawing.Point(314, 87)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(39, 36)
+        Me.Button5.TabIndex = 4
+        Me.Button5.UseVisualStyleBackColor = False
+        '
         'FormSmall
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1345,7 +1323,7 @@ Partial Class FormSmall
         If e.Button = Windows.Forms.MouseButtons.Right Then
             ''if right click and box is unclicked set it to flag
             If Me.Button1.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button1.BackgroundImage) Then
-                Me.Button1.BackgroundImage = MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button1.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg")
                 Me.Button1.BackColor = Color.FromArgb(0, 0, 0)
                 ''else if right click and is already flag, set unclicked.
             ElseIf Me.Button1.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
@@ -1372,8 +1350,7 @@ Partial Class FormSmall
                 MsgBox("End of game")
             Else
                 UpdateArray(smallArray)
-                ''MsgBox("array updated")
-                ''time to update tiles.
+                UpdateTiles()
 
             End If
 
@@ -1385,7 +1362,7 @@ Partial Class FormSmall
         If e.Button = Windows.Forms.MouseButtons.Right Then
             ''if right click and box is unclicked set it to flag
             If Me.Button2.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button1.BackgroundImage) Then
-                Me.Button2.BackgroundImage = MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button2.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
                 Me.Button2.BackColor = Color.FromArgb(0, 0, 0)
                 ''else if right click and is already flag, set unclicked.
             ElseIf Me.Button2.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
@@ -1414,7 +1391,7 @@ Partial Class FormSmall
                 UpdateArray(smallArray)
                 ''MsgBox("array updated")
                 ''time to update tiles.
-
+                UpdateTiles()
             End If
 
 
@@ -1426,7 +1403,7 @@ Partial Class FormSmall
         If e.Button = Windows.Forms.MouseButtons.Right Then
             ''if right click and box is unclicked set it to flag
             If Me.Button3.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button1.BackgroundImage) Then
-                Me.Button3.BackgroundImage = MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button3.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
                 Me.Button3.BackColor = Color.FromArgb(0, 0, 0)
                 ''else if right click and is already flag, set unclicked.
             ElseIf Me.Button3.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
@@ -1455,7 +1432,7 @@ Partial Class FormSmall
                 UpdateArray(smallArray)
                 ''MsgBox("array updated")
                 ''time to update tiles.
-
+                UpdateTiles()
             End If
 
 
@@ -1463,4 +1440,11 @@ Partial Class FormSmall
 
     End Sub
 
+    Private Sub FormSmall_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        AssignButtons()
+        For i = 0 To 99
+            ButtonArray(i).BackColor = Color.FromArgb(0, 0, 64)
+            ButtonArray(i).Text = ""
+        Next
+    End Sub
 End Class
