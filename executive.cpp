@@ -366,7 +366,7 @@ void executive::recReveal(int x, int y)
 	}
 	if (m_game_board[x][y].Holding() == ADJACENT)
 	{
-		m_show_board[x][y] = m_game_board[x][y].AdjacentMines();
+		m_show_board[x][y] = std::to_string(m_game_board[x][y].AdjacentMines()).at(0) ;
 	}
 	else if (m_game_board[x][y].Holding() == NONE)
 	{
