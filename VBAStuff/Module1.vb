@@ -6,14 +6,19 @@
 
     Public cpp As Integer
 
+    Public MineNum As Integer
+
     Public ButtonArray(100) As Button
 
     Public Function ClearSpaces(str As String) As String
         Return New String(str.Where(Function(x) Not Char.IsWhiteSpace(x)).ToArray())
     End Function
 
+    Public Flags As Integer
+
 
     Public smallArray(10, 10) As Char
+
     Public testCharacter As Char
 
     Public mapString As String
@@ -52,6 +57,25 @@
             testCharacter = fileReader(0)
         End If
 
+    End Sub
+
+    Public Sub FlagWin()
+        Dim counter As Integer
+        counter = 0
+        ''first of all, we need to find out which boys have mines.
+        For i = 0 To 99
+            If mapString(i) = "0" Then
+                If ButtonArray(i).BackColor = Color.FromArgb(0, 0, 0) Then
+                    counter = counter + 1
+                    ''the button is a flag.
+                End If
+            End If
+        Next
+        ''then, we need to see if those same boys have flags.
+        If counter = MineNum Then
+            ''run the win script!
+            MsgBox("You're a winner :D")
+        End If
     End Sub
 
     Public Sub AssignButtons()
@@ -252,6 +276,8 @@
 
 
     End Sub
+
+
 End Module
 
 ''example
