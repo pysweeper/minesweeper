@@ -252,6 +252,12 @@
 
 
     End Sub
+
+    Public Sub ResetTiles()
+        For i = 0 To 99
+            ButtonArray(i).BackColor = Color.FromArgb(0, 0, 60)
+        Next
+    End Sub
 End Module
 
 ''example
