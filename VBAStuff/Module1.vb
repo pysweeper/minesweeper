@@ -1,4 +1,4 @@
-﻿Public Module Module1
+Public Module Module1
 
     Declare Function GetCurrentProcessId Lib "kernel32" () As Long
 
@@ -277,6 +277,12 @@
 
     End Sub
 
+
+    Public Sub ResetTiles()
+        For i = 0 To 99
+            ButtonArray(i).BackColor = Color.FromArgb(0, 0, 60)
+        Next
+    End Sub
 
 End Module
 
