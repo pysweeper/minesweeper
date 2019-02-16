@@ -27,63 +27,63 @@ private:
 protected:
 
 public:
-/*
+/**
 #Pre - None
 #Param - None
 #Post - Constructs an executive object
 */
  executive();
- /*
+ /**
  #Pre - None
  #Param - None
  #Post - Destructs an executive object
  */
  ~executive();
- /*
+ /**
  #Pre - None
  #Param - None
  #Post - Launches the program
  */
  void Run();
- /*
+ /**
  #Pre - Run has been called
  #Param - None
  #Post - Creates a randomized game board.
  */
  void CreateBoard();
- /*
+ /**
  #Pre - None
  #Param - None
  #Post - Prints the game board, for test purposes.
  */
  void Print();
- /*
+ /**
  #Pre - CreateBoard has been called
  #Param - None
  #Post - Updates the game board to include locations of tiles adjacent to bombs.
  */
  void UpdateAdjacents();
- /*
+ /**
  #Pre - CreateBoard has been called
  #Param x - the x coordinate of the tile the user has clicked.
  #Param y - the y coordinate of the tile the user has clicked.
  #Post - Checks the type of tile the user has clicked and runs the corresponding method.
  */
  void Read(int x, int y);
- /*
+ /**
  #Pre - CreateBoard has been called
  #Param x - the x coordinate of the tile the user has clicked.
  #Param y - the y coordinate of the tile the user has clicked.
  #Post - Reveals the tile clicked by the user to be adjacent. Updates board.txt.
  */
  void AdjacentReveal(int x, int y);
- /*
+ /**
  #Pre - CreateBoard has been called
  #Param - None
  #Post - Writes to you_lose.txt. The VBA GUI checks for this, and ends the game when it is done.
  */
  void BombReveal();
- /*
+ /**
  #Pre - CreateBoard has been called
  #Param x - the x coordinate of the tile the user has clicked.
  #Param y - the y coordinate of the tile the user has clicked.
@@ -91,21 +91,21 @@ public:
  #       for all 8 tiles adjacent to the tile (x,y).
  */
  void NoneReveal(int x, int y);
- /*
+ /**
  #Pre - CreateBoard has been called
  #Param x - the x coordinate of the tile the user has clicked.
  #Param y - the y coordinate of the tile the user has clicked.
  #Post - Calls NoneReveal for the original clicked tile. Updates board.txt after recursion is complete.
  */
  void NoneRevealMaster(int x, int y);
- /*
+ /**
  #Pre - CreateBoard has been called
  #Param x - the x coordinate of the tile the user has clicked.
  #Param y - the y coordinate of the tile the user has clicked.
  #Post - Marks each tile for backtracking. Updates the show array before NoneRevealMaster writes the results to board.txt.
  */
  void recReveal(int x, int y);
- /*
+ /**
  #Pre - CreateBoard has been called
  #Param - None
  #Post = Creates board.txt, fills it with hidden tiles. Creates map.txt; fills it with bomb, adjacent, and none tile locations.
