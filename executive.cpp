@@ -63,7 +63,7 @@ void executive::Run()
 
 void executive::CreateBoard()
 {
-	srand(3);
+	srand(time(NULL));
 	//This GUI will be interacted with "behind the scenes"
 	//by a windows forms application.
 	std::cout << "------------------------------------\n";
@@ -80,27 +80,28 @@ void executive::CreateBoard()
 		m_game_board[i] = new square[m_row_size];
 	}
 	//now to randomize mine location
+	int result = 0;
 	while (m_mine_number > 0)
 	{
 		for (int i = 0; i < m_row_size;i++)
 		{
 			for (int j = 0; j < m_row_size;j++)
 			{
-				int result = rand() % 3;
+				result = rand() % 3;
 				if (result == MINE && m_mine_number > 0 && m_game_board[i][j].Holding()!=MINE)
 				{
 					//place a mine
 					m_game_board[i][j].Holding(MINE);
 					m_mine_number--;
 				}
-				else
+				else if(m_game_board[i][j].Holding() != MINE)
 				{
 					//make a blank
 					m_game_board[i][j].Holding(NONE);
 				}
 			}//end of j for
 		}//end of i for
-
+	
 	}
 
 	//for testing purposes.

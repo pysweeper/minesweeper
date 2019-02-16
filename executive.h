@@ -12,6 +12,7 @@
 #include<string>
 #include<cstdlib>
 #include<fstream>
+#include<time.h>
 // #include<experimental/filesystem>
 
 #include "square.h"
