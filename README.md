@@ -1,7 +1,7 @@
 # minesweeper
 ## Team Rocket's Minesweeper (Alex, Sandy, Clay, Evan)
 
-##Welcome to our project! 
+## Welcome to our project! 
 
 ### Documentation:
 To view our documentation please go to the Documentation folder > HTML > and click any of the files ending in .html.
