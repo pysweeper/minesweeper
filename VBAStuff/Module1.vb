@@ -91,14 +91,15 @@
     End Sub
 
     Public Sub FlagWin()
-
+        ''MsgBox("We ran flag win")
+        mapString = My.Computer.FileSystem.ReadAllText("map.txt")
         MineNum = 0
         For i = 0 To 99
             If mapString(i) = "0" Then
                 MineNum = MineNum + 1
             End If
         Next
-
+        ''  MsgBox(MineNum)
         Dim counter As Integer = 0
 
         ''first of all, we need to find out which boys have mines.
@@ -111,7 +112,7 @@
             End If
         Next
 
-
+        ''  MsgBox(counter)
         ''then, we need to see if those same boys have flags.
         If counter = MineNum And Flags = MineNum Then
             ''run the win script!
