@@ -1,0 +1,121 @@
+\hypertarget{classexecutive}{}\section{executive Class Reference}
+\label{classexecutive}\index{executive@{executive}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classexecutive_af89b69f24d47db479a8fc99c1905ddda}{executive}} ()
+\item 
+\mbox{\hyperlink{classexecutive_a0d6dc7441c758d7c1fa3a375720e6952}{$\sim$executive}} ()
+\item 
+void \mbox{\hyperlink{classexecutive_a979d10f76a13e75a3d003fcbd7d224ad}{Run}} ()
+\item 
+void \mbox{\hyperlink{classexecutive_adccfcb025102490e13fd355d9c8bb3e8}{Create\+Board}} ()
+\item 
+void \mbox{\hyperlink{classexecutive_ae5e04159c4d86678485e4d788f302732}{Print}} ()
+\item 
+void \mbox{\hyperlink{classexecutive_a19c71fe2ec927ef624ef9dfb155fccc9}{Update\+Adjacents}} ()
+\item 
+void \mbox{\hyperlink{classexecutive_ab92cac9cdd28c568d079653c516c6a35}{Read}} (int x, int y)
+\item 
+void \mbox{\hyperlink{classexecutive_af6ca8c7e37912f612009a96a90113204}{Adjacent\+Reveal}} (int x, int y)
+\item 
+void \mbox{\hyperlink{classexecutive_a75c3e0d1420e409b8e955fc88d885b8b}{Bomb\+Reveal}} ()
+\item 
+void \mbox{\hyperlink{classexecutive_aff9907584bb8cf4840af71a283182b50}{None\+Reveal}} (int x, int y)
+\item 
+void \mbox{\hyperlink{classexecutive_a8fecd4b8d669dc584d9e7b4ba43c0eb7}{None\+Reveal\+Master}} (int x, int y)
+\item 
+void \mbox{\hyperlink{classexecutive_ad2c46b69f5f3592067d26e3dd7280616}{rec\+Reveal}} (int x, int y)
+\item 
+void \mbox{\hyperlink{classexecutive_a29514ae2f55a8f5f951566d1520ed5d8}{Start\+Files\+For\+V\+BA}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classexecutive_af89b69f24d47db479a8fc99c1905ddda}\label{classexecutive_af89b69f24d47db479a8fc99c1905ddda}} 
+\index{executive@{executive}!executive@{executive}}
+\index{executive@{executive}!executive@{executive}}
+\subsubsection{\texorpdfstring{executive()}{executive()}}
+{\footnotesize\ttfamily executive\+::executive (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\#\+Pre -\/ None \#\+Param -\/ None \#\+Post -\/ Constructs an executive object \mbox{\Hypertarget{classexecutive_a0d6dc7441c758d7c1fa3a375720e6952}\label{classexecutive_a0d6dc7441c758d7c1fa3a375720e6952}} 
+\index{executive@{executive}!````~executive@{$\sim$executive}}
+\index{````~executive@{$\sim$executive}!executive@{executive}}
+\subsubsection{\texorpdfstring{$\sim$executive()}{~executive()}}
+{\footnotesize\ttfamily executive\+::$\sim$executive (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\#\+Pre -\/ None \#\+Param -\/ None \#\+Post -\/ Destructs an executive object 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classexecutive_af6ca8c7e37912f612009a96a90113204}\label{classexecutive_af6ca8c7e37912f612009a96a90113204}} 
+\index{executive@{executive}!AdjacentReveal@{AdjacentReveal}}
+\index{AdjacentReveal@{AdjacentReveal}!executive@{executive}}
+\subsubsection{\texorpdfstring{AdjacentReveal()}{AdjacentReveal()}}
+{\footnotesize\ttfamily void executive\+::\+Adjacent\+Reveal (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+\#\+Pre -\/ Create\+Board has been called \#\+Param x -\/ the x coordinate of the tile the user has clicked. \#\+Param y -\/ the y coordinate of the tile the user has clicked. \#\+Post -\/ Reveals the tile clicked by the user to be adjacent. Updates board.\+txt. \mbox{\Hypertarget{classexecutive_a75c3e0d1420e409b8e955fc88d885b8b}\label{classexecutive_a75c3e0d1420e409b8e955fc88d885b8b}} 
+\index{executive@{executive}!BombReveal@{BombReveal}}
+\index{BombReveal@{BombReveal}!executive@{executive}}
+\subsubsection{\texorpdfstring{BombReveal()}{BombReveal()}}
+{\footnotesize\ttfamily void executive\+::\+Bomb\+Reveal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\#\+Pre -\/ Create\+Board has been called \#\+Param -\/ None \#\+Post -\/ Writes to you\+\_\+lose.\+txt. The V\+BA G\+UI checks for this, and ends the game when it is done. \mbox{\Hypertarget{classexecutive_adccfcb025102490e13fd355d9c8bb3e8}\label{classexecutive_adccfcb025102490e13fd355d9c8bb3e8}} 
+\index{executive@{executive}!CreateBoard@{CreateBoard}}
+\index{CreateBoard@{CreateBoard}!executive@{executive}}
+\subsubsection{\texorpdfstring{CreateBoard()}{CreateBoard()}}
+{\footnotesize\ttfamily void executive\+::\+Create\+Board (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\#\+Pre -\/ Run has been called \#\+Param -\/ None \#\+Post -\/ Creates a randomized game board. \mbox{\Hypertarget{classexecutive_aff9907584bb8cf4840af71a283182b50}\label{classexecutive_aff9907584bb8cf4840af71a283182b50}} 
+\index{executive@{executive}!NoneReveal@{NoneReveal}}
+\index{NoneReveal@{NoneReveal}!executive@{executive}}
+\subsubsection{\texorpdfstring{NoneReveal()}{NoneReveal()}}
+{\footnotesize\ttfamily void executive\+::\+None\+Reveal (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+\#\+Pre -\/ Create\+Board has been called \#\+Param x -\/ the x coordinate of the tile the user has clicked. \#\+Param y -\/ the y coordinate of the tile the user has clicked. \#\+Post -\/ If it is within the bounds of the array and the tile is not a bomb, this method will call rec\+Reveal(x,y) \subsection*{for all 8 tiles adjacent to the tile (x,y).}\mbox{\Hypertarget{classexecutive_a8fecd4b8d669dc584d9e7b4ba43c0eb7}\label{classexecutive_a8fecd4b8d669dc584d9e7b4ba43c0eb7}} 
+\index{executive@{executive}!NoneRevealMaster@{NoneRevealMaster}}
+\index{NoneRevealMaster@{NoneRevealMaster}!executive@{executive}}
+\subsubsection{\texorpdfstring{NoneRevealMaster()}{NoneRevealMaster()}}
+{\footnotesize\ttfamily void executive\+::\+None\+Reveal\+Master (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+\#\+Pre -\/ Create\+Board has been called \#\+Param x -\/ the x coordinate of the tile the user has clicked. \#\+Param y -\/ the y coordinate of the tile the user has clicked. \#\+Post -\/ Calls None\+Reveal for the original clicked tile. Updates board.\+txt after recursion is complete. \mbox{\Hypertarget{classexecutive_ae5e04159c4d86678485e4d788f302732}\label{classexecutive_ae5e04159c4d86678485e4d788f302732}} 
+\index{executive@{executive}!Print@{Print}}
+\index{Print@{Print}!executive@{executive}}
+\subsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void executive\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\#\+Pre -\/ None \#\+Param -\/ None \#\+Post -\/ Prints the game board, for test purposes. \mbox{\Hypertarget{classexecutive_ab92cac9cdd28c568d079653c516c6a35}\label{classexecutive_ab92cac9cdd28c568d079653c516c6a35}} 
+\index{executive@{executive}!Read@{Read}}
+\index{Read@{Read}!executive@{executive}}
+\subsubsection{\texorpdfstring{Read()}{Read()}}
+{\footnotesize\ttfamily void executive\+::\+Read (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+\#\+Pre -\/ Create\+Board has been called \#\+Param x -\/ the x coordinate of the tile the user has clicked. \#\+Param y -\/ the y coordinate of the tile the user has clicked. \#\+Post -\/ Checks the type of tile the user has clicked and runs the corresponding method. \mbox{\Hypertarget{classexecutive_ad2c46b69f5f3592067d26e3dd7280616}\label{classexecutive_ad2c46b69f5f3592067d26e3dd7280616}} 
+\index{executive@{executive}!recReveal@{recReveal}}
+\index{recReveal@{recReveal}!executive@{executive}}
+\subsubsection{\texorpdfstring{recReveal()}{recReveal()}}
+{\footnotesize\ttfamily void executive\+::rec\+Reveal (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+\#\+Pre -\/ Create\+Board has been called \#\+Param x -\/ the x coordinate of the tile the user has clicked. \#\+Param y -\/ the y coordinate of the tile the user has clicked. \#\+Post -\/ Marks each tile for backtracking. Updates the show array before None\+Reveal\+Master writes the results to board.\+txt. \mbox{\Hypertarget{classexecutive_a979d10f76a13e75a3d003fcbd7d224ad}\label{classexecutive_a979d10f76a13e75a3d003fcbd7d224ad}} 
+\index{executive@{executive}!Run@{Run}}
+\index{Run@{Run}!executive@{executive}}
+\subsubsection{\texorpdfstring{Run()}{Run()}}
+{\footnotesize\ttfamily void executive\+::\+Run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\#\+Pre -\/ None \#\+Param -\/ None \#\+Post -\/ Launches the program \mbox{\Hypertarget{classexecutive_a29514ae2f55a8f5f951566d1520ed5d8}\label{classexecutive_a29514ae2f55a8f5f951566d1520ed5d8}} 
+\index{executive@{executive}!StartFilesForVBA@{StartFilesForVBA}}
+\index{StartFilesForVBA@{StartFilesForVBA}!executive@{executive}}
+\subsubsection{\texorpdfstring{StartFilesForVBA()}{StartFilesForVBA()}}
+{\footnotesize\ttfamily void executive\+::\+Start\+Files\+For\+V\+BA (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\#\+Pre -\/ Create\+Board has been called \#\+Param -\/ None \#\+Post = Creates board.\+txt, fills it with hidden tiles. Creates map.\+txt; fills it with bomb, adjacent, and none tile locations. \mbox{\Hypertarget{classexecutive_a19c71fe2ec927ef624ef9dfb155fccc9}\label{classexecutive_a19c71fe2ec927ef624ef9dfb155fccc9}} 
+\index{executive@{executive}!UpdateAdjacents@{UpdateAdjacents}}
+\index{UpdateAdjacents@{UpdateAdjacents}!executive@{executive}}
+\subsubsection{\texorpdfstring{UpdateAdjacents()}{UpdateAdjacents()}}
+{\footnotesize\ttfamily void executive\+::\+Update\+Adjacents (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\#\+Pre -\/ Create\+Board has been called \#\+Param -\/ None \#\+Post -\/ Updates the game board to include locations of tiles adjacent to bombs. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Evan/\+Desktop/\+Workspace/\+D\+O\+X\+C\+O\+D\+E/executive.\+h\item 
+C\+:/\+Users/\+Evan/\+Desktop/\+Workspace/\+D\+O\+X\+C\+O\+D\+E/executive.\+cpp\end{DoxyCompactItemize}
