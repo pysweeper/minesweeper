@@ -6071,6 +6071,8 @@ Partial Class FormSmall
         End If
     End Sub
 
+  
+
     Private Sub FormSmall_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         AssignButtons()
         mapString = My.Computer.FileSystem.ReadAllText("map.txt")
