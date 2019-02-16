@@ -5,6 +5,8 @@
 
 ### Documentation:
 To view our documentation please go to the Documentation folder > HTML > and click any of the files ending in .html.
+(Do this on your local machine after cloning the repo, if you do that from github it will just show you the
+HTML code.)
 
 ### From the creators
 You'll find that this program is actually **TWO** programs. There is a **C++ component**, and a **VBA component**.
