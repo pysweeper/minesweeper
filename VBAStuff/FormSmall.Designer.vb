@@ -1355,7 +1355,7 @@ Partial Class FormSmall
             checkLoss()
             If testCharacter = "L" Then
                 ''run the end game script
-                MsgBox("End of game")
+                RunLoseGame()
             Else
                 UpdateArray(smallArray)
                 UpdateTiles()
@@ -1369,7 +1369,7 @@ Partial Class FormSmall
     Private Sub Button2_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button2.MouseDown
         If e.Button = Windows.Forms.MouseButtons.Right Then
             ''if right click and box is unclicked set it to flag
-            If Me.Button2.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button1.BackgroundImage) Then
+            If Me.Button2.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button2.BackgroundImage) Then
                 Me.Button2.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
                 Me.Button2.BackColor = Color.FromArgb(0, 0, 0)
                 '' you placed another flag
@@ -1402,7 +1402,8 @@ Partial Class FormSmall
             checkLoss()
             If testCharacter = "L" Then
                 ''run the end game script
-                MsgBox("End of game")
+                RunLoseGame()
+
             Else
                 UpdateArray(smallArray)
                 ''MsgBox("array updated")
@@ -1418,7 +1419,7 @@ Partial Class FormSmall
     Private Sub Button3_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button3.MouseDown
         If e.Button = Windows.Forms.MouseButtons.Right Then
             ''if right click and box is unclicked set it to flag
-            If Me.Button3.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button1.BackgroundImage) Then
+            If Me.Button3.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button3.BackgroundImage) Then
                 Me.Button3.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
                 Me.Button3.BackColor = Color.FromArgb(0, 0, 0)
                 '' you placed another flag
@@ -1451,7 +1452,7 @@ Partial Class FormSmall
             checkLoss()
             If testCharacter = "L" Then
                 ''run the end game script
-                MsgBox("End of game")
+                RunLoseGame()
             Else
                 UpdateArray(smallArray)
                 ''MsgBox("array updated")

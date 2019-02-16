@@ -23,8 +23,6 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
@@ -33,36 +31,12 @@ Partial Class Form1
         Me.Button1.BackColor = System.Drawing.Color.DimGray
         Me.Button1.Font = New System.Drawing.Font("Pill Gothic 600mg Semibd", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Button1.Location = New System.Drawing.Point(323, 193)
+        Me.Button1.Location = New System.Drawing.Point(321, 228)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(167, 44)
         Me.Button1.TabIndex = 0
-        Me.Button1.Text = "Small"
+        Me.Button1.Text = "Play"
         Me.Button1.UseVisualStyleBackColor = False
-        '
-        'Button2
-        '
-        Me.Button2.BackColor = System.Drawing.Color.DimGray
-        Me.Button2.Font = New System.Drawing.Font("Pill Gothic 600mg Semibd", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Button2.Location = New System.Drawing.Point(323, 243)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(167, 44)
-        Me.Button2.TabIndex = 1
-        Me.Button2.Text = "Medium"
-        Me.Button2.UseVisualStyleBackColor = False
-        '
-        'Button3
-        '
-        Me.Button3.BackColor = System.Drawing.Color.DimGray
-        Me.Button3.Font = New System.Drawing.Font("Pill Gothic 600mg Semibd", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Button3.Location = New System.Drawing.Point(323, 293)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(167, 44)
-        Me.Button3.TabIndex = 2
-        Me.Button3.Text = "Large"
-        Me.Button3.UseVisualStyleBackColor = False
         '
         'Label1
         '
@@ -81,8 +55,6 @@ Partial Class Form1
         Me.BackColor = System.Drawing.SystemColors.Highlight
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Name = "Form1"
         Me.Text = "Form1"
@@ -91,7 +63,5 @@ Partial Class Form1
     End Sub
 
     Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button3 As Button
     Friend WithEvents Label1 As Label
 End Class
