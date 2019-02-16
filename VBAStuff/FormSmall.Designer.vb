@@ -1325,10 +1325,18 @@ Partial Class FormSmall
             If Me.Button1.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button1.BackgroundImage) Then
                 Me.Button1.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg")
                 Me.Button1.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
                 ''else if right click and is already flag, set unclicked.
             ElseIf Me.Button1.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
                 Me.Button1.BackgroundImage = Nothing
                 Me.Button1.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
                 ''Naturally, in all other instances we will ignore a right click.
             End If
         ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
@@ -1364,10 +1372,18 @@ Partial Class FormSmall
             If Me.Button2.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button1.BackgroundImage) Then
                 Me.Button2.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
                 Me.Button2.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
                 ''else if right click and is already flag, set unclicked.
             ElseIf Me.Button2.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
                 Me.Button2.BackgroundImage = Nothing
                 Me.Button2.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
                 ''Naturally, in all other instances we will ignore a right click.
             End If
         ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
@@ -1405,10 +1421,18 @@ Partial Class FormSmall
             If Me.Button3.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button1.BackgroundImage) Then
                 Me.Button3.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
                 Me.Button3.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
                 ''else if right click and is already flag, set unclicked.
             ElseIf Me.Button3.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
                 Me.Button3.BackgroundImage = Nothing
                 Me.Button3.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
                 ''Naturally, in all other instances we will ignore a right click.
             End If
         ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
@@ -1442,9 +1466,11 @@ Partial Class FormSmall
 
     Private Sub FormSmall_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         AssignButtons()
+        Flags = 0
         For i = 0 To 99
             ButtonArray(i).BackColor = Color.FromArgb(0, 0, 64)
             ButtonArray(i).Text = ""
+
         Next
     End Sub
 End Class

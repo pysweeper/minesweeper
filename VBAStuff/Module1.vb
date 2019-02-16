@@ -1,8 +1,11 @@
-Public Module Module1
+﻿Public Module Module1
 
     Declare Function GetCurrentProcessId Lib "kernel32" () As Long
 
     Declare Function SetForegroundWindow Lib "user32.dll" (ByVal hwnd As Integer) As Integer
+
+
+
 
     Public cpp As Integer
 
@@ -25,7 +28,7 @@ Public Module Module1
 
 
     Public Sub UpdateArray(array(,) As Char)
-        mapString = My.Computer.FileSystem.ReadAllText("map.txt")
+
         Dim fileReader As String
         fileReader = My.Computer.FileSystem.ReadAllText("board.txt")
         fileReader = ClearSpaces(fileReader)
@@ -59,9 +62,31 @@ Public Module Module1
 
     End Sub
 
+    Public Sub RunWinGame()
+
+        ''terminate the c++ program.
+        AppActivate(cpp)
+        SendKeys.Send("-9999")
+        Threading.Thread.Sleep(50)
+        SendKeys.Send("{ENTER}")
+        Threading.Thread.Sleep(50)
+        ''terminate the GUI, reload the first form.
+        FormSmall.Close()
+        SmallPickBombNum.Close()
+        Form1.Show()
+    End Sub
+
     Public Sub FlagWin()
-        Dim counter As Integer
-        counter = 0
+
+        MineNum = 0
+        For i = 0 To 99
+            If mapString(i) = "0" Then
+                MineNum = MineNum + 1
+            End If
+        Next
+
+        Dim counter As Integer = 0
+
         ''first of all, we need to find out which boys have mines.
         For i = 0 To 99
             If mapString(i) = "0" Then
@@ -71,14 +96,19 @@ Public Module Module1
                 End If
             End If
         Next
+
+
         ''then, we need to see if those same boys have flags.
-        If counter = MineNum Then
+        If counter = MineNum And Flags = MineNum Then
             ''run the win script!
-            MsgBox("You're a winner :D")
+
+            '' MsgBox("You're a winner :D")
+            RunWinGame()
         End If
     End Sub
 
     Public Sub AssignButtons()
+        mapString = My.Computer.FileSystem.ReadAllText("map.txt")
         ButtonArray(0) = FormSmall.Button1
         ButtonArray(1) = FormSmall.Button2
         ButtonArray(2) = FormSmall.Button3
@@ -277,12 +307,12 @@ Public Module Module1
 
     End Sub
 
-
     Public Sub ResetTiles()
         For i = 0 To 99
-            ButtonArray(i).BackColor = Color.FromArgb(0, 0, 60)
+            ButtonArray(i).BackColor = Color.FromArgb(0, 0, 64)
         Next
     End Sub
+
 
 End Module
 

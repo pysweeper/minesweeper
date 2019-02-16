@@ -7,10 +7,14 @@
 
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim str As String
+
         Me.Hide()
         FormSmall.Show()
         AppActivate(cpp)
         SendKeys.Send(ComboBox1.Text)
+        str = ComboBox1.Text
+        MineNum = Integer.Parse(str)
         SendKeys.Send("{ENTER}")
     End Sub
 End Class
