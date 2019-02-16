@@ -87,7 +87,7 @@ void executive::CreateBoard()
 		{
 			for (int j = 0; j < m_row_size;j++)
 			{
-				result = rand() % 3;
+				result = rand() % 10;
 				if (result == MINE && m_mine_number > 0 && m_game_board[i][j].Holding()!=MINE)
 				{
 					//place a mine
