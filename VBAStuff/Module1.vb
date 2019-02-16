@@ -64,7 +64,21 @@
 
     Public Sub RunWinGame()
 
+        MsgBox("You won!")
         ''terminate the c++ program.
+        AppActivate(cpp)
+        SendKeys.Send("-9999")
+        Threading.Thread.Sleep(50)
+        SendKeys.Send("{ENTER}")
+        Threading.Thread.Sleep(50)
+        ''terminate the GUI, reload the first form.
+        FormSmall.Close()
+        SmallPickBombNum.Close()
+        Form1.Show()
+    End Sub
+
+    Public Sub RunLoseGame()
+        MsgBox("Oh dear! You clicked a mine!")
         AppActivate(cpp)
         SendKeys.Send("-9999")
         Threading.Thread.Sleep(50)
@@ -231,6 +245,8 @@
         ButtonArray(99) = FormSmall.Button100
     End Sub
 
+
+
     Public Sub UpdateTiles()
 
 
@@ -243,7 +259,7 @@
 
         For i = 0 To 99
             iStr = CStr(i)
-            If iStr.Length = 0 Then
+            If iStr.Length = 1 Then
                 firstResult = 0
             Else
                 firstStr = iStr(0)
@@ -252,51 +268,43 @@
             End If
             iStr = iStr(iStr.Length - 1)
             secondResult = CInt(iStr)
-            '' MsgBox(smallArray(firstResult, secondResult))
-            If smallArray(firstResult, secondResult) = "H" Then
-                If (ButtonArray(i).BackColor = Color.FromArgb(0, 0, 0)) Then
-                    ''it is a flag
-                    ''dont touch it.
-                Else
-                    ''it is unclicked.
-                    ''dont touch it.
-                End If
-            ElseIf smallArray(firstResult, secondResult) = "-" Then
-                ''make the button grey.
-                ButtonArray(i).BackgroundImage = Nothing
-                ButtonArray(i).FlatStyle = FlatStyle.Flat
-                ButtonArray(i).BackColor = SystemColors.ControlDark
 
-            ElseIf smallArray(firstResult, secondResult) = "1" Then
-                ButtonArray(i).BackColor = Color.FromArgb(0, 0, 1)
-                ButtonArray(i).BackgroundImage = Image.FromFile("1.png")
+            If smallArray(firstResult, secondResult) = "-" Then
+                    ''make the button grey.
+                    ButtonArray(i).BackgroundImage = Nothing
+                    ButtonArray(i).FlatStyle = FlatStyle.Flat
+                    ButtonArray(i).BackColor = SystemColors.ControlDark
 
-            ElseIf smallArray(firstResult, secondResult) = "2" Then
-                ButtonArray(i).BackColor = Color.FromArgb(0, 0, 2)
-                ButtonArray(i).BackgroundImage = Image.FromFile("2.png")
+                ElseIf smallArray(firstResult, secondResult) = "1" Then
+                    ButtonArray(i).BackColor = Color.FromArgb(0, 0, 1)
+                    ButtonArray(i).BackgroundImage = Image.FromFile("1.png")
 
-            ElseIf smallArray(firstResult, secondResult) = "3" Then
-                ButtonArray(i).BackColor = Color.FromArgb(0, 0, 3)
-                ButtonArray(i).BackgroundImage = Image.FromFile("3.png")
+                ElseIf smallArray(firstResult, secondResult) = "2" Then
+                    ButtonArray(i).BackColor = Color.FromArgb(0, 0, 2)
+                    ButtonArray(i).BackgroundImage = Image.FromFile("2.png")
 
-            ElseIf smallArray(firstResult, secondResult) = "4" Then
-                ButtonArray(i).BackColor = Color.FromArgb(0, 0, 4)
-                ButtonArray(i).BackgroundImage = Image.FromFile("4.png")
+                ElseIf smallArray(firstResult, secondResult) = "3" Then
+                    ButtonArray(i).BackColor = Color.FromArgb(0, 0, 3)
+                    ButtonArray(i).BackgroundImage = Image.FromFile("3.png")
 
-            ElseIf smallArray(firstResult, secondResult) = "5" Then
-                ButtonArray(i).BackColor = Color.FromArgb(0, 0, 5)
-                ButtonArray(i).BackgroundImage = Image.FromFile("5.png")
+                ElseIf smallArray(firstResult, secondResult) = "4" Then
+                    ButtonArray(i).BackColor = Color.FromArgb(0, 0, 4)
+                    ButtonArray(i).BackgroundImage = Image.FromFile("4.png")
 
-            ElseIf smallArray(firstResult, secondResult) = "6" Then
-                ButtonArray(i).BackColor = Color.FromArgb(0, 0, 6)
-                ButtonArray(i).BackgroundImage = Image.FromFile("6.png")
+                ElseIf smallArray(firstResult, secondResult) = "5" Then
+                    ButtonArray(i).BackColor = Color.FromArgb(0, 0, 5)
+                    ButtonArray(i).BackgroundImage = Image.FromFile("5.png")
 
-            ElseIf smallArray(firstResult, secondResult) = "7" Then
-                ButtonArray(i).BackColor = Color.FromArgb(0, 0, 7)
-                ButtonArray(i).BackgroundImage = Image.FromFile("7.png")
+                ElseIf smallArray(firstResult, secondResult) = "6" Then
+                    ButtonArray(i).BackColor = Color.FromArgb(0, 0, 6)
+                    ButtonArray(i).BackgroundImage = Image.FromFile("6.png")
 
-            ElseIf smallArray(firstResult, secondResult) = "8" Then
-                ButtonArray(i).BackColor = Color.FromArgb(0, 0, 8)
+                ElseIf smallArray(firstResult, secondResult) = "7" Then
+                    ButtonArray(i).BackColor = Color.FromArgb(0, 0, 7)
+                    ButtonArray(i).BackgroundImage = Image.FromFile("7.png")
+
+                ElseIf smallArray(firstResult, secondResult) = "8" Then
+                    ButtonArray(i).BackColor = Color.FromArgb(0, 0, 8)
                 ButtonArray(i).BackgroundImage = Image.FromFile("8.png")
 
             End If

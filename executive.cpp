@@ -39,6 +39,9 @@ void executive::StartFilesForVBA()
 
 void executive::Run()
 {
+	std::ofstream resetFiles;
+	resetFiles.open("you_lose.txt", std::ofstream::out | std::ofstream::trunc);
+	resetFiles.close();
 	int x=0, y=0;
 	CreateBoard();
 	StartFilesForVBA();
@@ -46,6 +49,9 @@ void executive::Run()
 	{
 		std:: cout << "Where would you like to check?\n" << "Please enter row you would like to check: ";
 		std:: cin >> x;
+		//this is a key that VBA can use to end the C++ application.
+		//we felt this was better than allowing the VBA application administrator privileges.
+		if (x == -9999) return;
 		std:: cout << "\n Please enter column you would ike to check: ";
 		std:: cin >> y;
 		Read(x,y);
@@ -245,7 +251,7 @@ void executive::Read(int x, int y)
 {
 	if (m_game_board[x][y].Holding() == MINE)
 	{
-		std::cout << "BOMB";
+		//std::cout << "BOMB";
 		BombReveal();
 	}
 	if (m_game_board[x][y].Holding() == NONE)
@@ -261,7 +267,22 @@ void executive::Read(int x, int y)
 
 void executive::AdjacentReveal(int x, int y)
 {
-	m_show_board[x][y] = (m_game_board[x][y].AdjacentMines());
+	m_show_board[x][y] = std::to_string(m_game_board[x][y].AdjacentMines()).at(0);
+
+	//update the text file
+	std::ofstream outFile;
+	outFile.open("board.txt", std::ofstream::out | std::ofstream::trunc);
+	outFile.close();
+	outFile.open("board.txt");
+	for (int i = 0; i < m_row_size; i++)
+	{
+		for (int j = 0; j < m_row_size; j++)
+		{
+			outFile << m_show_board[i][j] << " ";
+		}
+		outFile << "\n";
+	}
+	outFile.close();
 }
 
 void executive::BombReveal()
@@ -272,11 +293,11 @@ void executive::BombReveal()
 	outFile.open(newFile);
 	outFile << "L\n";
 	outFile.close();
-	gameover = true;
-	while (1)
-	{
+	//gameover = true;
+	//while (1)
+	//{
 
-	}
+	//}
 }
 
 void executive::NoneReveal(int x, int y)
