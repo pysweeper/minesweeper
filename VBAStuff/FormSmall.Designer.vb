@@ -18,7 +18,7 @@ Partial Class FormSmall
     Private components As System.ComponentModel.IContainer
 
     'NOTE: The following procedure is required by the Windows Form Designer
-    'It can be modified using the Windows Form Designer.  
+    'It can be modified using the Windows Form Designer.
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
@@ -2306,6 +2306,3769 @@ Partial Class FormSmall
 
         End If
 
+    End Sub
+
+    'BUTTON 21
+
+    Private Sub Button21_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button21.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button21.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button21.BackgroundImage) Then
+                Me.Button21.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button21.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button21.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button21.BackgroundImage = Nothing
+                Me.Button21.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("2")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("0")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 22
+    Private Sub Button22_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button22.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button22.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button22.BackgroundImage) Then
+                Me.Button22.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button22.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button22.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button22.BackgroundImage = Nothing
+                Me.Button22.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("2")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("1")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+
+    'BUTTON 23
+    Private Sub Button23_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button23.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button23.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button23.BackgroundImage) Then
+                Me.Button23.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button23.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button23.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button23.BackgroundImage = Nothing
+                Me.Button23.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("2")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("2")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 24
+    Private Sub Button24_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button24.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button24.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button24.BackgroundImage) Then
+                Me.Button24.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button24.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button24.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button24.BackgroundImage = Nothing
+                Me.Button24.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("2")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("3")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 25
+    Private Sub Button25_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button25.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button25.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button24.BackgroundImage) Then
+                Me.Button25.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button25.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button25.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button25.BackgroundImage = Nothing
+                Me.Button25.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("2")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("4")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 26
+    Private Sub Button26_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button26.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button26.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button26.BackgroundImage) Then
+                Me.Button26.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button26.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button26.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button26.BackgroundImage = Nothing
+                Me.Button26.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("2")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("5")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 27
+    Private Sub Button27_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button27.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button27.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button27.BackgroundImage) Then
+                Me.Button27.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button27.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button27.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button27.BackgroundImage = Nothing
+                Me.Button27.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("2")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("6")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 28
+    Private Sub Button28_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button28.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button28.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button28.BackgroundImage) Then
+                Me.Button28.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button28.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button28.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button28.BackgroundImage = Nothing
+                Me.Button28.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("2")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("7")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 29
+    Private Sub Button29_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button29.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button29.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button29.BackgroundImage) Then
+                Me.Button29.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button29.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button29.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button29.BackgroundImage = Nothing
+                Me.Button29.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("2")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("8")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 30
+    Private Sub Button30_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button30.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button30.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button30.BackgroundImage) Then
+                Me.Button30.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button30.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button30.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button30.BackgroundImage = Nothing
+                Me.Button30.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("2")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("9")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 31
+    Private Sub Button31_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button31.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button31.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button31.BackgroundImage) Then
+                Me.Button31.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button31.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button31.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button31.BackgroundImage = Nothing
+                Me.Button31.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("3")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("0")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 32
+    Private Sub Button32_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button32.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button32.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button32.BackgroundImage) Then
+                Me.Button32.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button32.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button32.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button32.BackgroundImage = Nothing
+                Me.Button32.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("3")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("1")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 33
+    Private Sub Button33_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button33.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button33.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button33.BackgroundImage) Then
+                Me.Button33.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button33.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button33.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button33.BackgroundImage = Nothing
+                Me.Button33.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("3")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("2")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 34
+    Private Sub Button34_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button34.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button34.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button34.BackgroundImage) Then
+                Me.Button34.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button34.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button34.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button34.BackgroundImage = Nothing
+                Me.Button34.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("3")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("3")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 35
+    Private Sub Button35_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button35.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button35.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button35.BackgroundImage) Then
+                Me.Button35.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button35.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button35.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button35.BackgroundImage = Nothing
+                Me.Button35.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("3")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("4")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 36
+    Private Sub Button36_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button36.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button36.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button36.BackgroundImage) Then
+                Me.Button36.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button36.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button36.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button36.BackgroundImage = Nothing
+                Me.Button36.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("3")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("5")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 37
+    Private Sub Button37_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button37.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button37.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button37.BackgroundImage) Then
+                Me.Button37.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button37.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button37.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button37.BackgroundImage = Nothing
+                Me.Button37.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("3")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("6")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 38
+    Private Sub Button38_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button38.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button38.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button38.BackgroundImage) Then
+                Me.Button38.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button38.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button38.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button38.BackgroundImage = Nothing
+                Me.Button38.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("3")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("7")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 39
+    Private Sub Button39_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button39.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button39.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button39.BackgroundImage) Then
+                Me.Button39.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button39.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button39.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button39.BackgroundImage = Nothing
+                Me.Button39.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("3")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("8")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 40
+    Private Sub Button40_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button40.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button40.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button40.BackgroundImage) Then
+                Me.Button40.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button40.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button40.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button40.BackgroundImage = Nothing
+                Me.Button40.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("3")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("9")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 41
+    Private Sub Button41_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button41.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button41.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button41.BackgroundImage) Then
+                Me.Button41.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button41.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button41.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button41.BackgroundImage = Nothing
+                Me.Button41.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("4")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("0")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 42
+    Private Sub Button42_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button42.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button42.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button42.BackgroundImage) Then
+                Me.Button42.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button42.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button42.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button42.BackgroundImage = Nothing
+                Me.Button42.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("4")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("1")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 43
+    Private Sub Button43_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button43.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button43.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button43.BackgroundImage) Then
+                Me.Button43.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button43.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button43.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button43.BackgroundImage = Nothing
+                Me.Button43.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("4")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("2")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 44
+    Private Sub Button44_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button44.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button44.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button44.BackgroundImage) Then
+                Me.Button44.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button44.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button44.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button44.BackgroundImage = Nothing
+                Me.Button44.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("4")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("3")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 45
+    Private Sub Button45_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button45.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button45.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button45.BackgroundImage) Then
+                Me.Button45.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button45.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button45.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button45.BackgroundImage = Nothing
+                Me.Button45.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("4")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("4")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 46
+    Private Sub Button46_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button46.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button46.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button46.BackgroundImage) Then
+                Me.Button46.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button46.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button46.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button46.BackgroundImage = Nothing
+                Me.Button46.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("4")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("5")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 47
+    Private Sub Button47_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button47.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button47.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button47.BackgroundImage) Then
+                Me.Button47.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button47.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button47.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button47.BackgroundImage = Nothing
+                Me.Button47.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("4")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("6")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 48
+    Private Sub Button48_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button48.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button48.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button48.BackgroundImage) Then
+                Me.Button48.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button48.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button48.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button48.BackgroundImage = Nothing
+                Me.Button48.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("4")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("7")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 49
+    Private Sub Button49_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button49.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button49.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button49.BackgroundImage) Then
+                Me.Button49.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button49.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button49.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button49.BackgroundImage = Nothing
+                Me.Button49.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("4")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("8")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 50
+    Private Sub Button50_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button50.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button50.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button50.BackgroundImage) Then
+                Me.Button50.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button50.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button50.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button50.BackgroundImage = Nothing
+                Me.Button50.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("4")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("9")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 51
+    Private Sub Button51_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button51.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button51.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button51.BackgroundImage) Then
+                Me.Button51.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button51.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button51.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button51.BackgroundImage = Nothing
+                Me.Button51.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("5")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("0")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 52
+    Private Sub Button52_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button52.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button52.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button52.BackgroundImage) Then
+                Me.Button52.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button52.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button52.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button52.BackgroundImage = Nothing
+                Me.Button52.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("5")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("1")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 53
+    Private Sub Button53_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button53.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button53.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button53.BackgroundImage) Then
+                Me.Button53.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button53.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button53.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button53.BackgroundImage = Nothing
+                Me.Button53.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("5")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("2")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 54
+    Private Sub Button54_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button54.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button54.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button54.BackgroundImage) Then
+                Me.Button54.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button54.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button54.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button54.BackgroundImage = Nothing
+                Me.Button54.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("5")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("3")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 55
+    Private Sub Button55_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button55.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button55.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button55.BackgroundImage) Then
+                Me.Button55.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button55.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button55.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button55.BackgroundImage = Nothing
+                Me.Button55.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("5")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("4")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 56
+    Private Sub Button56_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button56.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button56.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button56.BackgroundImage) Then
+                Me.Button56.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button56.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button56.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button56.BackgroundImage = Nothing
+                Me.Button56.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("5")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("5")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 57
+    Private Sub Button57_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button57.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button57.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button57.BackgroundImage) Then
+                Me.Button57.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button57.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button57.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button57.BackgroundImage = Nothing
+                Me.Button57.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("5")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("6")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 58
+    Private Sub Button58_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button58.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button58.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button58.BackgroundImage) Then
+                Me.Button58.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button58.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button58.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button58.BackgroundImage = Nothing
+                Me.Button58.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("5")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("7")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 59
+    Private Sub Button59_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button59.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button59.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button59.BackgroundImage) Then
+                Me.Button59.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button59.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button59.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button59.BackgroundImage = Nothing
+                Me.Button59.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("5")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("8")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 60
+    Private Sub Button60_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button60.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button60.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button60.BackgroundImage) Then
+                Me.Button60.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button60.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button60.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button60.BackgroundImage = Nothing
+                Me.Button60.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("5")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("9")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 61
+    Private Sub Button61_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button61.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button61.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button61.BackgroundImage) Then
+                Me.Button61.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button61.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button61.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button61.BackgroundImage = Nothing
+                Me.Button61.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("6")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("0")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 62
+    Private Sub Button62_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button62.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button62.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button62.BackgroundImage) Then
+                Me.Button62.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button62.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button62.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button62.BackgroundImage = Nothing
+                Me.Button62.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("6")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("1")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 63
+    Private Sub Button63_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button63.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button63.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button63.BackgroundImage) Then
+                Me.Button63.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button63.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button63.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button63.BackgroundImage = Nothing
+                Me.Button63.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("6")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("2")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 64
+    Private Sub Button64_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button64.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button64.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button64.BackgroundImage) Then
+                Me.Button64.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button64.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button64.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button64.BackgroundImage = Nothing
+                Me.Button64.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("6")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("3")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 65
+    Private Sub Button65_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button65.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button65.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button65.BackgroundImage) Then
+                Me.Button65.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button65.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button65.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button65.BackgroundImage = Nothing
+                Me.Button65.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("6")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("4")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 66
+    Private Sub Button66_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button66.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button66.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button66.BackgroundImage) Then
+                Me.Button66.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button66.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button66.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button66.BackgroundImage = Nothing
+                Me.Button66.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("6")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("5")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 67
+    Private Sub Button67_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button67.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button67.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button67.BackgroundImage) Then
+                Me.Button67.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button67.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button67.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button67.BackgroundImage = Nothing
+                Me.Button67.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("6")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("6")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+
+    'BUTTON 68
+    Private Sub Button68_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button68.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button68.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button68.BackgroundImage) Then
+                Me.Button68.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button68.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button68.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button68.BackgroundImage = Nothing
+                Me.Button68.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("6")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("7")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 69
+    Private Sub Button69_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button69.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button69.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button69.BackgroundImage) Then
+                Me.Button69.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button69.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button69.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button69.BackgroundImage = Nothing
+                Me.Button69.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("6")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("8")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 70
+    Private Sub Button70_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button70.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button70.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button70.BackgroundImage) Then
+                Me.Button70.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button70.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button70.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button70.BackgroundImage = Nothing
+                Me.Button70.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("6")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("9")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 71
+    Private Sub Button71_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button71.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button71.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button71.BackgroundImage) Then
+                Me.Button71.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button71.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button71.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button71.BackgroundImage = Nothing
+                Me.Button71.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("7")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("0")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 72
+    Private Sub Button72_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button72.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button72.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button72.BackgroundImage) Then
+                Me.Button72.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button72.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button72.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button72.BackgroundImage = Nothing
+                Me.Button72.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("7")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("1")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 73
+    Private Sub Button73_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button73.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button73.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button73.BackgroundImage) Then
+                Me.Button73.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button73.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button73.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button73.BackgroundImage = Nothing
+                Me.Button73.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("7")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("2")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 74
+    Private Sub Button74_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button74.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button74.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button74.BackgroundImage) Then
+                Me.Button74.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button74.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button74.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button74.BackgroundImage = Nothing
+                Me.Button74.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("7")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("3")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 75
+    Private Sub Button75_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button75.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button75.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button75.BackgroundImage) Then
+                Me.Button75.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button75.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button75.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button75.BackgroundImage = Nothing
+                Me.Button75.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("7")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("4")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 76
+    Private Sub Button76_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button76.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button76.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button76.BackgroundImage) Then
+                Me.Button76.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button76.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button76.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button76.BackgroundImage = Nothing
+                Me.Button76.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("7")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("5")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 77
+    Private Sub Button77_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button77.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button77.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button77.BackgroundImage) Then
+                Me.Button77.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button77.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button77.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button77.BackgroundImage = Nothing
+                Me.Button77.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("7")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("6")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 78
+    Private Sub Button78_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button78.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button78.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button78.BackgroundImage) Then
+                Me.Button78.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button78.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button78.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button78.BackgroundImage = Nothing
+                Me.Button78.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("7")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("7")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 79
+    Private Sub Button79_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button79.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button79.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button79.BackgroundImage) Then
+                Me.Button79.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button79.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button79.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button79.BackgroundImage = Nothing
+                Me.Button79.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("7")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("8")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 80
+    Private Sub Button80_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button80.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button80.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button80.BackgroundImage) Then
+                Me.Button80.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button80.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button80.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button80.BackgroundImage = Nothing
+                Me.Button80.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("7")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("9")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 81
+    Private Sub Button81_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button81.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button81.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button81.BackgroundImage) Then
+                Me.Button81.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button81.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button81.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button81.BackgroundImage = Nothing
+                Me.Button81.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("8")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("0")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 82
+    Private Sub Button82_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button82.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button82.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button82.BackgroundImage) Then
+                Me.Button82.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button82.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button82.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button82.BackgroundImage = Nothing
+                Me.Button82.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("8")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("1")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 83
+    Private Sub Button83_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button83.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button83.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button83.BackgroundImage) Then
+                Me.Button83.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button83.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button83.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button83.BackgroundImage = Nothing
+                Me.Button83.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("8")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("2")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 84
+    Private Sub Button84_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button84.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button84.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button84.BackgroundImage) Then
+                Me.Button84.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button84.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button84.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button84.BackgroundImage = Nothing
+                Me.Button84.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("8")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("3")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 85
+    Private Sub Button85_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button85.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button85.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button85.BackgroundImage) Then
+                Me.Button85.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button85.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button85.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button85.BackgroundImage = Nothing
+                Me.Button85.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("8")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("4")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 86
+    Private Sub Button86_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button86.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button86.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button86.BackgroundImage) Then
+                Me.Button86.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button86.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button86.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button86.BackgroundImage = Nothing
+                Me.Button86.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("8")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("5")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 87
+    Private Sub Button87_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button87.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button87.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button87.BackgroundImage) Then
+                Me.Button87.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button87.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button87.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button87.BackgroundImage = Nothing
+                Me.Button87.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("8")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("6")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 88
+    Private Sub Button88_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button88.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button88.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button88.BackgroundImage) Then
+                Me.Button88.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button88.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button88.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button88.BackgroundImage = Nothing
+                Me.Button88.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("8")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("7")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 89
+    Private Sub Button89_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button89.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button89.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button89.BackgroundImage) Then
+                Me.Button89.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button89.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button89.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button89.BackgroundImage = Nothing
+                Me.Button89.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("8")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("8")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 90
+    Private Sub Button90_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button90.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button90.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button90.BackgroundImage) Then
+                Me.Button90.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button90.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button90.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button90.BackgroundImage = Nothing
+                Me.Button90.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("8")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("9")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 91
+    Private Sub Button91_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button91.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button91.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button91.BackgroundImage) Then
+                Me.Button91.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button91.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button91.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button91.BackgroundImage = Nothing
+                Me.Button91.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("9")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("0")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 92
+    Private Sub Button92_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button92.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button92.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button92.BackgroundImage) Then
+                Me.Button92.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button92.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button92.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button92.BackgroundImage = Nothing
+                Me.Button92.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("9")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("1")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 93
+    Private Sub Button93_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button93.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button93.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button93.BackgroundImage) Then
+                Me.Button93.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button93.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button93.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button93.BackgroundImage = Nothing
+                Me.Button93.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("9")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("2")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 94
+    Private Sub Button94_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button94.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button94.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button94.BackgroundImage) Then
+                Me.Button94.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button94.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button94.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button94.BackgroundImage = Nothing
+                Me.Button94.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("9")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("3")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 95
+    Private Sub Button95_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button95.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button95.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button95.BackgroundImage) Then
+                Me.Button95.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button95.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button95.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button95.BackgroundImage = Nothing
+                Me.Button95.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("9")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("4")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 96
+    Private Sub Button96_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button96.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button96.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button96.BackgroundImage) Then
+                Me.Button96.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button96.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button96.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button96.BackgroundImage = Nothing
+                Me.Button96.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("9")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("5")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 97
+    Private Sub Button97_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button97.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button97.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button97.BackgroundImage) Then
+                Me.Button97.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button97.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button97.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button97.BackgroundImage = Nothing
+                Me.Button97.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("9")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("6")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 98
+    Private Sub Button98_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button98.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button98.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button98.BackgroundImage) Then
+                Me.Button98.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button98.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button98.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button98.BackgroundImage = Nothing
+                Me.Button98.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("9")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("7")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 99
+    Private Sub Button99_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button99.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button99.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button99.BackgroundImage) Then
+                Me.Button99.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button99.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button99.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button99.BackgroundImage = Nothing
+                Me.Button99.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("9")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("8")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
+    End Sub
+
+    'BUTTON 100
+    Private Sub Button100_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button100.MouseDown
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ''if right click and box is unclicked set it to flag
+            If Me.Button100.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button100.BackgroundImage) Then
+                Me.Button100.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
+                Me.Button100.BackColor = Color.FromArgb(0, 0, 0)
+                '' you placed another flag
+                Flags = Flags + 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''else if right click and is already flag, set unclicked.
+            ElseIf Me.Button100.BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+                Me.Button100.BackgroundImage = Nothing
+                Me.Button100.BackColor = Color.FromArgb(0, 0, 64)
+                '' you removed a flag
+                Flags = Flags - 1
+                ''run some method to see if all mines and ONLY mines are flags. if so, end game.
+                FlagWin()
+                ''Naturally, in all other instances we will ignore a right click.
+            End If
+        ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
+            ''cpp = Shell("C:\Program Files\Minesweeper\MineSweeper.exe")
+            AppActivate(cpp)
+            SendKeys.Send("9")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("9")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(30)
+
+            ''Now we must check to see if we lost the game
+            checkLoss()
+            If testCharacter = "L" Then
+                ''run the end game script
+                RunLoseGame()
+            Else
+                UpdateArray(smallArray)
+                ''MsgBox("array updated")
+                ''time to update tiles.
+                UpdateTiles()
+            End If
+        End If
     End Sub
 
     Private Sub FormSmall_Load(sender As Object, e As EventArgs) Handles MyBase.Load
