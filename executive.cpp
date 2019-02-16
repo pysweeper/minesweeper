@@ -73,7 +73,7 @@ void executive::CreateBoard()
 	std::cin >> m_row_size;
 	std::cout << "Input m_mine_number: ";
 	std::cin >> m_mine_number;
-	//system("CLS");
+	
 	m_game_board = new square*[m_row_size];
 	for (int i = 0; i < m_row_size;i++)
 	{
@@ -221,10 +221,7 @@ void executive::UpdateAdjacents()
 
 	//for testing purposes
 	Print();
-	//while (1)
-	//{
 
-	//}
 
 	}
 
@@ -294,11 +291,7 @@ void executive::BombReveal()
 	outFile.open(newFile);
 	outFile << "L\n";
 	outFile.close();
-	//gameover = true;
-	//while (1)
-	//{
 
-	//}
 }
 
 void executive::NoneReveal(int x, int y)
