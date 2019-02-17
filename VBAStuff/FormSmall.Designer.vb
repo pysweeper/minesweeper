@@ -18,7 +18,7 @@ Partial Class FormSmall
     Private components As System.ComponentModel.IContainer
 
     'NOTE: The following procedure is required by the Windows Form Designer
-    'It can be modified using the Windows Form Designer.
+    'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
@@ -2502,7 +2502,7 @@ Partial Class FormSmall
     Private Sub Button25_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Button25.MouseDown
         If e.Button = Windows.Forms.MouseButtons.Right Then
             ''if right click and box is unclicked set it to flag
-            If Me.Button25.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button24.BackgroundImage) Then
+            If Me.Button25.BackColor.Equals(Color.FromArgb(0, 0, 64)) And IsNothing(Me.Button25.BackgroundImage) Then
                 Me.Button25.BackgroundImage = System.Drawing.Image.FromFile("flag.jpg") 'MineSweeperGUI.My.Resources.Resources.flag
                 Me.Button25.BackColor = Color.FromArgb(0, 0, 0)
                 '' you placed another flag
@@ -6070,9 +6070,6 @@ Partial Class FormSmall
             End If
         End If
     End Sub
-
-  
-
     Private Sub FormSmall_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         AssignButtons()
         mapString = My.Computer.FileSystem.ReadAllText("map.txt")

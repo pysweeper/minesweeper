@@ -1,6 +1,8 @@
 ﻿Public Module Module1
 
+
     Declare Function GetCurrentProcessId Lib "kernel32" () As Long
+
 
     Declare Function SetForegroundWindow Lib "user32.dll" (ByVal hwnd As Integer) As Integer
 
@@ -13,6 +15,11 @@
 
     Public ButtonArray(100) As Button
 
+    ''
+    '
+    '@param str - the string to remove whitespace from
+    '@return - the same string without whitespace
+    '@remarks - see citations, this function removes whitespace from a string.
     Public Function ClearSpaces(str As String) As String
         Return New String(str.Where(Function(x) Not Char.IsWhiteSpace(x)).ToArray())
     End Function
@@ -26,7 +33,10 @@
 
     Public mapString As String
 
-
+    ''
+    '
+    '@return - none
+    '@remarks - after C++ updates the board.txt file, VBA's array must read in the text file and update.
     Public Sub UpdateArray(array(,) As Char)
 
         Dim fileReader As String
@@ -49,7 +59,10 @@
         ' MsgBox(smallArray(1, 0))
     End Sub
 
-
+    ''
+    '
+    'return - none
+    '@remarks - Checks you_lose.txt for a character representing the game is over. This character would come from C++.
     Public Sub checkLoss()
         Dim fileReader As String
         fileReader = My.Computer.FileSystem.ReadAllText("you_lose.txt")
@@ -62,6 +75,10 @@
 
     End Sub
 
+    ''
+    '
+    '@return - none
+    '@remarks - Closes the C++ program, resets the VBA application. Reports win to user.
     Public Sub RunWinGame()
 
         MsgBox("You won!")
@@ -77,6 +94,10 @@
         Form1.Show()
     End Sub
 
+    ''
+    '
+    '@return - none
+    '@remarks - Closes the C++ program, resets the VBA application. Reports loss to user.
     Public Sub RunLoseGame()
         MsgBox("Oh dear! You clicked a mine!")
         AppActivate(cpp)
@@ -90,6 +111,11 @@
         Form1.Show()
     End Sub
 
+
+    ''
+    '
+    '@return - none
+    '@remarks - Checks for a win condition based on flag locations. If win, run RunWinGame().
     Public Sub FlagWin()
         ''MsgBox("We ran flag win")
         mapString = My.Computer.FileSystem.ReadAllText("map.txt")
@@ -122,6 +148,10 @@
         End If
     End Sub
 
+    ''
+    '
+    '@return - none
+    '@remarks - Pushes all buttons on FormSmall to the button array.
     Public Sub AssignButtons()
         mapString = My.Computer.FileSystem.ReadAllText("map.txt")
         ButtonArray(0) = FormSmall.Button1
@@ -247,11 +277,14 @@
     End Sub
 
 
-
+    ''
+    '
+    '@return - none
+    '@remarks - Scans the tile array, updates button skins accordingly.
     Public Sub UpdateTiles()
 
 
-        ''etc
+
         Dim i As Integer
         Dim iStr As String
         Dim secondResult As Integer
@@ -316,6 +349,10 @@
 
     End Sub
 
+    ''
+    '
+    '@return - none
+    '@remarks - Resets tiles to default skin.
     Public Sub ResetTiles()
         For i = 0 To 99
             ButtonArray(i).BackColor = Color.FromArgb(0, 0, 64)

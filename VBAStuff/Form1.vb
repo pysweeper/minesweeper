@@ -9,7 +9,7 @@ Public Class Form1
         SendKeys.Send("10")
         Dim id As Long
         id = GetCurrentProcessId
-        SmallPickBombNum.Label2.Text = id
+        ''SmallPickBombNum.Label2.Text = id
         'MsgBox(id)
         Threading.Thread.Sleep(30)
         SendKeys.Send("{ENTER}")
