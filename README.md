@@ -1,3 +1,11 @@
+Pysweeper Joins the Battle!
+1. Benjaman Wiss
+2. Jeff Kissick
+3. John Voldon
+4. Tomaas Smythie
+
+
+
 # minesweeper
 ## Team Rocket's Minesweeper (Alex, Sandy, Clay, Evan)
 
