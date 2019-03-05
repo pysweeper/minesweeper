@@ -29,7 +29,7 @@ Partial Class SmallPickBombNum
         '
         'Label1
         '
-        Me.Label1.Font = New System.Drawing.Font("Pill Gothic 600mg Semibd", 48.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 48.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Label1.Location = New System.Drawing.Point(100, 74)
         Me.Label1.Name = "Label1"
@@ -50,7 +50,7 @@ Partial Class SmallPickBombNum
         'Button1
         '
         Me.Button1.BackColor = System.Drawing.Color.DimGray
-        Me.Button1.Font = New System.Drawing.Font("Pill Gothic 600mg Semibd", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Button1.Location = New System.Drawing.Point(305, 287)
         Me.Button1.Name = "Button1"

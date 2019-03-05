@@ -17,4 +17,5 @@
         MineNum = Integer.Parse(str)
         SendKeys.Send("{ENTER}")
     End Sub
+
 End Class
