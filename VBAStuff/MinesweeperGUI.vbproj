@@ -6,9 +6,9 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{A740BE70-F469-4B4C-8BB9-DF057607AC59}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>WindowsApp2.My.MyApplication</StartupObject>
-    <RootNamespace>WindowsApp2</RootNamespace>
-    <AssemblyName>WindowsApp2</AssemblyName>
+    <StartupObject>MinesweeperGUI.My.MyApplication</StartupObject>
+    <RootNamespace>MinesweeperGUI</RootNamespace>
+    <AssemblyName>MinesweeperGUI</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
@@ -22,7 +22,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>WindowsApp2.xml</DocumentationFile>
+    <DocumentationFile>MinesweeperGUI.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -32,7 +32,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>WindowsApp2.xml</DocumentationFile>
+    <DocumentationFile>MinesweeperGUI.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
