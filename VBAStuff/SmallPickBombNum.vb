@@ -4,11 +4,8 @@
         ' Label2.Hide()
     End Sub
 
-
-
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim str As String
-
         Me.Hide()
         FormSmall.Show()
         AppActivate(cpp)
@@ -17,5 +14,4 @@
         MineNum = Integer.Parse(str)
         SendKeys.Send("{ENTER}")
     End Sub
-
 End Class

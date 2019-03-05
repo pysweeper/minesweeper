@@ -1,22 +1,10 @@
 ﻿Public Module Module1
-
-
     Declare Function GetCurrentProcessId Lib "kernel32" () As Long
-
-
     Declare Function SetForegroundWindow Lib "user32.dll" (ByVal hwnd As Integer) As Integer
-
-
-
-
     Public cpp As Integer
-
     Public MineNum As Integer
 
     'Public ButtonArray(100) As Button
-
-    ''
-    '
     '@param str - the string to remove whitespace from
     '@return - the same string without whitespace
     '@remarks - see citations, this function removes whitespace from a string.
@@ -25,12 +13,8 @@
     End Function
 
     Public Flags As Integer
-
-
     Public smallArray(10, 10) As Char
-
     Public testCharacter As Char
-
     Public mapString As String
 
     ''
@@ -91,7 +75,7 @@
         ''terminate the GUI, reload the first form.
         FormSmall.Close()
         SmallPickBombNum.Close()
-        Form1.Show()
+        Minesweeper.Show()
     End Sub
 
     ''
@@ -108,7 +92,7 @@
         ''terminate the GUI, reload the first form.
         FormSmall.Close()
         SmallPickBombNum.Close()
-        Form1.Show()
+        Minesweeper.Show()
     End Sub
 
 
@@ -184,8 +168,8 @@
             secondResult = CInt(iStr)
 
             If smallArray(firstResult, secondResult) = "-" Then
-                    ''make the button grey.
-                    FormSmall.ButtonArray(i).BackgroundImage = Nothing
+                ''make the button grey.
+                FormSmall.ButtonArray(i).BackgroundImage = Nothing
                 FormSmall.ButtonArray(i).FlatStyle = FlatStyle.Flat
                 FormSmall.ButtonArray(i).BackColor = SystemColors.ControlDark
 

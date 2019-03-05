@@ -1,5 +1,5 @@
 ﻿
-Public Class Form1
+Public Class Minesweeper
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         SmallPickBombNum.Show()
         Me.Hide()
@@ -13,12 +13,5 @@ Public Class Form1
         'MsgBox(id)
         Threading.Thread.Sleep(30)
         SendKeys.Send("{ENTER}")
-
     End Sub
-
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-
-    End Sub
-
 End Class
