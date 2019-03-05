@@ -1,8 +1,8 @@
 Pysweeper Joins the Battle!
-1. Benjaman Wyss
+1. Benjamin Wyss
 2. Jeff Kissick
 3. Jon Volden
-4. Tomaas Smythie
+4. Thomas Smithey
 
 
 
