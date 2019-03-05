@@ -1,10 +1,56 @@
-Pysweeper Joins the Battle!
+# Pysweeper Joins the Battle!
+
+## Py Enthusiasts:
+
 1. Benjamin Wyss
 2. Jeff Kissick
 3. Jon Volden
 4. Thomas Smithey
 
+### Goals as laid out by [Project 2](https://canvas.instructure.com/courses/1516832/assignments/10826093)
 
+#### Goal 1: Up to Code
+
+Code Requirements and how they pertain to our adopted project:
+1. Must use C++/VBA
+2. Attempt two phases of refactoring prior to feature implimentation
+    * Minimize - Write it once.
+    * Optimize - Write it better.
+3. Any other drastic changes? Ask Kline.
+
+#### Goal 2: Cheat Mode
+
+Reveal then hide board via button press.
+
+#### Goal 3: Custom Addition:
+
+Professor approval by Wednesday? __No later than Friday__
+
+__Ideas from each team member:__
+
+Jon - Power ups. When you win a game in 'normal' mode, you get a one time use "reveal a cell near a mine." After you win again, it becomes "reveal a cell not next to a mine." The third time you can "auto flag" a mine.
+
+Benjamin - 
+
+Jeff - 
+
+Thomas - 
+
+## TODO:
+
+1. Migrate FormSmall/SmallPickBomb into Module1.vb.
+2. Make single UI form with complete functionality.
+3. Adjust C++ backend to accept updated commands.
+   1. Rows & Columns & Mines
+   2. Cheat Mode
+   3. Game mode
+   4. Quit/Start over during any state.
+4. Refactor
+5. Refactor
+6. ...
+
+
+----
 
 # minesweeper
 ## Team Rocket's Minesweeper (Alex, Sandy, Clay, Evan)
