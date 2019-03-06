@@ -1,17 +1,41 @@
 ﻿
 Public Class Minesweeper
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        SmallPickBombNum.Show()
-        Me.Hide()
+    Private NRow As Integer = 10
+    Private NCol As Integer = 10
+
+    ' Play Button
+    Private Sub PlayButton_Click(sender As Object, e As EventArgs) Handles PlayButton.Click
         cpp = Shell("MineSweeper.exe")
-        ''p = Process.Start("MineSweeper.exe")
         Threading.Thread.Sleep(100)
         SendKeys.Send("10")
-        Dim id As Long
-        id = GetCurrentProcessId
-        ''SmallPickBombNum.Label2.Text = id
-        'MsgBox(id)
+        Dim id As Long = GetCurrentProcessId
         Threading.Thread.Sleep(30)
         SendKeys.Send("{ENTER}")
+        Threading.Thread.Sleep(30)
+        SendKeys.Send("4")
+        Threading.Thread.Sleep(30)
+        SendKeys.Send("{ENTER}")
+        Me.PlayButton.Hide()
+        Me.Label1.Hide()
+        Me.ControlBox.Show()
+        Me.RowBox.Show()
+    End Sub
+
+    ' Destructor for Minesweeper
+    Private Sub Form1_Closing(sender As Object, e As EventArgs) Handles Me.FormClosing
+        If (cpp) Then
+            AppActivate(cpp)
+            Threading.Thread.Sleep(100)
+            SendKeys.Send("-9999")
+            Threading.Thread.Sleep(30)
+            SendKeys.Send("{ENTER}")
+        End If
+    End Sub
+
+    Private Sub RowBox_Enter(sender As Object, e As KeyPressEventArgs) Handles RowBox.KeyPress
+        If e.KeyChar = vbCr Then
+            'MsgBox("Hello")
+            'Grab box.text and set to NRow
+        End If
     End Sub
 End Class
