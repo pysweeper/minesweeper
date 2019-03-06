@@ -41,10 +41,13 @@ Thomas -
 1. Migrate FormSmall/SmallPickBomb into Module1.vb.
 2. Make single UI form with complete functionality.
 3. Adjust C++ backend to accept updated commands.
-   1. Rows & Columns & Mines
-   2. Cheat Mode
-   3. Game mode
-   4. Quit/Start over during any state.
+   1. r## - Rows 
+   2. c## - Columns 
+   3. m### - Mines
+   4. g##.## - Guess g[Row].[Col]
+   4. s# - [S]how 0 or 1 / Cheat Mode. Do this in GUI only?
+   5. f# - [F]eature/ Game mode
+   6. q - Quit/Start over during any state.
 4. Refactor
 5. Refactor
 6. ...
