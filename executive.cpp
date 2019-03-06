@@ -6,6 +6,9 @@ executive::executive()
 	m_game_board = nullptr;
 	gameover=false;
 	m_show_board = nullptr;
+	m_row_size = 10;
+	m_col_size = 10;
+	m_mine_number = 10;
 }
 
 
@@ -66,18 +69,11 @@ void executive::CreateBoard()
 	srand(time(NULL));
 	//This GUI will be interacted with "behind the scenes"
 	//by a windows forms application.
-	std::cout << "------------------------------------\n";
-	std::cout << "Terminal GUI\n";
-	std::cout << "------------------------------------\n";
-	std::cout << "Input m_game_board size: ";
-	std::cin >> m_row_size;
-	std::cout << "Input m_mine_number: ";
-	std::cin >> m_mine_number;
 	
 	m_game_board = new square*[m_row_size];
 	for (int i = 0; i < m_row_size;i++)
 	{
-		m_game_board[i] = new square[m_row_size];
+		m_game_board[i] = new square[m_col_size];
 	}
 	//now to randomize mine location
 	int result = 0;
@@ -85,7 +81,7 @@ void executive::CreateBoard()
 	{
 		for (int i = 0; i < m_row_size;i++)
 		{
-			for (int j = 0; j < m_row_size;j++)
+			for (int j = 0; j < m_col_size;j++)
 			{
 				result = rand() % 10;
 				if (result == MINE && m_mine_number > 0 && m_game_board[i][j].Holding()!=MINE)
@@ -114,11 +110,11 @@ void executive::CreateBoard()
 	//occupy the show array
 	for (int i = 0; i < m_row_size; i++)
 	{
-		m_show_board[i] = new char[m_row_size];
+		m_show_board[i] = new char[m_col_size];
 	}
 	for (int i = 0; i < m_row_size; i++)
 	{
-		for (int j = 0; j < m_row_size; j++)
+		for (int j = 0; j < m_col_size; j++)
 		{
 			m_show_board[i][j] = 'H';
 		}
@@ -129,14 +125,14 @@ void executive::UpdateAdjacents()
 {
 	for (int i = 0; i < m_row_size; i++)
 	{
-		for (int j = 0; j < m_row_size; j++)
+		for (int j = 0; j < m_col_size; j++)
 		{
 
 			int counter = 0;
 			if (m_game_board[i][j].Holding() == NONE)
 			{
 				//check up-right
-				if (((i + 1) < m_row_size && (j + 1) < m_row_size))
+				if (((i + 1) < m_row_size && (j + 1) < m_col_size))
 				{
 					if (m_game_board[i + 1][j + 1].Holding() == MINE)
 					{
@@ -146,7 +142,7 @@ void executive::UpdateAdjacents()
 
 
 				//check right
-				if (((i + 1) < m_row_size && (j) < m_row_size))
+				if (((i + 1) < m_row_size && (j) < m_col_size))
 				{
 					if (m_game_board[i + 1][j].Holding() == MINE)
 					{
@@ -164,7 +160,7 @@ void executive::UpdateAdjacents()
 				}
 
 				//check up
-				if (((i)<m_row_size && (j + 1)<m_row_size))
+				if (((i)<m_row_size && (j + 1)<m_col_size))
 				{
 					if (m_game_board[i][j + 1].Holding() == MINE)
 					{
@@ -182,7 +178,7 @@ void executive::UpdateAdjacents()
 				}
 
 				//check left
-				if (((i - 1) >= 0 && (j)<m_row_size))
+				if (((i - 1) >= 0 && (j)<m_col_size))
 				{
 					if (m_game_board[i - 1][j].Holding() == MINE)
 					{
@@ -191,7 +187,7 @@ void executive::UpdateAdjacents()
 				}
 
 				//check up-left
-				if (((i - 1)>=0 && (j + 1)<m_row_size))
+				if (((i - 1)>=0 && (j + 1)<m_col_size))
 				{
 					if (m_game_board[i - 1][j + 1].Holding() == MINE)
 					{
@@ -235,7 +231,7 @@ void executive::Print()
 	//print our 2D array
 	for (int i = 0; i < m_row_size;i++)
 	{
-		for (int j = 0; j < m_row_size;j++)
+		for (int j = 0; j < m_col_size;j++)
 		{
 			std::cout << m_game_board[i][j].Holding() << " ";
 		}
@@ -274,7 +270,7 @@ void executive::AdjacentReveal(int x, int y)
 	outFile.open("board.txt");
 	for (int i = 0; i < m_row_size; i++)
 	{
-		for (int j = 0; j < m_row_size; j++)
+		for (int j = 0; j < m_col_size; j++)
 		{
 			outFile << m_show_board[i][j] << " ";
 		}
@@ -302,13 +298,13 @@ void executive::NoneReveal(int x, int y)
 		return;
 	}
 	//recurse up-right
-	if (((x + 1) < m_row_size && (y + 1) < m_row_size))
+	if (((x + 1) < m_row_size && (y + 1) < m_col_size))
 	{
 
 			recReveal(x + 1, y + 1);
 	}
 	//recurse right
-	if (((x + 1) < m_row_size && (y) < m_row_size))
+	if (((x + 1) < m_row_size && (y) < m_col_size))
 	{
 		recReveal(x + 1, y);
 	}
@@ -318,7 +314,7 @@ void executive::NoneReveal(int x, int y)
 		recReveal(x + 1, y - 1);
 	}
 	//recurse up
-	if (((x) < m_row_size && (y + 1) < m_row_size))
+	if (((x) < m_row_size && (y + 1) < m_col_size))
 	{
 		recReveal(x, y + 1);
 	}
@@ -328,12 +324,12 @@ void executive::NoneReveal(int x, int y)
 		recReveal(x, y - 1);
 	}
 	//recurse left
-	if (((x - 1) >= 0 && (y) < m_row_size))
+	if (((x - 1) >= 0 && (y) < m_col_size))
 	{
 		recReveal(x-1, y);
 	}
 	//recurse up-left
-	if (((x - 1) >= 0 && (y + 1) < m_row_size))
+	if (((x - 1) >= 0 && (y + 1) < m_col_size))
 	{
 		recReveal(x - 1, y+1);
 	}
@@ -354,7 +350,7 @@ void executive::NoneRevealMaster(int x, int y)
 	outFile.open("board.txt");
 	for (int i = 0; i < m_row_size; i++)
 	{
-		for (int j = 0; j < m_row_size; j++)
+		for (int j = 0; j < m_col_size; j++)
 		{
 			outFile << m_show_board[i][j] << " ";
 		}
@@ -363,7 +359,7 @@ void executive::NoneRevealMaster(int x, int y)
 	//reset the recursive checks.
 	for (int i = 0; i < m_row_size; i++)
 	{
-		for (int j = 0; j < m_row_size; j++)
+		for (int j = 0; j < m_col_size; j++)
 		{
 			m_game_board[i][j].CheckedRecursively(false);
 		}

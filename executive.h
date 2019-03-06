@@ -22,6 +22,7 @@ private:
  square** m_game_board;
  char** m_show_board;
  int m_row_size;
+ int m_col_size;
  int m_mine_number;
  bool gameover;
 protected:
