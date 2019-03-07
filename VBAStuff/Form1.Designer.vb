@@ -25,12 +25,15 @@ Partial Class Minesweeper
         Me.PlayButton = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ControlBox = New System.Windows.Forms.GroupBox()
+        Me.MineBox = New System.Windows.Forms.MaskedTextBox()
+        Me.MinesLabel = New System.Windows.Forms.Label()
         Me.ColumnsBox = New System.Windows.Forms.MaskedTextBox()
         Me.ColumnLabel = New System.Windows.Forms.Label()
         Me.RowLabel = New System.Windows.Forms.Label()
         Me.RowBox = New System.Windows.Forms.MaskedTextBox()
-        Me.MinesBox = New System.Windows.Forms.Label()
-        Me.MineBox = New System.Windows.Forms.MaskedTextBox()
+        Me.FlagsLabel = New System.Windows.Forms.Label()
+        Me.FlagsRemainingLabel = New System.Windows.Forms.Label()
+        Me.BoardContainer = New System.Windows.Forms.FlowLayoutPanel()
         Me.ControlBox.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -65,8 +68,10 @@ Partial Class Minesweeper
         '
         'ControlBox
         '
+        Me.ControlBox.Controls.Add(Me.FlagsRemainingLabel)
+        Me.ControlBox.Controls.Add(Me.FlagsLabel)
         Me.ControlBox.Controls.Add(Me.MineBox)
-        Me.ControlBox.Controls.Add(Me.MinesBox)
+        Me.ControlBox.Controls.Add(Me.MinesLabel)
         Me.ControlBox.Controls.Add(Me.ColumnsBox)
         Me.ControlBox.Controls.Add(Me.ColumnLabel)
         Me.ControlBox.Controls.Add(Me.RowLabel)
@@ -81,6 +86,30 @@ Partial Class Minesweeper
         Me.ControlBox.TabStop = False
         Me.ControlBox.Text = "Controls"
         Me.ControlBox.Visible = False
+        '
+        'MineBox
+        '
+        Me.MineBox.BackColor = System.Drawing.Color.White
+        Me.MineBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.MineBox.Font = New System.Drawing.Font("DejaVu Sans Mono for Powerline", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MineBox.Location = New System.Drawing.Point(189, 22)
+        Me.MineBox.Mask = "00"
+        Me.MineBox.Name = "MineBox"
+        Me.MineBox.Size = New System.Drawing.Size(30, 16)
+        Me.MineBox.TabIndex = 5
+        Me.MineBox.Text = "10"
+        Me.MineBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.MineBox.ValidatingType = GetType(Integer)
+        '
+        'MinesLabel
+        '
+        Me.MinesLabel.AutoSize = True
+        Me.MinesLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MinesLabel.Location = New System.Drawing.Point(131, 19)
+        Me.MinesLabel.Name = "MinesLabel"
+        Me.MinesLabel.Size = New System.Drawing.Size(55, 20)
+        Me.MinesLabel.TabIndex = 4
+        Me.MinesLabel.Text = "Mines:"
         '
         'ColumnsBox
         '
@@ -130,37 +159,43 @@ Partial Class Minesweeper
         Me.RowBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.RowBox.ValidatingType = GetType(Integer)
         '
-        'MinesBox
+        'FlagsLabel
         '
-        Me.MinesBox.AutoSize = True
-        Me.MinesBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MinesBox.Location = New System.Drawing.Point(131, 19)
-        Me.MinesBox.Name = "MinesBox"
-        Me.MinesBox.Size = New System.Drawing.Size(55, 20)
-        Me.MinesBox.TabIndex = 4
-        Me.MinesBox.Text = "Mines:"
+        Me.FlagsLabel.AutoSize = True
+        Me.FlagsLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FlagsLabel.Location = New System.Drawing.Point(131, 43)
+        Me.FlagsLabel.Name = "FlagsLabel"
+        Me.FlagsLabel.Size = New System.Drawing.Size(52, 20)
+        Me.FlagsLabel.TabIndex = 6
+        Me.FlagsLabel.Text = "Flags:"
         '
-        'MineBox
+        'FlagsRemainingLabel
         '
-        Me.MineBox.BackColor = System.Drawing.Color.White
-        Me.MineBox.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.MineBox.Font = New System.Drawing.Font("DejaVu Sans Mono for Powerline", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MineBox.Location = New System.Drawing.Point(189, 22)
-        Me.MineBox.Mask = "00"
-        Me.MineBox.Name = "MineBox"
-        Me.MineBox.Size = New System.Drawing.Size(30, 16)
-        Me.MineBox.TabIndex = 5
-        Me.MineBox.Text = "10"
-        Me.MineBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.MineBox.ValidatingType = GetType(Integer)
+        Me.FlagsRemainingLabel.AutoSize = True
+        Me.FlagsRemainingLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FlagsRemainingLabel.Location = New System.Drawing.Point(185, 43)
+        Me.FlagsRemainingLabel.Name = "FlagsRemainingLabel"
+        Me.FlagsRemainingLabel.Size = New System.Drawing.Size(50, 20)
+        Me.FlagsRemainingLabel.TabIndex = 7
+        Me.FlagsRemainingLabel.Text = "NULL"
+        '
+        'BoardContainer
+        '
+        Me.BoardContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.BoardContainer.Location = New System.Drawing.Point(12, 96)
+        Me.BoardContainer.Name = "BoardContainer"
+        Me.BoardContainer.Size = New System.Drawing.Size(776, 341)
+        Me.BoardContainer.TabIndex = 5
+        Me.BoardContainer.Visible = False
         '
         'Minesweeper
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
-        Me.BackColor = System.Drawing.SystemColors.Desktop
+        Me.BackColor = System.Drawing.Color.DarkSlateGray
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.BoardContainer)
         Me.Controls.Add(Me.ControlBox)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PlayButton)
@@ -183,5 +218,8 @@ Partial Class Minesweeper
     Friend WithEvents ColumnsBox As MaskedTextBox
     Friend WithEvents ColumnLabel As Label
     Friend WithEvents MineBox As MaskedTextBox
-    Friend WithEvents MinesBox As Label
+    Friend WithEvents MinesLabel As Label
+    Friend WithEvents FlagsLabel As Label
+    Friend WithEvents FlagsRemainingLabel As Label
+    Friend WithEvents BoardContainer As FlowLayoutPanel
 End Class

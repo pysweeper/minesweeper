@@ -73,8 +73,6 @@
         SendKeys.Send("{ENTER}")
         Threading.Thread.Sleep(50)
         ''terminate the GUI, reload the first form.
-        FormSmall.Close()
-        SmallPickBombNum.Close()
         Minesweeper.Show()
     End Sub
 
@@ -90,8 +88,6 @@
         SendKeys.Send("{ENTER}")
         Threading.Thread.Sleep(50)
         ''terminate the GUI, reload the first form.
-        FormSmall.Close()
-        SmallPickBombNum.Close()
         Minesweeper.Show()
     End Sub
 
@@ -115,7 +111,7 @@
         ''first of all, we need to find out which boys have mines.
         For i = 0 To 99
             If mapString(i) = "0" Then
-                If FormSmall.ButtonArray(i).BackColor = Color.FromArgb(0, 0, 0) Then
+                If Minesweeper.ButtonArray(i).BackColor = Color.FromArgb(0, 0, 0) Then
                     counter = counter + 1
                     ''the button is a flag.
                 End If
@@ -170,40 +166,40 @@
             If smallArray(firstResult, secondResult) = "-" Then
                 ''make the button grey.
                 'FormSmall.ButtonArray(i).BackgroundImage = Nothing
-                FormSmall.ButtonArray(i).FlatStyle = FlatStyle.Flat
-                FormSmall.ButtonArray(i).BackColor = SystemColors.ControlDark
+                Minesweeper.ButtonArray(i).FlatStyle = FlatStyle.Flat
+                Minesweeper.ButtonArray(i).BackColor = SystemColors.ControlDark
 
             ElseIf smallArray(firstResult, secondResult) = "1" Then
-                FormSmall.ButtonArray(i).BackColor = Color.FromArgb(0, 0, 1)
-                FormSmall.ButtonArray(i).BackgroundImage = Image.FromFile("1.png")
+                Minesweeper.ButtonArray(i).BackColor = Color.FromArgb(0, 0, 1)
+                Minesweeper.ButtonArray(i).BackgroundImage = Image.FromFile("1.png")
 
             ElseIf smallArray(firstResult, secondResult) = "2" Then
-                FormSmall.ButtonArray(i).BackColor = Color.FromArgb(0, 0, 2)
-                FormSmall.ButtonArray(i).BackgroundImage = Image.FromFile("2.png")
+                Minesweeper.ButtonArray(i).BackColor = Color.FromArgb(0, 0, 2)
+                Minesweeper.ButtonArray(i).BackgroundImage = Image.FromFile("2.png")
 
             ElseIf smallArray(firstResult, secondResult) = "3" Then
-                FormSmall.ButtonArray(i).BackColor = Color.FromArgb(0, 0, 3)
-                FormSmall.ButtonArray(i).BackgroundImage = Image.FromFile("3.png")
+                Minesweeper.ButtonArray(i).BackColor = Color.FromArgb(0, 0, 3)
+                Minesweeper.ButtonArray(i).BackgroundImage = Image.FromFile("3.png")
 
             ElseIf smallArray(firstResult, secondResult) = "4" Then
-                FormSmall.ButtonArray(i).BackColor = Color.FromArgb(0, 0, 4)
-                FormSmall.ButtonArray(i).BackgroundImage = Image.FromFile("4.png")
+                Minesweeper.ButtonArray(i).BackColor = Color.FromArgb(0, 0, 4)
+                Minesweeper.ButtonArray(i).BackgroundImage = Image.FromFile("4.png")
 
             ElseIf smallArray(firstResult, secondResult) = "5" Then
-                FormSmall.ButtonArray(i).BackColor = Color.FromArgb(0, 0, 5)
-                FormSmall.ButtonArray(i).BackgroundImage = Image.FromFile("5.png")
+                Minesweeper.ButtonArray(i).BackColor = Color.FromArgb(0, 0, 5)
+                Minesweeper.ButtonArray(i).BackgroundImage = Image.FromFile("5.png")
 
             ElseIf smallArray(firstResult, secondResult) = "6" Then
-                FormSmall.ButtonArray(i).BackColor = Color.FromArgb(0, 0, 6)
-                FormSmall.ButtonArray(i).BackgroundImage = Image.FromFile("6.png")
+                Minesweeper.ButtonArray(i).BackColor = Color.FromArgb(0, 0, 6)
+                Minesweeper.ButtonArray(i).BackgroundImage = Image.FromFile("6.png")
 
             ElseIf smallArray(firstResult, secondResult) = "7" Then
-                FormSmall.ButtonArray(i).BackColor = Color.FromArgb(0, 0, 7)
-                FormSmall.ButtonArray(i).BackgroundImage = Image.FromFile("7.png")
+                Minesweeper.ButtonArray(i).BackColor = Color.FromArgb(0, 0, 7)
+                Minesweeper.ButtonArray(i).BackgroundImage = Image.FromFile("7.png")
 
             ElseIf smallArray(firstResult, secondResult) = "8" Then
-                FormSmall.ButtonArray(i).BackColor = Color.FromArgb(0, 0, 8)
-                FormSmall.ButtonArray(i).BackgroundImage = Image.FromFile("8.png")
+                Minesweeper.ButtonArray(i).BackColor = Color.FromArgb(0, 0, 8)
+                Minesweeper.ButtonArray(i).BackgroundImage = Image.FromFile("8.png")
 
             End If
 
@@ -222,7 +218,7 @@
     '@remarks - Resets tiles to default skin.
     Public Sub ResetTiles()
         For i = 0 To 99
-            FormSmall.ButtonArray(i).BackColor = Color.FromArgb(0, 0, 64)
+            Minesweeper.ButtonArray(i).BackColor = Color.FromArgb(0, 0, 64)
         Next
     End Sub
 

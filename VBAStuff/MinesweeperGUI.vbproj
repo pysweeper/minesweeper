@@ -82,10 +82,6 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormSmall.designer.vb">
-      <DependentUpon>FormSmall.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FormSmall.vb" />
     <Compile Include="Module1.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -102,12 +98,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="SmallPickBombNum.designer.vb">
-      <DependentUpon>SmallPickBombNum.vb</DependentUpon>
-    </Compile>
-    <Compile Include="SmallPickBombNum.vb">
-      <SubType>Form</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">
@@ -118,9 +108,6 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SmallPickBombNum.resx">
-      <DependentUpon>SmallPickBombNum.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
