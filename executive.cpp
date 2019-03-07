@@ -1,5 +1,6 @@
 #include "executive.h"
 #include <cstdlib>
+#include <string>
 
 executive::executive()
 {
@@ -48,16 +49,57 @@ void executive::Run()
 	int x=0, y=0;
 	CreateBoard();
 	StartFilesForVBA();
+	std::string command = "";
 	while(!gameover)
 	{
-		std:: cout << "Where would you like to check?\n" << "Please enter row you would like to check: ";
-		std:: cin >> x;
+		std:: cout << "enter command: ";
+		std:: cin >> command;
+
 		//this is a key that VBA can use to end the C++ application.
 		//we felt this was better than allowing the VBA application administrator privileges.
-		if (x == -9999) return;
-		std:: cout << "\n Please enter column you would ike to check: ";
-		std:: cin >> y;
-		Read(x,y);
+		if (command == "-9999") return;
+
+		if (command[0] == 'r')
+		{
+			x = std::stoi(command.substr(1, 2));
+			m_row_size = x;
+			CreateBoard();
+		}
+		else if (command[0] == 'c')
+		{
+			y = std::stoi(command.substr(1, 2));
+			m_col_size = y;
+			CreateBoard();
+		}
+		else if (command[0] == 'm')
+		{
+			x = std::stoi(command.substr(1, 3));
+			if (x >= m_row_size * m_col_size)
+			{
+				x = m_row_size * m_col_size - 1;
+			}
+			m_mine_number = x;
+			CreateBoard();
+		}
+		else if (command[0] == 'g')
+		{
+			x = std::stoi(command.substr(1, 2));
+			y = std::stoi(command.substr(4, 2));
+			Read(x, y);
+		}
+		else if (command[0] == 'f')
+		{
+
+		}
+		else if (command[0] == 'h')
+		{
+
+		}
+		else if (command[0] == 'p')
+		{
+
+		}
+
 	}
 
 }
@@ -69,7 +111,7 @@ void executive::CreateBoard()
 	srand(time(NULL));
 	//This GUI will be interacted with "behind the scenes"
 	//by a windows forms application.
-	
+
 	m_game_board = new square*[m_row_size];
 	for (int i = 0; i < m_row_size;i++)
 	{
@@ -77,18 +119,19 @@ void executive::CreateBoard()
 	}
 	//now to randomize mine location
 	int result = 0;
-	while (m_mine_number > 0)
+	int mines_to_place = m_mine_number;
+	while (mines_to_place > 0)
 	{
 		for (int i = 0; i < m_row_size;i++)
 		{
 			for (int j = 0; j < m_col_size;j++)
 			{
-				result = rand() % 10;
-				if (result == MINE && m_mine_number > 0 && m_game_board[i][j].Holding()!=MINE)
+				result = rand() % m_row_size;
+				if (result == MINE && mines_to_place > 0 && m_game_board[i][j].Holding()!=MINE)
 				{
 					//place a mine
 					m_game_board[i][j].Holding(MINE);
-					m_mine_number--;
+					mines_to_place--;
 				}
 				else if(m_game_board[i][j].Holding() != MINE)
 				{
@@ -97,7 +140,7 @@ void executive::CreateBoard()
 				}
 			}//end of j for
 		}//end of i for
-	
+
 	}
 
 	//for testing purposes.
@@ -281,7 +324,7 @@ void executive::AdjacentReveal(int x, int y)
 
 void executive::BombReveal()
 {
-	
+
 	std::string newFile = "you_lose.txt";
 	std::ofstream outFile;
 	outFile.open(newFile);
