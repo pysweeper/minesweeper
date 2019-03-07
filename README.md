@@ -59,6 +59,8 @@ m### //set number of mines to ### and recreate
 
 g##.## //reveal space at row ##. and column .##
 
+f##.## //flag space at row ##. and column .##
+
 h //activate or deactivate cheat mode and reveal board
 
 p //use powerup (need to finalize how powerups work)
