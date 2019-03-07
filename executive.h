@@ -130,4 +130,11 @@ public:
  */
  void flag(int x, int y);
 
+ /**
+ #Pre - CreateBoard has been called
+ #Param - None
+ #Post - Writes to you_lose.txt (this is a poorly named file). The VBA GUI checks for this, and ends the game when it is done.
+ */
+ void gameWin();
+
 };

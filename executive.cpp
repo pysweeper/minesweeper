@@ -45,9 +45,6 @@ void executive::StartFilesForVBA()
 
 void executive::Run()
 {
-	std::ofstream resetFiles;
-	resetFiles.open("you_lose.txt", std::ofstream::out | std::ofstream::trunc);
-	resetFiles.close();
 	int x=0, y=0;
 	CreateBoard();
 	StartFilesForVBA();
@@ -143,6 +140,10 @@ void executive::CreateBoard()
 	srand(time(NULL));
 	//This GUI will be interacted with "behind the scenes"
 	//by a windows forms application.
+
+	std::ofstream resetFiles;
+	resetFiles.open("you_lose.txt", std::ofstream::out | std::ofstream::trunc);
+	resetFiles.close();
 
 	m_game_board = new square*[m_row_size];
 	for (int i = 0; i < m_row_size;i++)
@@ -354,6 +355,28 @@ void executive::Read(int x, int y)
 	{
 		AdjacentReveal(x,y);
 	}
+
+	//check if game is won
+	bool winner = true;
+	for(int i = 0; i < m_row_size; i++)
+	{
+		for(int j = 0; j < m_col_size; j++)
+		{
+			if (m_show_board[i][j] != m_cheat_board[i][j])
+			{
+				if(!(m_cheat_board[i][j] == 'M' && (m_show_board[i][j] == 'F' || m_show_board[i][j] == 'H')))
+				{
+					winner = false;
+				}
+			}
+		}
+	}
+
+	if (winner)
+	{
+		gameWin();
+	}
+
 }
 
 void executive::flag(int x, int y)
@@ -415,6 +438,15 @@ void executive::BombReveal()
 	outFile << "L\n";
 	outFile.close();
 
+}
+
+void executive::gameWin()
+{
+	std::string newFile = "you_lose.txt";
+	std::ofstream outFile;
+	outFile.open(newFile);
+	outFile << "W\n";
+	outFile.close();
 }
 
 void executive::NoneReveal(int x, int y)
