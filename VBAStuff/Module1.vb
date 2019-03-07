@@ -169,7 +169,7 @@
 
             If smallArray(firstResult, secondResult) = "-" Then
                 ''make the button grey.
-                FormSmall.ButtonArray(i).BackgroundImage = Nothing
+                'FormSmall.ButtonArray(i).BackgroundImage = Nothing
                 FormSmall.ButtonArray(i).FlatStyle = FlatStyle.Flat
                 FormSmall.ButtonArray(i).BackColor = SystemColors.ControlDark
 
@@ -213,6 +213,9 @@
 
     End Sub
 
+    Public Sub nearbyMines()
+        'need to count nearby mines with this function and not the above.
+    End Sub
     ''
     '
     '@return - none

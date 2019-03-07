@@ -34,8 +34,26 @@ Public Class Minesweeper
 
     Private Sub RowBox_Enter(sender As Object, e As KeyPressEventArgs) Handles RowBox.KeyPress
         If e.KeyChar = vbCr Then
+            Dim rowString As String
+            'MsgBox(RowBox.Text)
+            rowString = RowBox.Text
+            MineNum = Integer.Parse(rowString)
             'MsgBox("Hello")
-            'Grab box.text and set to NRow
+            ' Grab(box.text And set to NRow)
+        End If
+    End Sub
+
+    Private Sub ColumnsBox_Enter(sender As Object, e As KeyPressEventArgs) Handles ColumnsBox.KeyPress
+        If e.KeyChar = vbCr Then
+            MsgBox(ColumnsBox.Text)
+
+        End If
+    End Sub
+
+    Private Sub MinesBox_Enter(sender As Object, e As KeyPressEventArgs) Handles MineBox.KeyPress
+        If e.KeyChar = vbCr Then
+            MsgBox(MineBox.Text)
+
         End If
     End Sub
 End Class
