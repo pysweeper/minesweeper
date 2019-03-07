@@ -429,7 +429,7 @@ void executive::NoneReveal(int x, int y)
 	if (((x + 1) < m_row_size && (y + 1) < m_col_size))
 	{
 
-			recReveal(x + 1, y + 1);
+		recReveal(x + 1, y + 1);
 	}
 	//recurse right
 	if (((x + 1) < m_row_size && (y) < m_col_size))
@@ -473,6 +473,8 @@ void executive::NoneReveal(int x, int y)
 
 void executive::NoneRevealMaster(int x, int y)
 {
+	m_show_board[x][y] = '-';
+	m_game_board[x][y].CheckedRecursively(true);
 	NoneReveal(x, y);
 	//update a file;
 	std::ofstream outFile;
@@ -506,13 +508,19 @@ void executive::recReveal(int x, int y)
 	}
 	if (m_game_board[x][y].Holding() == ADJACENT)
 	{
-			m_show_board[x][y] = std::to_string(m_game_board[x][y].AdjacentMines()).at(0);
+			if (m_show_board[x][y] != 'F')
+			{
+				m_show_board[x][y] = std::to_string(m_game_board[x][y].AdjacentMines()).at(0);
+			}
 	}
 	else if (m_game_board[x][y].Holding() == NONE)
 	{
-			m_show_board[x][y] = '-';
 			m_game_board[x][y].CheckedRecursively(true);
-			NoneReveal(x, y);
+			if (m_show_board[x][y] != 'F')
+			{
+				m_show_board[x][y] = '-';
+				NoneReveal(x, y);
+			}
 
 	}
 }
