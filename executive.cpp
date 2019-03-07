@@ -92,7 +92,10 @@ void executive::Run()
 		}
 		else if (command[0] == 'f')
 		{
+			x = std::stoi(command.substr(1, 2));
+			y = std::stoi(command.substr(4, 2));
 			cheating = false;
+			flag(x, y);
 		}
 		else if (command[0] == 'h')
 		{
@@ -155,7 +158,7 @@ void executive::CreateBoard()
 		{
 			for (int j = 0; j < m_col_size;j++)
 			{
-				result = rand() % m_row_size;
+				result = rand() % (m_row_size + m_col_size);
 				if (result == MINE && mines_to_place > 0 && m_game_board[i][j].Holding()!=MINE)
 				{
 					//place a mine
@@ -353,6 +356,36 @@ void executive::Read(int x, int y)
 	}
 }
 
+void executive::flag(int x, int y)
+{
+	if (m_show_board[x][y] == 'H')
+	{
+		m_show_board[x][y] = 'F';
+	}
+	else if (m_show_board[x][y] == 'F')
+	{
+		m_show_board[x][y] = 'H';
+	}
+
+	m_game_board[x][y].flag();
+
+	//update the text file
+	std::ofstream outFile;
+	outFile.open("board.txt", std::ofstream::out | std::ofstream::trunc);
+	outFile.close();
+	outFile.open("board.txt");
+	for (int i = 0; i < m_row_size; i++)
+	{
+		for (int j = 0; j < m_col_size; j++)
+		{
+			outFile << m_show_board[i][j] << " ";
+		}
+		outFile << "\n";
+	}
+	outFile.close();
+
+}
+
 void executive::AdjacentReveal(int x, int y)
 {
 	m_show_board[x][y] = std::to_string(m_game_board[x][y].AdjacentMines()).at(0);
@@ -391,6 +424,7 @@ void executive::NoneReveal(int x, int y)
 	{
 		return;
 	}
+
 	//recurse up-right
 	if (((x + 1) < m_row_size && (y + 1) < m_col_size))
 	{
@@ -432,6 +466,9 @@ void executive::NoneReveal(int x, int y)
 	{
 		recReveal(x - 1, y - 1);
 	}
+
+
+
 }
 
 void executive::NoneRevealMaster(int x, int y)
@@ -469,12 +506,13 @@ void executive::recReveal(int x, int y)
 	}
 	if (m_game_board[x][y].Holding() == ADJACENT)
 	{
-		m_show_board[x][y] = std::to_string(m_game_board[x][y].AdjacentMines()).at(0) ;
+			m_show_board[x][y] = std::to_string(m_game_board[x][y].AdjacentMines()).at(0);
 	}
 	else if (m_game_board[x][y].Holding() == NONE)
 	{
-		m_show_board[x][y] = '-';
-		m_game_board[x][y].CheckedRecursively(true);
-		NoneReveal(x, y);
+			m_show_board[x][y] = '-';
+			m_game_board[x][y].CheckedRecursively(true);
+			NoneReveal(x, y);
+
 	}
 }

@@ -122,4 +122,12 @@ public:
  */
  void showCheatBoard();
 
+ /**
+ #Pre - CreateBoard has been called
+ #Param x - the x coordinate of the tile the user has clicked to flag.
+ #Param y - the y coordinate of the tile the user has clicked flag.
+ #Post - Flags the tile clicked by the user if it is unrevealed and updates board.txt
+ */
+ void flag(int x, int y);
+
 };
