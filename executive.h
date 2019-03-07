@@ -21,10 +21,12 @@ class executive
 private:
  square** m_game_board;
  char** m_show_board;
+ char** m_cheat_board;
  int m_row_size;
  int m_col_size;
  int m_mine_number;
  bool gameover;
+ bool cheating;
 protected:
 
 public:
@@ -112,5 +114,12 @@ public:
  #Post = Creates board.txt, fills it with hidden tiles. Creates map.txt; fills it with bomb, adjacent, and none tile locations.
  */
  void StartFilesForVBA();
+
+ /**
+ #Pre - CreateBoard has been called and main game loop has started
+ #Param - None
+ #Post = Creates board.txt, fills it with all tiles shown
+ */
+ void showCheatBoard();
 
 };

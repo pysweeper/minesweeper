@@ -7,6 +7,8 @@ executive::executive()
 	m_game_board = nullptr;
 	gameover=false;
 	m_show_board = nullptr;
+	m_cheat_board = nullptr;
+	cheating = false;
 	m_row_size = 10;
 	m_col_size = 10;
 	m_mine_number = 10;
@@ -85,25 +87,52 @@ void executive::Run()
 		{
 			x = std::stoi(command.substr(1, 2));
 			y = std::stoi(command.substr(4, 2));
+			cheating = false;
 			Read(x, y);
 		}
 		else if (command[0] == 'f')
 		{
-
+			cheating = false;
 		}
 		else if (command[0] == 'h')
 		{
-
+			showCheatBoard();
 		}
 		else if (command[0] == 'p')
 		{
-
+			cheating = false;
 		}
 
 	}
 
 }
 
+void executive::showCheatBoard()
+{
+	cheating = !cheating;
+
+	std::ofstream outFile;
+	outFile.open("board.txt", std::ofstream::out | std::ofstream::trunc);
+	outFile.close();
+	outFile.open("board.txt");
+	for (int i = 0; i < m_row_size; i++)
+	{
+		for (int j = 0; j < m_col_size; j++)
+		{
+			if (cheating)
+			{
+				outFile << m_cheat_board[i][j] << " ";
+			}
+			else
+			{
+				outFile << m_show_board[i][j] << " ";
+			}
+		}
+		outFile << "\n";
+	}
+	outFile.close();
+
+}
 
 
 void executive::CreateBoard()
@@ -147,8 +176,6 @@ void executive::CreateBoard()
 	Print();
 	UpdateAdjacents();
 
-
-
 	m_show_board = new char*[m_row_size];
 	//occupy the show array
 	for (int i = 0; i < m_row_size; i++)
@@ -160,6 +187,30 @@ void executive::CreateBoard()
 		for (int j = 0; j < m_col_size; j++)
 		{
 			m_show_board[i][j] = 'H';
+		}
+	}
+
+	m_cheat_board = new char*[m_row_size];
+	for (int i = 0; i < m_row_size; i++)
+	{
+		m_cheat_board[i] = new char[m_col_size];
+	}
+	for (int i = 0; i < m_row_size; i++)
+	{
+		for (int j = 0; j < m_col_size; j++)
+		{
+			if (m_game_board[i][j].Holding() == MINE)
+			{
+				m_cheat_board[i][j] = 'M';
+			}
+			else if (m_game_board[i][j].Holding() == ADJACENT)
+			{
+				m_cheat_board[i][j] = std::to_string(m_game_board[i][j].AdjacentMines()).at(0);
+			}
+			else
+			{
+				m_cheat_board[i][j] = '-';
+			}
 		}
 	}
 }
