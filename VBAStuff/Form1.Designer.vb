@@ -25,6 +25,13 @@ Partial Class Minesweeper
         Me.PlayButton = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ControlBox = New System.Windows.Forms.GroupBox()
+        Me.CheatButton = New System.Windows.Forms.Button()
+        Me.FeaturePanel = New System.Windows.Forms.Panel()
+        Me.HelpButton = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.FeatureMode = New System.Windows.Forms.CheckBox()
         Me.FlagsRemainingLabel = New System.Windows.Forms.Label()
         Me.FlagsLabel = New System.Windows.Forms.Label()
         Me.MineBox = New System.Windows.Forms.MaskedTextBox()
@@ -34,13 +41,6 @@ Partial Class Minesweeper
         Me.RowLabel = New System.Windows.Forms.Label()
         Me.RowBox = New System.Windows.Forms.MaskedTextBox()
         Me.BoardContainer = New System.Windows.Forms.FlowLayoutPanel()
-        Me.FeaturePanel = New System.Windows.Forms.Panel()
-        Me.FeatureMode = New System.Windows.Forms.CheckBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.HelpButton = New System.Windows.Forms.Button()
-        Me.CheatButton = New System.Windows.Forms.Button()
         Me.ControlBox.SuspendLayout()
         Me.FeaturePanel.SuspendLayout()
         Me.SuspendLayout()
@@ -87,7 +87,7 @@ Partial Class Minesweeper
         Me.ControlBox.Controls.Add(Me.RowLabel)
         Me.ControlBox.Controls.Add(Me.RowBox)
         Me.ControlBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ControlBox.Font = New System.Drawing.Font("DejaVu Sans Mono for Powerline", 11.25!)
+        Me.ControlBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
         Me.ControlBox.ForeColor = System.Drawing.Color.White
         Me.ControlBox.Location = New System.Drawing.Point(12, 13)
         Me.ControlBox.Name = "ControlBox"
@@ -97,108 +97,15 @@ Partial Class Minesweeper
         Me.ControlBox.Text = "Controls"
         Me.ControlBox.Visible = False
         '
-        'FlagsRemainingLabel
+        'CheatButton
         '
-        Me.FlagsRemainingLabel.AutoSize = True
-        Me.FlagsRemainingLabel.Font = New System.Drawing.Font("DejaVu Sans Mono for Powerline", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FlagsRemainingLabel.Location = New System.Drawing.Point(199, 46)
-        Me.FlagsRemainingLabel.Name = "FlagsRemainingLabel"
-        Me.FlagsRemainingLabel.Size = New System.Drawing.Size(44, 18)
-        Me.FlagsRemainingLabel.TabIndex = 7
-        Me.FlagsRemainingLabel.Text = "NULL"
-        '
-        'FlagsLabel
-        '
-        Me.FlagsLabel.AutoSize = True
-        Me.FlagsLabel.Font = New System.Drawing.Font("DejaVu Sans Mono for Powerline", 11.25!)
-        Me.FlagsLabel.Location = New System.Drawing.Point(131, 46)
-        Me.FlagsLabel.Name = "FlagsLabel"
-        Me.FlagsLabel.Size = New System.Drawing.Size(62, 18)
-        Me.FlagsLabel.TabIndex = 6
-        Me.FlagsLabel.Text = "Flags:"
-        '
-        'MineBox
-        '
-        Me.MineBox.BackColor = System.Drawing.Color.White
-        Me.MineBox.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.MineBox.Font = New System.Drawing.Font("DejaVu Sans Mono for Powerline", 11.25!)
-        Me.MineBox.Location = New System.Drawing.Point(202, 22)
-        Me.MineBox.Mask = "000"
-        Me.MineBox.Name = "MineBox"
-        Me.MineBox.Size = New System.Drawing.Size(30, 18)
-        Me.MineBox.TabIndex = 5
-        Me.MineBox.Text = "010"
-        Me.MineBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.MineBox.ValidatingType = GetType(Integer)
-        '
-        'MinesLabel
-        '
-        Me.MinesLabel.AutoSize = True
-        Me.MinesLabel.Font = New System.Drawing.Font("DejaVu Sans Mono for Powerline", 11.25!)
-        Me.MinesLabel.Location = New System.Drawing.Point(131, 21)
-        Me.MinesLabel.Name = "MinesLabel"
-        Me.MinesLabel.Size = New System.Drawing.Size(62, 18)
-        Me.MinesLabel.TabIndex = 4
-        Me.MinesLabel.Text = "Mines:"
-        '
-        'ColumnsBox
-        '
-        Me.ColumnsBox.BackColor = System.Drawing.Color.White
-        Me.ColumnsBox.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.ColumnsBox.Font = New System.Drawing.Font("DejaVu Sans Mono for Powerline", 11.25!)
-        Me.ColumnsBox.Location = New System.Drawing.Point(88, 45)
-        Me.ColumnsBox.Mask = "00"
-        Me.ColumnsBox.Name = "ColumnsBox"
-        Me.ColumnsBox.Size = New System.Drawing.Size(30, 18)
-        Me.ColumnsBox.TabIndex = 3
-        Me.ColumnsBox.Text = "10"
-        Me.ColumnsBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.ColumnsBox.ValidatingType = GetType(Integer)
-        '
-        'ColumnLabel
-        '
-        Me.ColumnLabel.AutoSize = True
-        Me.ColumnLabel.Font = New System.Drawing.Font("DejaVu Sans Mono for Powerline", 11.25!)
-        Me.ColumnLabel.Location = New System.Drawing.Point(8, 45)
-        Me.ColumnLabel.Name = "ColumnLabel"
-        Me.ColumnLabel.Size = New System.Drawing.Size(80, 18)
-        Me.ColumnLabel.TabIndex = 2
-        Me.ColumnLabel.Text = "Columns:"
-        '
-        'RowLabel
-        '
-        Me.RowLabel.AutoSize = True
-        Me.RowLabel.Font = New System.Drawing.Font("DejaVu Sans Mono for Powerline", 11.25!)
-        Me.RowLabel.Location = New System.Drawing.Point(35, 21)
-        Me.RowLabel.Name = "RowLabel"
-        Me.RowLabel.Size = New System.Drawing.Size(53, 18)
-        Me.RowLabel.TabIndex = 1
-        Me.RowLabel.Text = "Rows:"
-        '
-        'RowBox
-        '
-        Me.RowBox.BackColor = System.Drawing.Color.White
-        Me.RowBox.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.RowBox.Font = New System.Drawing.Font("DejaVu Sans Mono for Powerline", 11.25!)
-        Me.RowBox.Location = New System.Drawing.Point(88, 21)
-        Me.RowBox.Mask = "00"
-        Me.RowBox.Name = "RowBox"
-        Me.RowBox.Size = New System.Drawing.Size(30, 18)
-        Me.RowBox.TabIndex = 0
-        Me.RowBox.Text = "10"
-        Me.RowBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.RowBox.ValidatingType = GetType(Integer)
-        '
-        'BoardContainer
-        '
-        Me.BoardContainer.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.BoardContainer.Location = New System.Drawing.Point(12, 96)
-        Me.BoardContainer.Margin = New System.Windows.Forms.Padding(1)
-        Me.BoardContainer.MaximumSize = New System.Drawing.Size(1152, 1300)
-        Me.BoardContainer.Name = "BoardContainer"
-        Me.BoardContainer.Size = New System.Drawing.Size(759, 349)
-        Me.BoardContainer.TabIndex = 5
-        Me.BoardContainer.Visible = False
+        Me.CheatButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CheatButton.Location = New System.Drawing.Point(309, 27)
+        Me.CheatButton.Name = "CheatButton"
+        Me.CheatButton.Size = New System.Drawing.Size(138, 36)
+        Me.CheatButton.TabIndex = 9
+        Me.CheatButton.Text = "Cheat Mode"
+        Me.CheatButton.UseVisualStyleBackColor = True
         '
         'FeaturePanel
         '
@@ -212,57 +119,10 @@ Partial Class Minesweeper
         Me.FeaturePanel.Size = New System.Drawing.Size(211, 63)
         Me.FeaturePanel.TabIndex = 8
         '
-        'FeatureMode
-        '
-        Me.FeatureMode.AutoSize = True
-        Me.FeatureMode.Font = New System.Drawing.Font("DejaVu Sans Mono for Powerline", 11.25!)
-        Me.FeatureMode.Location = New System.Drawing.Point(3, 3)
-        Me.FeatureMode.Name = "FeatureMode"
-        Me.FeatureMode.Size = New System.Drawing.Size(207, 22)
-        Me.FeatureMode.TabIndex = 1
-        Me.FeatureMode.Text = "Enable Power-up Mode"
-        Me.FeatureMode.UseVisualStyleBackColor = True
-        '
-        'Button1
-        '
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("DejaVu Sans Mono for Powerline", 11.25!)
-        Me.Button1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(181, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.Button1.Location = New System.Drawing.Point(7, 29)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(25, 25)
-        Me.Button1.TabIndex = 2
-        Me.Button1.Text = "P1"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'Button2
-        '
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("DejaVu Sans Mono for Powerline", 11.25!)
-        Me.Button2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(181, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.Button2.Location = New System.Drawing.Point(38, 29)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(25, 25)
-        Me.Button2.TabIndex = 3
-        Me.Button2.Text = "P2"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'Button3
-        '
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Font = New System.Drawing.Font("DejaVu Sans Mono for Powerline", 11.25!)
-        Me.Button3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(181, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.Button3.Location = New System.Drawing.Point(69, 29)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(25, 25)
-        Me.Button3.TabIndex = 4
-        Me.Button3.Text = "P3"
-        Me.Button3.UseVisualStyleBackColor = True
-        '
         'HelpButton
         '
         Me.HelpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.HelpButton.Font = New System.Drawing.Font("DejaVu Sans Mono for Powerline", 11.25!)
+        Me.HelpButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
         Me.HelpButton.ForeColor = System.Drawing.Color.FromArgb(CType(CType(203, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(22, Byte), Integer))
         Me.HelpButton.Location = New System.Drawing.Point(142, 29)
         Me.HelpButton.Name = "HelpButton"
@@ -271,21 +131,162 @@ Partial Class Minesweeper
         Me.HelpButton.Text = "Help"
         Me.HelpButton.UseVisualStyleBackColor = False
         '
-        'CheatButton
+        'Button3
         '
-        Me.CheatButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CheatButton.Location = New System.Drawing.Point(309, 27)
-        Me.CheatButton.Name = "CheatButton"
-        Me.CheatButton.Size = New System.Drawing.Size(138, 36)
-        Me.CheatButton.TabIndex = 9
-        Me.CheatButton.Text = "Cheat Mode"
-        Me.CheatButton.UseVisualStyleBackColor = True
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
+        Me.Button3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(181, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Button3.Location = New System.Drawing.Point(69, 29)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(25, 25)
+        Me.Button3.TabIndex = 4
+        Me.Button3.Text = "P3"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
+        Me.Button2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(181, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Button2.Location = New System.Drawing.Point(38, 29)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(25, 25)
+        Me.Button2.TabIndex = 3
+        Me.Button2.Text = "P2"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'Button1
+        '
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
+        Me.Button1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(181, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Button1.Location = New System.Drawing.Point(7, 29)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(25, 25)
+        Me.Button1.TabIndex = 2
+        Me.Button1.Text = "P1"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'FeatureMode
+        '
+        Me.FeatureMode.AutoSize = True
+        Me.FeatureMode.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
+        Me.FeatureMode.Location = New System.Drawing.Point(3, 3)
+        Me.FeatureMode.Name = "FeatureMode"
+        Me.FeatureMode.Size = New System.Drawing.Size(182, 22)
+        Me.FeatureMode.TabIndex = 1
+        Me.FeatureMode.Text = "Enable Power-up Mode"
+        Me.FeatureMode.UseVisualStyleBackColor = True
+        '
+        'FlagsRemainingLabel
+        '
+        Me.FlagsRemainingLabel.AutoSize = True
+        Me.FlagsRemainingLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FlagsRemainingLabel.Location = New System.Drawing.Point(199, 46)
+        Me.FlagsRemainingLabel.Name = "FlagsRemainingLabel"
+        Me.FlagsRemainingLabel.Size = New System.Drawing.Size(46, 18)
+        Me.FlagsRemainingLabel.TabIndex = 7
+        Me.FlagsRemainingLabel.Text = "NULL"
+        '
+        'FlagsLabel
+        '
+        Me.FlagsLabel.AutoSize = True
+        Me.FlagsLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
+        Me.FlagsLabel.Location = New System.Drawing.Point(131, 46)
+        Me.FlagsLabel.Name = "FlagsLabel"
+        Me.FlagsLabel.Size = New System.Drawing.Size(48, 18)
+        Me.FlagsLabel.TabIndex = 6
+        Me.FlagsLabel.Text = "Flags:"
+        '
+        'MineBox
+        '
+        Me.MineBox.BackColor = System.Drawing.Color.White
+        Me.MineBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.MineBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
+        Me.MineBox.Location = New System.Drawing.Point(202, 22)
+        Me.MineBox.Mask = "000"
+        Me.MineBox.Name = "MineBox"
+        Me.MineBox.Size = New System.Drawing.Size(30, 17)
+        Me.MineBox.TabIndex = 5
+        Me.MineBox.Text = "010"
+        Me.MineBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.MineBox.ValidatingType = GetType(Integer)
+        '
+        'MinesLabel
+        '
+        Me.MinesLabel.AutoSize = True
+        Me.MinesLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
+        Me.MinesLabel.Location = New System.Drawing.Point(131, 21)
+        Me.MinesLabel.Name = "MinesLabel"
+        Me.MinesLabel.Size = New System.Drawing.Size(52, 18)
+        Me.MinesLabel.TabIndex = 4
+        Me.MinesLabel.Text = "Mines:"
+        '
+        'ColumnsBox
+        '
+        Me.ColumnsBox.BackColor = System.Drawing.Color.White
+        Me.ColumnsBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.ColumnsBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
+        Me.ColumnsBox.Location = New System.Drawing.Point(88, 45)
+        Me.ColumnsBox.Mask = "00"
+        Me.ColumnsBox.Name = "ColumnsBox"
+        Me.ColumnsBox.Size = New System.Drawing.Size(30, 17)
+        Me.ColumnsBox.TabIndex = 3
+        Me.ColumnsBox.Text = "10"
+        Me.ColumnsBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.ColumnsBox.ValidatingType = GetType(Integer)
+        '
+        'ColumnLabel
+        '
+        Me.ColumnLabel.AutoSize = True
+        Me.ColumnLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
+        Me.ColumnLabel.Location = New System.Drawing.Point(8, 45)
+        Me.ColumnLabel.Name = "ColumnLabel"
+        Me.ColumnLabel.Size = New System.Drawing.Size(72, 18)
+        Me.ColumnLabel.TabIndex = 2
+        Me.ColumnLabel.Text = "Columns:"
+        '
+        'RowLabel
+        '
+        Me.RowLabel.AutoSize = True
+        Me.RowLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
+        Me.RowLabel.Location = New System.Drawing.Point(35, 21)
+        Me.RowLabel.Name = "RowLabel"
+        Me.RowLabel.Size = New System.Drawing.Size(51, 18)
+        Me.RowLabel.TabIndex = 1
+        Me.RowLabel.Text = "Rows:"
+        '
+        'RowBox
+        '
+        Me.RowBox.BackColor = System.Drawing.Color.White
+        Me.RowBox.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.RowBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
+        Me.RowBox.Location = New System.Drawing.Point(88, 21)
+        Me.RowBox.Mask = "00"
+        Me.RowBox.Name = "RowBox"
+        Me.RowBox.Size = New System.Drawing.Size(30, 17)
+        Me.RowBox.TabIndex = 0
+        Me.RowBox.Text = "10"
+        Me.RowBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.RowBox.ValidatingType = GetType(Integer)
+        '
+        'BoardContainer
+        '
+        Me.BoardContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.BoardContainer.Location = New System.Drawing.Point(12, 96)
+        Me.BoardContainer.Margin = New System.Windows.Forms.Padding(1)
+        Me.BoardContainer.MaximumSize = New System.Drawing.Size(1152, 1300)
+        Me.BoardContainer.Name = "BoardContainer"
+        Me.BoardContainer.Size = New System.Drawing.Size(759, 349)
+        Me.BoardContainer.TabIndex = 5
+        Me.BoardContainer.Visible = False
         '
         'Minesweeper
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
+        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(7, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(66, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(784, 455)
         Me.Controls.Add(Me.BoardContainer)

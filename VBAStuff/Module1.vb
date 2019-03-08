@@ -113,4 +113,8 @@
         End If
     End Sub
 
+    Public Sub Reset()
+
+    End Sub
+
 End Module

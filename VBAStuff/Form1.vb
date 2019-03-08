@@ -29,7 +29,12 @@
         If e.KeyChar = vbCr Then
             e.Handled = True
             NRow = sender.Text
-            Dim EnteredRows = "r" & Format(CInt(sender.Text), "00")
+            If NRow >= 20 Then
+                NRow = 20
+            ElseIf NCol < 2 Then
+                NCol = 2
+            End If
+            Dim EnteredRows = "r" & Format(NRow, "00")
             MessageCPP(EnteredRows)
             DrawBoard()
             RowLabel.Focus()
@@ -40,7 +45,12 @@
         If e.KeyChar = vbCr Then
             e.Handled = True
             NCol = sender.Text
-            Dim EnteredColumns = "c" & Format(CInt(sender.Text), "00")
+            If NCol >= 40 Then
+                NCol = 40
+            ElseIf NCol < 2 Then
+                NCol = 2
+            End If
+            Dim EnteredColumns = "c" & Format(NCol, "00")
             MessageCPP(EnteredColumns)
             DrawBoard()
             ColumnLabel.Focus()
@@ -51,7 +61,12 @@
         If e.KeyChar = vbCr Then
             e.Handled = True
             NMines = sender.Text
-            Dim EnteredMines = "m" & Format(CInt(sender.Text), "000")
+            If NMines > NRow * NCol - 1 Then
+                NMines = NRow * NCol - 1
+            ElseIf NMines < 1 Then
+                NMines = 1
+            End If
+            Dim EnteredMines = "m" & Format(NMines, "000")
             MessageCPP(EnteredMines)
             DrawBoard()
             MinesLabel.Focus()
@@ -117,4 +132,13 @@
         Next
     End Sub
 
+    Private Sub CheatButton_Click(sender As Object, e As EventArgs) Handles CheatButton.Click
+
+    End Sub
+
+    Private Sub Minesweeper_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.FormBorderStyle = FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
+    End Sub
 End Class
