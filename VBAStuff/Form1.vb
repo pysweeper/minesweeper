@@ -6,30 +6,24 @@
     ' Play Button
     Private Sub PlayButton_Click(sender As Object, e As EventArgs) Handles PlayButton.Click
         cpp = Shell("MineSweeper.exe")
-        Threading.Thread.Sleep(100)
-        SendKeys.Send("10")
         Dim id As Long = GetCurrentProcessId
+        Threading.Thread.Sleep(100)
+        MessageCPP("10")
         Threading.Thread.Sleep(30)
-        SendKeys.Send("{ENTER}")
-        Threading.Thread.Sleep(30)
-        SendKeys.Send("4")
-        Threading.Thread.Sleep(30)
-        SendKeys.Send("{ENTER}")
-        Me.PlayButton.Hide()
-        Me.Label1.Hide()
-        Me.ControlBox.Show()
-        Me.RowBox.Show()
-        Me.DrawBoard()
+        MessageCPP("4")
+        Flags = 0
+        PlayButton.Hide()
+        Label1.Hide()
+        ControlBox.Show()
+        RowBox.Show()
+        BoardContainer.Show()
+        DrawBoard()
     End Sub
 
     ' Destructor for Minesweeper
     Private Sub Form1_Closing(sender As Object, e As EventArgs) Handles Me.FormClosing
         If (cpp) Then
-            AppActivate(cpp)
-            Threading.Thread.Sleep(100)
-            SendKeys.Send("-9999")
-            Threading.Thread.Sleep(30)
-            SendKeys.Send("{ENTER}")
+            MessageCPP("-9999")
         End If
     End Sub
 
@@ -38,7 +32,7 @@
             Dim rowString As String
             'MsgBox(RowBox.Text)
             rowString = RowBox.Text
-            MineNum = Integer.Parse(rowString)
+            NRow = Integer.Parse(rowString)
             'MsgBox("Hello")
             ' Grab(box.text And set to NRow)
         End If
@@ -46,15 +40,20 @@
 
     Private Sub ColumnsBox_Enter(sender As Object, e As KeyPressEventArgs) Handles ColumnsBox.KeyPress
         If e.KeyChar = vbCr Then
-            MsgBox(ColumnsBox.Text)
-
+            'MsgBox(ColumnsBox.Text)
+            Dim colString As String
+            'MsgBox(RowBox.Text)
+            colString = ColumnsBox.Text
+            NCol = Integer.Parse(colString)
         End If
     End Sub
 
     Private Sub MinesBox_Enter(sender As Object, e As KeyPressEventArgs) Handles MineBox.KeyPress
         If e.KeyChar = vbCr Then
-            MsgBox(MineBox.Text)
-
+            'MsgBox(MineBox.Text)
+            Dim mineString As String
+            mineString = RowBox.Text
+            MineNum = Integer.Parse(mineString)
         End If
     End Sub
 
@@ -83,16 +82,9 @@
                 FlagWin()
             End If
         ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
-            AppActivate(cpp)
-            SendKeys.Send(CType(Row, String))
-            Threading.Thread.Sleep(30)
-            SendKeys.Send("{ENTER}")
-            Threading.Thread.Sleep(30)
-            SendKeys.Send(CType(Column, String))
-            Threading.Thread.Sleep(30)
-            SendKeys.Send("{ENTER}")
-            Threading.Thread.Sleep(30)
-            checkLoss()
+            MessageCPP(CType(Row, String))
+            MessageCPP(CType(Column, String))
+            CheckLoss()
             If testCharacter = "L" Then
                 RunLoseGame()
             Else
@@ -105,24 +97,19 @@
 
     Private Sub DrawBoard()
         mapString = My.Computer.FileSystem.ReadAllText("map.txt")
-        Flags = 0
-        Me.Name = "Board"
-        Me.Text = "Board"
-        Me.ClientSize = New System.Drawing.Size(400, 400)
-        Me.CenterToScreen()
         '
-        For i = 0 To 99
-            Dim j = 0
-            ButtonArray(i) = New System.Windows.Forms.Button()
-            SuspendLayout()
-            ButtonArray(i).BackColor = System.Drawing.SystemColors.ControlDark
-            ButtonArray(i).Location = New System.Drawing.Point((i * 36) Mod 360, (((i \ 10) * 36) + 2))
-            ButtonArray(i).Name = "Button" & i
-            ButtonArray(i).Size = New System.Drawing.Size(36, 36)
-            ButtonArray(i).UseVisualStyleBackColor = False
-            ButtonArray(i).BackColor = Color.FromArgb(0, 0, 64)
-            ButtonArray(i).Text = ""
-            Controls.Add(ButtonArray(i))
+        For i = 0 To NRow * NCol - 1
+            ButtonArray(i) = New System.Windows.Forms.Button With {
+                .BackColor = System.Drawing.SystemColors.ControlDark,
+                .Location = New System.Drawing.Point((i * 36) Mod 360, (((i \ 10) * 36) + 2)),
+                .Name = "Button" & i,
+                .Size = New System.Drawing.Size(36, 36),
+                .UseVisualStyleBackColor = False,
+                .Text = ""
+                }
+            'ButtonArray(i).Margin = New Padding(0)
+            BoardContainer.Controls.Add(ButtonArray(i))
+
             AddHandler ButtonArray(i).MouseDown, AddressOf ClickHandler
         Next
         Me.ResumeLayout(False)

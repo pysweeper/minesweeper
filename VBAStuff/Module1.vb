@@ -27,27 +27,21 @@
         fileReader = My.Computer.FileSystem.ReadAllText("board.txt")
         fileReader = ClearSpaces(fileReader)
         '' MsgBox(fileReader)
-
         Dim counter As Integer
         counter = 0
         For i As Integer = 0 To 9
-
             For j As Integer = 0 To 9
-
                 smallArray(i, j) = fileReader(counter)
                 counter = counter + 1
             Next
-
         Next
-
-        ' MsgBox(smallArray(1, 0))
     End Sub
 
     ''
     '
     'return - none
     '@remarks - Checks you_lose.txt for a character representing the game is over. This character would come from C++.
-    Public Sub checkLoss()
+    Public Sub CheckLoss()
         Dim fileReader As String
         fileReader = My.Computer.FileSystem.ReadAllText("you_lose.txt")
         fileReader = ClearSpaces(fileReader)
@@ -56,7 +50,6 @@
         Else
             testCharacter = fileReader(0)
         End If
-
     End Sub
 
     ''
@@ -64,15 +57,8 @@
     '@return - none
     '@remarks - Closes the C++ program, resets the VBA application. Reports win to user.
     Public Sub RunWinGame()
-
         MsgBox("You won!")
-        ''terminate the c++ program.
-        AppActivate(cpp)
-        SendKeys.Send("-9999")
-        Threading.Thread.Sleep(50)
-        SendKeys.Send("{ENTER}")
-        Threading.Thread.Sleep(50)
-        ''terminate the GUI, reload the first form.
+        MessageCPP("-9999")
         Minesweeper.Show()
     End Sub
 
@@ -82,15 +68,9 @@
     '@remarks - Closes the C++ program, resets the VBA application. Reports loss to user.
     Public Sub RunLoseGame()
         MsgBox("Oh dear! You clicked a mine!")
-        AppActivate(cpp)
-        SendKeys.Send("-9999")
-        Threading.Thread.Sleep(50)
-        SendKeys.Send("{ENTER}")
-        Threading.Thread.Sleep(50)
-        ''terminate the GUI, reload the first form.
+        MessageCPP("-9999")
         Minesweeper.Show()
     End Sub
-
 
     ''
     '
@@ -136,21 +116,16 @@
         mapString = My.Computer.FileSystem.ReadAllText("map.txt")
     End Sub
 
-
     ''
     '
     '@return - none
     '@remarks - Scans the tile array, updates button skins accordingly.
     Public Sub UpdateTiles()
-
-
-
         Dim i As Integer
         Dim iStr As String
         Dim secondResult As Integer
         Dim firstResult As Integer
         Dim firstStr As String
-
         For i = 0 To 99
             iStr = CStr(i)
             If iStr.Length = 1 Then
@@ -158,58 +133,19 @@
             Else
                 firstStr = iStr(0)
                 firstResult = CInt(firstStr)
-
             End If
             iStr = iStr(iStr.Length - 1)
             secondResult = CInt(iStr)
-
             If smallArray(firstResult, secondResult) = "-" Then
-                ''make the button grey.
-                'FormSmall.ButtonArray(i).BackgroundImage = Nothing
                 Minesweeper.ButtonArray(i).FlatStyle = FlatStyle.Flat
                 Minesweeper.ButtonArray(i).BackColor = SystemColors.ControlDark
-
-            ElseIf smallArray(firstResult, secondResult) = "1" Then
-                Minesweeper.ButtonArray(i).BackColor = Color.FromArgb(0, 0, 1)
-                Minesweeper.ButtonArray(i).BackgroundImage = Image.FromFile("1.png")
-
-            ElseIf smallArray(firstResult, secondResult) = "2" Then
-                Minesweeper.ButtonArray(i).BackColor = Color.FromArgb(0, 0, 2)
-                Minesweeper.ButtonArray(i).BackgroundImage = Image.FromFile("2.png")
-
-            ElseIf smallArray(firstResult, secondResult) = "3" Then
-                Minesweeper.ButtonArray(i).BackColor = Color.FromArgb(0, 0, 3)
-                Minesweeper.ButtonArray(i).BackgroundImage = Image.FromFile("3.png")
-
-            ElseIf smallArray(firstResult, secondResult) = "4" Then
-                Minesweeper.ButtonArray(i).BackColor = Color.FromArgb(0, 0, 4)
-                Minesweeper.ButtonArray(i).BackgroundImage = Image.FromFile("4.png")
-
-            ElseIf smallArray(firstResult, secondResult) = "5" Then
-                Minesweeper.ButtonArray(i).BackColor = Color.FromArgb(0, 0, 5)
-                Minesweeper.ButtonArray(i).BackgroundImage = Image.FromFile("5.png")
-
-            ElseIf smallArray(firstResult, secondResult) = "6" Then
-                Minesweeper.ButtonArray(i).BackColor = Color.FromArgb(0, 0, 6)
-                Minesweeper.ButtonArray(i).BackgroundImage = Image.FromFile("6.png")
-
-            ElseIf smallArray(firstResult, secondResult) = "7" Then
-                Minesweeper.ButtonArray(i).BackColor = Color.FromArgb(0, 0, 7)
-                Minesweeper.ButtonArray(i).BackgroundImage = Image.FromFile("7.png")
-
-            ElseIf smallArray(firstResult, secondResult) = "8" Then
-                Minesweeper.ButtonArray(i).BackColor = Color.FromArgb(0, 0, 8)
-                Minesweeper.ButtonArray(i).BackgroundImage = Image.FromFile("8.png")
-
+            Else
+                Minesweeper.ButtonArray(i).Text = smallArray(firstResult, secondResult)
             End If
-
-
         Next
-
-
     End Sub
 
-    Public Sub nearbyMines()
+    Public Sub NearbyMines()
         'need to count nearby mines with this function and not the above.
     End Sub
     ''
@@ -222,10 +158,12 @@
         Next
     End Sub
 
+    Public Sub MessageCPP(message As String)
+        AppActivate(cpp)
+        SendKeys.Send(message)
+        Threading.Thread.Sleep(50)
+        SendKeys.Send("{ENTER}")
+        Threading.Thread.Sleep(50)
+    End Sub
 
 End Module
-
-''example
-
-
-
