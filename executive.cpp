@@ -47,7 +47,6 @@ void executive::Run()
 {
 	int x=0, y=0;
 	CreateBoard();
-	StartFilesForVBA();
 	std::string command = "";
 	while(!gameover)
 	{
@@ -62,22 +61,21 @@ void executive::Run()
 		{
 			x = std::stoi(command.substr(1, 2));
 			m_row_size = x;
+			cheating = false;
 			CreateBoard();
 		}
 		else if (command[0] == 'c')
 		{
 			y = std::stoi(command.substr(1, 2));
 			m_col_size = y;
+			cheating = false;
 			CreateBoard();
 		}
 		else if (command[0] == 'm')
 		{
 			x = std::stoi(command.substr(1, 3));
-			if (x >= m_row_size * m_col_size)
-			{
-				x = m_row_size * m_col_size - 1;
-			}
 			m_mine_number = x;
+			cheating = false;
 			CreateBoard();
 		}
 		else if (command[0] == 'g')
@@ -144,6 +142,28 @@ void executive::CreateBoard()
 	std::ofstream resetFiles;
 	resetFiles.open("you_lose.txt", std::ofstream::out | std::ofstream::trunc);
 	resetFiles.close();
+	resetFiles.open("map.txt", std::ofstream::out | std::ofstream::trunc);
+	resetFiles.close();
+	resetFiles.open("board.txt", std::ofstream::out | std::ofstream::trunc);
+	resetFiles.close();
+
+	if (m_row_size < 2)
+	{
+		m_row_size = 2;
+	}
+	if (m_col_size < 2)
+	{
+		m_col_size = 2;
+	}
+	if (m_mine_number < 1)
+	{
+		m_mine_number = 1;
+	}
+	if (m_mine_number >= m_row_size * m_col_size)
+	{
+		m_mine_number = m_row_size * m_col_size - 1;
+	}
+
 
 	m_game_board = new square*[m_row_size];
 	for (int i = 0; i < m_row_size;i++)
@@ -217,6 +237,9 @@ void executive::CreateBoard()
 			}
 		}
 	}
+
+	StartFilesForVBA();
+
 }
 
 void executive::UpdateAdjacents()
