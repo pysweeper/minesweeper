@@ -6,6 +6,7 @@ square::square()
 {
 	m_holding = NONE;
 	m_checked_recursively = false;
+	m_flagged = false;
 }
 
 
@@ -41,4 +42,14 @@ void square::AdjacentMines(int new_mines)
 int square::AdjacentMines()
 {
 	return m_adjacent_mines;
+}
+
+void square::flag()
+{
+	m_flagged = !m_flagged;
+}
+
+bool square::flagged()
+{
+	return m_flagged;
 }

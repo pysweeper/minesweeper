@@ -1,11 +1,17 @@
 #include "executive.h"
 #include <cstdlib>
+#include <string>
 
 executive::executive()
 {
 	m_game_board = nullptr;
 	gameover=false;
 	m_show_board = nullptr;
+	m_cheat_board = nullptr;
+	cheating = false;
+	m_row_size = 10;
+	m_col_size = 10;
+	m_mine_number = 10;
 }
 
 
@@ -39,26 +45,94 @@ void executive::StartFilesForVBA()
 
 void executive::Run()
 {
-	std::ofstream resetFiles;
-	resetFiles.open("you_lose.txt", std::ofstream::out | std::ofstream::trunc);
-	resetFiles.close();
 	int x=0, y=0;
 	CreateBoard();
 	StartFilesForVBA();
+	std::string command = "";
 	while(!gameover)
 	{
-		std:: cout << "Where would you like to check?\n" << "Please enter row you would like to check: ";
-		std:: cin >> x;
+		std:: cout << "enter command: ";
+		std:: cin >> command;
+
 		//this is a key that VBA can use to end the C++ application.
 		//we felt this was better than allowing the VBA application administrator privileges.
-		if (x == -9999) return;
-		std:: cout << "\n Please enter column you would ike to check: ";
-		std:: cin >> y;
-		Read(x,y);
+		if (command == "-9999") return;
+
+		if (command[0] == 'r')
+		{
+			x = std::stoi(command.substr(1, 2));
+			m_row_size = x;
+			CreateBoard();
+		}
+		else if (command[0] == 'c')
+		{
+			y = std::stoi(command.substr(1, 2));
+			m_col_size = y;
+			CreateBoard();
+		}
+		else if (command[0] == 'm')
+		{
+			x = std::stoi(command.substr(1, 3));
+			if (x >= m_row_size * m_col_size)
+			{
+				x = m_row_size * m_col_size - 1;
+			}
+			m_mine_number = x;
+			CreateBoard();
+		}
+		else if (command[0] == 'g')
+		{
+			x = std::stoi(command.substr(1, 2));
+			y = std::stoi(command.substr(4, 2));
+			cheating = false;
+			Read(x, y);
+		}
+		else if (command[0] == 'f')
+		{
+			x = std::stoi(command.substr(1, 2));
+			y = std::stoi(command.substr(4, 2));
+			cheating = false;
+			flag(x, y);
+		}
+		else if (command[0] == 'h')
+		{
+			showCheatBoard();
+		}
+		else if (command[0] == 'p')
+		{
+			cheating = false;
+		}
+
 	}
 
 }
 
+void executive::showCheatBoard()
+{
+	cheating = !cheating;
+
+	std::ofstream outFile;
+	outFile.open("board.txt", std::ofstream::out | std::ofstream::trunc);
+	outFile.close();
+	outFile.open("board.txt");
+	for (int i = 0; i < m_row_size; i++)
+	{
+		for (int j = 0; j < m_col_size; j++)
+		{
+			if (cheating)
+			{
+				outFile << m_cheat_board[i][j] << " ";
+			}
+			else
+			{
+				outFile << m_show_board[i][j] << " ";
+			}
+		}
+		outFile << "\n";
+	}
+	outFile.close();
+
+}
 
 
 void executive::CreateBoard()
@@ -66,33 +140,31 @@ void executive::CreateBoard()
 	srand(time(NULL));
 	//This GUI will be interacted with "behind the scenes"
 	//by a windows forms application.
-	std::cout << "------------------------------------\n";
-	std::cout << "Terminal GUI\n";
-	std::cout << "------------------------------------\n";
-	std::cout << "Input m_game_board size: ";
-	std::cin >> m_row_size;
-	std::cout << "Input m_mine_number: ";
-	std::cin >> m_mine_number;
-	
+
+	std::ofstream resetFiles;
+	resetFiles.open("you_lose.txt", std::ofstream::out | std::ofstream::trunc);
+	resetFiles.close();
+
 	m_game_board = new square*[m_row_size];
 	for (int i = 0; i < m_row_size;i++)
 	{
-		m_game_board[i] = new square[m_row_size];
+		m_game_board[i] = new square[m_col_size];
 	}
 	//now to randomize mine location
 	int result = 0;
-	while (m_mine_number > 0)
+	int mines_to_place = m_mine_number;
+	while (mines_to_place > 0)
 	{
 		for (int i = 0; i < m_row_size;i++)
 		{
-			for (int j = 0; j < m_row_size;j++)
+			for (int j = 0; j < m_col_size;j++)
 			{
-				result = rand() % 10;
-				if (result == MINE && m_mine_number > 0 && m_game_board[i][j].Holding()!=MINE)
+				result = rand() % (m_row_size + m_col_size);
+				if (result == MINE && mines_to_place > 0 && m_game_board[i][j].Holding()!=MINE)
 				{
 					//place a mine
 					m_game_board[i][j].Holding(MINE);
-					m_mine_number--;
+					mines_to_place--;
 				}
 				else if(m_game_board[i][j].Holding() != MINE)
 				{
@@ -101,26 +173,48 @@ void executive::CreateBoard()
 				}
 			}//end of j for
 		}//end of i for
-	
+
 	}
 
 	//for testing purposes.
 	Print();
 	UpdateAdjacents();
 
-
-
 	m_show_board = new char*[m_row_size];
 	//occupy the show array
 	for (int i = 0; i < m_row_size; i++)
 	{
-		m_show_board[i] = new char[m_row_size];
+		m_show_board[i] = new char[m_col_size];
 	}
 	for (int i = 0; i < m_row_size; i++)
 	{
-		for (int j = 0; j < m_row_size; j++)
+		for (int j = 0; j < m_col_size; j++)
 		{
 			m_show_board[i][j] = 'H';
+		}
+	}
+
+	m_cheat_board = new char*[m_row_size];
+	for (int i = 0; i < m_row_size; i++)
+	{
+		m_cheat_board[i] = new char[m_col_size];
+	}
+	for (int i = 0; i < m_row_size; i++)
+	{
+		for (int j = 0; j < m_col_size; j++)
+		{
+			if (m_game_board[i][j].Holding() == MINE)
+			{
+				m_cheat_board[i][j] = 'M';
+			}
+			else if (m_game_board[i][j].Holding() == ADJACENT)
+			{
+				m_cheat_board[i][j] = std::to_string(m_game_board[i][j].AdjacentMines()).at(0);
+			}
+			else
+			{
+				m_cheat_board[i][j] = '-';
+			}
 		}
 	}
 }
@@ -129,14 +223,14 @@ void executive::UpdateAdjacents()
 {
 	for (int i = 0; i < m_row_size; i++)
 	{
-		for (int j = 0; j < m_row_size; j++)
+		for (int j = 0; j < m_col_size; j++)
 		{
 
 			int counter = 0;
 			if (m_game_board[i][j].Holding() == NONE)
 			{
 				//check up-right
-				if (((i + 1) < m_row_size && (j + 1) < m_row_size))
+				if (((i + 1) < m_row_size && (j + 1) < m_col_size))
 				{
 					if (m_game_board[i + 1][j + 1].Holding() == MINE)
 					{
@@ -146,7 +240,7 @@ void executive::UpdateAdjacents()
 
 
 				//check right
-				if (((i + 1) < m_row_size && (j) < m_row_size))
+				if (((i + 1) < m_row_size && (j) < m_col_size))
 				{
 					if (m_game_board[i + 1][j].Holding() == MINE)
 					{
@@ -164,7 +258,7 @@ void executive::UpdateAdjacents()
 				}
 
 				//check up
-				if (((i)<m_row_size && (j + 1)<m_row_size))
+				if (((i)<m_row_size && (j + 1)<m_col_size))
 				{
 					if (m_game_board[i][j + 1].Holding() == MINE)
 					{
@@ -182,7 +276,7 @@ void executive::UpdateAdjacents()
 				}
 
 				//check left
-				if (((i - 1) >= 0 && (j)<m_row_size))
+				if (((i - 1) >= 0 && (j)<m_col_size))
 				{
 					if (m_game_board[i - 1][j].Holding() == MINE)
 					{
@@ -191,7 +285,7 @@ void executive::UpdateAdjacents()
 				}
 
 				//check up-left
-				if (((i - 1)>=0 && (j + 1)<m_row_size))
+				if (((i - 1)>=0 && (j + 1)<m_col_size))
 				{
 					if (m_game_board[i - 1][j + 1].Holding() == MINE)
 					{
@@ -235,7 +329,7 @@ void executive::Print()
 	//print our 2D array
 	for (int i = 0; i < m_row_size;i++)
 	{
-		for (int j = 0; j < m_row_size;j++)
+		for (int j = 0; j < m_col_size;j++)
 		{
 			std::cout << m_game_board[i][j].Holding() << " ";
 		}
@@ -261,6 +355,58 @@ void executive::Read(int x, int y)
 	{
 		AdjacentReveal(x,y);
 	}
+
+	//check if game is won
+	bool winner = true;
+	for(int i = 0; i < m_row_size; i++)
+	{
+		for(int j = 0; j < m_col_size; j++)
+		{
+			if (m_show_board[i][j] != m_cheat_board[i][j])
+			{
+				if(!(m_cheat_board[i][j] == 'M' && (m_show_board[i][j] == 'F' || m_show_board[i][j] == 'H')))
+				{
+					winner = false;
+				}
+			}
+		}
+	}
+
+	if (winner)
+	{
+		gameWin();
+	}
+
+}
+
+void executive::flag(int x, int y)
+{
+	if (m_show_board[x][y] == 'H')
+	{
+		m_show_board[x][y] = 'F';
+	}
+	else if (m_show_board[x][y] == 'F')
+	{
+		m_show_board[x][y] = 'H';
+	}
+
+	m_game_board[x][y].flag();
+
+	//update the text file
+	std::ofstream outFile;
+	outFile.open("board.txt", std::ofstream::out | std::ofstream::trunc);
+	outFile.close();
+	outFile.open("board.txt");
+	for (int i = 0; i < m_row_size; i++)
+	{
+		for (int j = 0; j < m_col_size; j++)
+		{
+			outFile << m_show_board[i][j] << " ";
+		}
+		outFile << "\n";
+	}
+	outFile.close();
+
 }
 
 void executive::AdjacentReveal(int x, int y)
@@ -274,7 +420,7 @@ void executive::AdjacentReveal(int x, int y)
 	outFile.open("board.txt");
 	for (int i = 0; i < m_row_size; i++)
 	{
-		for (int j = 0; j < m_row_size; j++)
+		for (int j = 0; j < m_col_size; j++)
 		{
 			outFile << m_show_board[i][j] << " ";
 		}
@@ -285,13 +431,22 @@ void executive::AdjacentReveal(int x, int y)
 
 void executive::BombReveal()
 {
-	
+
 	std::string newFile = "you_lose.txt";
 	std::ofstream outFile;
 	outFile.open(newFile);
 	outFile << "L\n";
 	outFile.close();
 
+}
+
+void executive::gameWin()
+{
+	std::string newFile = "you_lose.txt";
+	std::ofstream outFile;
+	outFile.open(newFile);
+	outFile << "W\n";
+	outFile.close();
 }
 
 void executive::NoneReveal(int x, int y)
@@ -301,14 +456,15 @@ void executive::NoneReveal(int x, int y)
 	{
 		return;
 	}
+
 	//recurse up-right
-	if (((x + 1) < m_row_size && (y + 1) < m_row_size))
+	if (((x + 1) < m_row_size && (y + 1) < m_col_size))
 	{
 
-			recReveal(x + 1, y + 1);
+		recReveal(x + 1, y + 1);
 	}
 	//recurse right
-	if (((x + 1) < m_row_size && (y) < m_row_size))
+	if (((x + 1) < m_row_size && (y) < m_col_size))
 	{
 		recReveal(x + 1, y);
 	}
@@ -318,7 +474,7 @@ void executive::NoneReveal(int x, int y)
 		recReveal(x + 1, y - 1);
 	}
 	//recurse up
-	if (((x) < m_row_size && (y + 1) < m_row_size))
+	if (((x) < m_row_size && (y + 1) < m_col_size))
 	{
 		recReveal(x, y + 1);
 	}
@@ -328,12 +484,12 @@ void executive::NoneReveal(int x, int y)
 		recReveal(x, y - 1);
 	}
 	//recurse left
-	if (((x - 1) >= 0 && (y) < m_row_size))
+	if (((x - 1) >= 0 && (y) < m_col_size))
 	{
 		recReveal(x-1, y);
 	}
 	//recurse up-left
-	if (((x - 1) >= 0 && (y + 1) < m_row_size))
+	if (((x - 1) >= 0 && (y + 1) < m_col_size))
 	{
 		recReveal(x - 1, y+1);
 	}
@@ -342,10 +498,15 @@ void executive::NoneReveal(int x, int y)
 	{
 		recReveal(x - 1, y - 1);
 	}
+
+
+
 }
 
 void executive::NoneRevealMaster(int x, int y)
 {
+	m_show_board[x][y] = '-';
+	m_game_board[x][y].CheckedRecursively(true);
 	NoneReveal(x, y);
 	//update a file;
 	std::ofstream outFile;
@@ -354,7 +515,7 @@ void executive::NoneRevealMaster(int x, int y)
 	outFile.open("board.txt");
 	for (int i = 0; i < m_row_size; i++)
 	{
-		for (int j = 0; j < m_row_size; j++)
+		for (int j = 0; j < m_col_size; j++)
 		{
 			outFile << m_show_board[i][j] << " ";
 		}
@@ -363,7 +524,7 @@ void executive::NoneRevealMaster(int x, int y)
 	//reset the recursive checks.
 	for (int i = 0; i < m_row_size; i++)
 	{
-		for (int j = 0; j < m_row_size; j++)
+		for (int j = 0; j < m_col_size; j++)
 		{
 			m_game_board[i][j].CheckedRecursively(false);
 		}
@@ -379,12 +540,19 @@ void executive::recReveal(int x, int y)
 	}
 	if (m_game_board[x][y].Holding() == ADJACENT)
 	{
-		m_show_board[x][y] = std::to_string(m_game_board[x][y].AdjacentMines()).at(0) ;
+			if (m_show_board[x][y] != 'F')
+			{
+				m_show_board[x][y] = std::to_string(m_game_board[x][y].AdjacentMines()).at(0);
+			}
 	}
 	else if (m_game_board[x][y].Holding() == NONE)
 	{
-		m_show_board[x][y] = '-';
-		m_game_board[x][y].CheckedRecursively(true);
-		NoneReveal(x, y);
+			m_game_board[x][y].CheckedRecursively(true);
+			if (m_show_board[x][y] != 'F')
+			{
+				m_show_board[x][y] = '-';
+				NoneReveal(x, y);
+			}
+
 	}
 }

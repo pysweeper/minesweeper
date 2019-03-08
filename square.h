@@ -17,6 +17,7 @@ private:
 	int m_holding;
 	int m_adjacent_mines;
 	bool m_checked_recursively;
+	bool m_flagged;
 protected:
 
 public:
@@ -68,7 +69,18 @@ public:
 	#Post - returns m_adjacent_mines
 	*/
 	int AdjacentMines();
+
+	/**
+	#Pre - None
+	#Param - None
+	#Post - sets m_flagged to !m_flagged
+	*/
+	void flag();
+
+	/**
+	#Pre - None
+	#Param - None
+	#Post - returns m_flagged
+	*/
+	bool flagged();
 };
-
-
-

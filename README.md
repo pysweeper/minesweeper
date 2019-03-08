@@ -52,6 +52,21 @@ Thomas -
 5. Refactor
 6. ...
 
+## Interface Between Front and Back End:
+
+r## //set number of rows to ## and recreate board
+
+c## //set number of columns to ## and recreate board
+
+m### //set number of mines to ### and recreate 
+
+g##.## //reveal space at row ##. and column .##
+
+f##.## //flag space at row ##. and column .##
+
+h //activate or deactivate cheat mode and reveal board
+
+p //use powerup (need to finalize how powerups work)
 
 ----
 

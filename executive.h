@@ -21,9 +21,12 @@ class executive
 private:
  square** m_game_board;
  char** m_show_board;
+ char** m_cheat_board;
  int m_row_size;
+ int m_col_size;
  int m_mine_number;
  bool gameover;
+ bool cheating;
 protected:
 
 public:
@@ -111,5 +114,27 @@ public:
  #Post = Creates board.txt, fills it with hidden tiles. Creates map.txt; fills it with bomb, adjacent, and none tile locations.
  */
  void StartFilesForVBA();
+
+ /**
+ #Pre - CreateBoard has been called and main game loop has started
+ #Param - None
+ #Post = Creates board.txt, fills it with all tiles shown
+ */
+ void showCheatBoard();
+
+ /**
+ #Pre - CreateBoard has been called
+ #Param x - the x coordinate of the tile the user has clicked to flag.
+ #Param y - the y coordinate of the tile the user has clicked flag.
+ #Post - Flags the tile clicked by the user if it is unrevealed and updates board.txt
+ */
+ void flag(int x, int y);
+
+ /**
+ #Pre - CreateBoard has been called
+ #Param - None
+ #Post - Writes to you_lose.txt (this is a poorly named file). The VBA GUI checks for this, and ends the game when it is done.
+ */
+ void gameWin();
 
 };
