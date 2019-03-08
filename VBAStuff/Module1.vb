@@ -94,10 +94,26 @@
                 Minesweeper.ButtonArray(i).BackgroundImage = Nothing
                 Minesweeper.ButtonArray(i).BackColor = ColorTranslator.FromHtml("#073642")
             ElseIf boardArray(uRow, uColumn) = "H" Then
+                Minesweeper.ButtonArray(i).BackgroundImage = Nothing
+            ElseIf boardArray(uRow, uColumn) = "F" Then
+                Minesweeper.ButtonArray(i).BackgroundImage = System.Drawing.Image.FromFile("flag.jpg")
             Else
                 Minesweeper.ButtonArray(i).Enabled = False
+                Minesweeper.ButtonArray(i).BackgroundImage = Nothing
                 Minesweeper.ButtonArray(i).BackColor = ColorTranslator.FromHtml("#657b83")
                 Minesweeper.ButtonArray(i).Text = boardArray(uRow, uColumn)
+            End If
+        Next
+    End Sub
+
+    Public Sub CountFlags()
+        Flags = 0
+        Dim numButtons = (Minesweeper.NRow * Minesweeper.NCol)
+        For i = 0 To numButtons - 1
+            Dim uRow = i \ Minesweeper.NCol
+            Dim uColumn = i Mod Minesweeper.NCol
+            If boardArray(uRow, uColumn) = "F" Then
+                Flags = Flags + 1
             End If
         Next
     End Sub
