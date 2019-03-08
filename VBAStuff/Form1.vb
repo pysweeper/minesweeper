@@ -78,17 +78,9 @@
         Dim Row As Integer = ButtonPushed \ NCol
         Dim Column As Integer = ButtonPushed Mod NCol
         If e.Button = Windows.Forms.MouseButtons.Right Then
-            If IsNothing(Me.ButtonArray(ButtonPushed).BackgroundImage) Then
-                Me.ButtonArray(ButtonPushed).BackgroundImage = System.Drawing.Image.FromFile("flag.jpg")
-                Flags = Flags + 1
-                FlagsRemainingLabel.Text = Flags
-                CheckLoss()
-            Else
-                Me.ButtonArray(ButtonPushed).BackgroundImage = Nothing
-                Flags = Flags - 1
-                FlagsRemainingLabel.Text = Flags
-                CheckLoss()
-            End If
+            MessageCPP("f" & Format(Row, "00") & "." & Format(Column, "00"))
+            UpdateArray(boardArray)
+            UpdateTiles()
         ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
             MessageCPP("g" & Format(Row, "00") & "." & Format(Column, "00"))
             UpdateArray(boardArray)
@@ -100,10 +92,12 @@
                 RunWinGame()
             End If
         End If
+        CountFlags()
+        FlagsRemainingLabel.Text = Flags
     End Sub
 
     Private Sub DrawBoard()
-        FlagsRemainingLabel.Text = NMines
+        FlagsRemainingLabel.Text = 0
         ReDim ButtonArray(NRow * NCol - 1)
         If Not ButtonArray Is Nothing Then
             BoardContainer.Visible = False

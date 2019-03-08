@@ -186,7 +186,7 @@ Partial Class Minesweeper
         Me.FlagsRemainingLabel.Name = "FlagsRemainingLabel"
         Me.FlagsRemainingLabel.Size = New System.Drawing.Size(46, 18)
         Me.FlagsRemainingLabel.TabIndex = 7
-        Me.FlagsRemainingLabel.Text = "NULL"
+        Me.FlagsRemainingLabel.Text = "0"
         '
         'FlagsLabel
         '
