@@ -66,27 +66,29 @@
             If IsNothing(Me.ButtonArray(ButtonPushed).BackgroundImage) Then
                 Me.ButtonArray(ButtonPushed).BackgroundImage = System.Drawing.Image.FromFile("flag.jpg")
                 Flags = Flags + 1
-                FlagWin()
+                FlagsRemainingLabel.Text = Flags
+                CheckLoss()
             Else
                 Me.ButtonArray(ButtonPushed).BackgroundImage = Nothing
                 Flags = Flags - 1
-                FlagWin()
+                FlagsRemainingLabel.Text = Flags
+                CheckLoss()
             End If
         ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
             MessageCPP("g" & Format(Row, "00") & "." & Format(Column, "00"))
+            UpdateArray(smallArray)
+            UpdateTiles()
             CheckLoss()
             If testCharacter = "L" Then
                 RunLoseGame()
-            Else
-                UpdateArray(smallArray)
-                UpdateTiles()
-
+            ElseIf testCharacter = "W" Then
+                RunWinGame()
             End If
         End If
     End Sub
 
     Private Sub DrawBoard()
-        FlagsRemainingLabel.Text = NMines
+        'FlagsRemainingLabel.Text = NMines
         ReDim ButtonArray(NRow * NCol - 1)
         If Not ButtonArray Is Nothing Then
             BoardContainer.Visible = False
@@ -95,7 +97,7 @@
         End If
         BoardContainer.Width = NCol * 30
         BoardContainer.Height = NRow * 30
-        Dim XOffset = (Width / 2) - (BoardContainer.Width / 2) - 10
+        Dim XOffset = (Width / 2) - (BoardContainer.Width / 2)
         Dim YOffset = 110
         BoardContainer.Location = New Point(XOffset, YOffset)
         For i = 0 To NRow * NCol - 1

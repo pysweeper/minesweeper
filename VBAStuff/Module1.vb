@@ -75,32 +75,8 @@
     '@remarks - Checks for a win condition based on flag locations. If win, run RunWinGame().
     Public Sub FlagWin()
         ''MsgBox("We ran flag win")
-        mapString = My.Computer.FileSystem.ReadAllText("map.txt")
-        MineNum = 0
-        For i = 0 To Minesweeper.NRow * Minesweeper.NCol - 1
-            If mapString(i) = "0" Then
-                MineNum = MineNum + 1
-            End If
-        Next
-        ''  MsgBox(MineNum)
-        Dim counter As Integer = 0
-
-        ''first of all, we need to find out which boys have mines.
-        For i = 0 To Minesweeper.NRow * Minesweeper.NCol - 1
-            If mapString(i) = "0" Then
-                If Minesweeper.ButtonArray(i).BackColor = Color.FromArgb(0, 0, 0) Then
-                    counter = counter + 1
-                    ''the button is a flag.
-                End If
-            End If
-        Next
-
-        ''  MsgBox(counter)
-        ''then, we need to see if those same boys have flags.
-        If counter = MineNum And Flags = MineNum Then
-            ''run the win script!
-
-            '' MsgBox("You're a winner :D")
+        mapString = My.Computer.FileSystem.ReadAllText("you_lose.txt")
+        If mapString(0) = "W" Then
             RunWinGame()
         End If
     End Sub
@@ -124,6 +100,7 @@
             secondResult = CInt(iStr)
             If smallArray(firstResult, secondResult) = "-" Then
                 Minesweeper.ButtonArray(i).Enabled = False
+                Minesweeper.ButtonArray(i).BackgroundImage = Nothing
                 Minesweeper.ButtonArray(i).BackColor = ColorTranslator.FromHtml("#073642")
             ElseIf smallArray(firstResult, secondResult) = "H" Then
             Else
