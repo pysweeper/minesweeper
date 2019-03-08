@@ -13,7 +13,7 @@
     End Function
 
     Public Flags As Integer
-    Public smallArray(10, 10) As Char
+    Public smallArray(Minesweeper.NRow, Minesweeper.NCol) As Char
     Public testCharacter As Char
     Public mapString As String
 
@@ -22,11 +22,9 @@
     '@return - none
     '@remarks - after C++ updates the board.txt file, VBA's array must read in the text file and update.
     Public Sub UpdateArray(array(,) As Char)
-
         Dim fileReader As String
         fileReader = My.Computer.FileSystem.ReadAllText("board.txt")
         fileReader = ClearSpaces(fileReader)
-        '' MsgBox(fileReader)
         Dim counter As Integer
         counter = 0
         For i As Integer = 0 To 9
@@ -58,7 +56,6 @@
     '@remarks - Closes the C++ program, resets the VBA application. Reports win to user.
     Public Sub RunWinGame()
         MsgBox("You won!")
-        MessageCPP("-9999")
         Minesweeper.Show()
     End Sub
 
@@ -68,7 +65,6 @@
     '@remarks - Closes the C++ program, resets the VBA application. Reports loss to user.
     Public Sub RunLoseGame()
         MsgBox("Oh dear! You clicked a mine!")
-        MessageCPP("-9999")
         Minesweeper.Show()
     End Sub
 
@@ -126,7 +122,7 @@
         Dim secondResult As Integer
         Dim firstResult As Integer
         Dim firstStr As String
-        For i = 0 To 99
+        For i = 0 To Minesweeper.NRow * Minesweeper.NCol - 1
             iStr = CStr(i)
             If iStr.Length = 1 Then
                 firstResult = 0
@@ -137,9 +133,12 @@
             iStr = iStr(iStr.Length - 1)
             secondResult = CInt(iStr)
             If smallArray(firstResult, secondResult) = "-" Then
-                Minesweeper.ButtonArray(i).FlatStyle = FlatStyle.Flat
-                Minesweeper.ButtonArray(i).BackColor = SystemColors.ControlDark
+                Minesweeper.ButtonArray(i).Enabled = False
+                Minesweeper.ButtonArray(i).BackColor = ColorTranslator.FromHtml("#073642")
+            ElseIf smallArray(firstResult, secondResult) = "H" Then
             Else
+                Minesweeper.ButtonArray(i).Enabled = False
+                Minesweeper.ButtonArray(i).BackColor = ColorTranslator.FromHtml("#657b83")
                 Minesweeper.ButtonArray(i).Text = smallArray(firstResult, secondResult)
             End If
         Next

@@ -81,7 +81,7 @@ Partial Class Minesweeper
         Me.ControlBox.ForeColor = System.Drawing.Color.White
         Me.ControlBox.Location = New System.Drawing.Point(12, 12)
         Me.ControlBox.Name = "ControlBox"
-        Me.ControlBox.Size = New System.Drawing.Size(412, 78)
+        Me.ControlBox.Size = New System.Drawing.Size(759, 80)
         Me.ControlBox.TabIndex = 4
         Me.ControlBox.TabStop = False
         Me.ControlBox.Text = "Controls"
@@ -113,11 +113,11 @@ Partial Class Minesweeper
         Me.MineBox.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.MineBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MineBox.Location = New System.Drawing.Point(189, 22)
-        Me.MineBox.Mask = "00"
+        Me.MineBox.Mask = "000"
         Me.MineBox.Name = "MineBox"
         Me.MineBox.Size = New System.Drawing.Size(30, 15)
         Me.MineBox.TabIndex = 5
-        Me.MineBox.Text = "10"
+        Me.MineBox.Text = "010"
         Me.MineBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.MineBox.ValidatingType = GetType(Integer)
         '
@@ -181,12 +181,12 @@ Partial Class Minesweeper
         '
         'BoardContainer
         '
-        Me.BoardContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.BoardContainer.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.BoardContainer.Location = New System.Drawing.Point(12, 96)
         Me.BoardContainer.Margin = New System.Windows.Forms.Padding(1)
         Me.BoardContainer.MaximumSize = New System.Drawing.Size(1152, 1300)
         Me.BoardContainer.Name = "BoardContainer"
-        Me.BoardContainer.Size = New System.Drawing.Size(776, 265)
+        Me.BoardContainer.Size = New System.Drawing.Size(759, 454)
         Me.BoardContainer.TabIndex = 5
         Me.BoardContainer.Visible = False
         '
@@ -195,18 +195,22 @@ Partial Class Minesweeper
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
-        Me.BackColor = System.Drawing.Color.DarkSlateGray
-        Me.ClientSize = New System.Drawing.Size(800, 373)
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(7, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.ClientSize = New System.Drawing.Size(784, 561)
         Me.Controls.Add(Me.BoardContainer)
         Me.Controls.Add(Me.ControlBox)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PlayButton)
         Me.ForeColor = System.Drawing.Color.Transparent
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
-        Me.MaximumSize = New System.Drawing.Size(1152, 1300)
+        Me.MaximumSize = New System.Drawing.Size(1600, 1300)
+        Me.MinimizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(800, 400)
         Me.Name = "Minesweeper"
+        Me.Padding = New System.Windows.Forms.Padding(10)
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Minesweeper"
+        Me.TopMost = True
         Me.ControlBox.ResumeLayout(False)
         Me.ControlBox.PerformLayout()
         Me.ResumeLayout(False)
