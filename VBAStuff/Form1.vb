@@ -1,16 +1,13 @@
 ﻿Public Class Minesweeper
     Private NRow As Integer = 10
     Private NCol As Integer = 10
+    Private NMines As Integer = 10
     Public ButtonArray(NRow * NCol - 1) As Button
 
     ' Play Button
     Private Sub PlayButton_Click(sender As Object, e As EventArgs) Handles PlayButton.Click
         cpp = Shell("MineSweeper.exe")
         Dim id As Long = GetCurrentProcessId
-        Threading.Thread.Sleep(100)
-        MessageCPP("10")
-        Threading.Thread.Sleep(30)
-        MessageCPP("4")
         Flags = 0
         PlayButton.Hide()
         Label1.Hide()
@@ -29,31 +26,19 @@
 
     Private Sub RowBox_Enter(sender As Object, e As KeyPressEventArgs) Handles RowBox.KeyPress
         If e.KeyChar = vbCr Then
-            Dim rowString As String
-            'MsgBox(RowBox.Text)
-            rowString = RowBox.Text
-            NRow = Integer.Parse(rowString)
-            'MsgBox("Hello")
-            ' Grab(box.text And set to NRow)
+            NRow = CType(RowBox.Text, Integer)
         End If
     End Sub
 
     Private Sub ColumnsBox_Enter(sender As Object, e As KeyPressEventArgs) Handles ColumnsBox.KeyPress
         If e.KeyChar = vbCr Then
-            'MsgBox(ColumnsBox.Text)
-            Dim colString As String
-            'MsgBox(RowBox.Text)
-            colString = ColumnsBox.Text
-            NCol = Integer.Parse(colString)
+            NCol = CType(ColumnsBox.Text, Integer)
         End If
     End Sub
 
     Private Sub MinesBox_Enter(sender As Object, e As KeyPressEventArgs) Handles MineBox.KeyPress
         If e.KeyChar = vbCr Then
-            'MsgBox(MineBox.Text)
-            Dim mineString As String
-            mineString = RowBox.Text
-            MineNum = Integer.Parse(mineString)
+            NMines = CType(RowBox.Text, Integer)
         End If
     End Sub
 
