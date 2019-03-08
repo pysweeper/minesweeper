@@ -67,8 +67,7 @@
                 FlagWin()
             End If
         ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
-            MessageCPP(CType(Row, String))
-            MessageCPP(CType(Column, String))
+            MessageCPP("g" & Format(Row, "00") & "." & Format(Column, "00"))
             CheckLoss()
             If testCharacter = "L" Then
                 RunLoseGame()
@@ -90,9 +89,9 @@
                 .Name = "Button" & i,
                 .Size = New System.Drawing.Size(36, 36),
                 .UseVisualStyleBackColor = False,
-                .Text = ""
+                .Text = "",
+                .Margin = New Padding(0)
                 }
-            'ButtonArray(i).Margin = New Padding(0)
             BoardContainer.Controls.Add(ButtonArray(i))
 
             AddHandler ButtonArray(i).MouseDown, AddressOf ClickHandler
