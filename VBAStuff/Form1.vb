@@ -59,22 +59,16 @@
     End Sub
 
     Private Sub ClickHandler(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs)
-        ' Todo: We should send a button number to app instead of row/column
         Dim ButtonPushed As Integer = sender.name.Replace("Button", "")
-        ' Temp fix is to divide by 10 for the row. and mod 10 for the column.
-        Dim Row As Integer = ButtonPushed \ 10
-        Dim Column As Integer = ButtonPushed Mod 10
+        Dim Row As Integer = ButtonPushed \ NCol
+        Dim Column As Integer = ButtonPushed Mod NRow
         If e.Button = Windows.Forms.MouseButtons.Right Then
-            If Me.ButtonArray(ButtonPushed).BackColor.Equals(Color.FromArgb(0, 0, 64)) And
-                IsNothing(Me.ButtonArray(ButtonPushed).BackgroundImage) Then
+            If IsNothing(Me.ButtonArray(ButtonPushed).BackgroundImage) Then
                 Me.ButtonArray(ButtonPushed).BackgroundImage = System.Drawing.Image.FromFile("flag.jpg")
-                Me.ButtonArray(ButtonPushed).BackColor = Color.FromArgb(0, 0, 0)
                 Flags = Flags + 1
                 FlagWin()
-                ''else if right click and is already flag, set unclicked.
-            ElseIf Me.ButtonArray(ButtonPushed).BackColor.Equals(Color.FromArgb(0, 0, 0)) Then
+            Else
                 Me.ButtonArray(ButtonPushed).BackgroundImage = Nothing
-                Me.ButtonArray(ButtonPushed).BackColor = Color.FromArgb(0, 0, 64)
                 Flags = Flags - 1
                 FlagWin()
             End If
@@ -99,15 +93,17 @@
             BoardContainer.Controls.Clear()
             BoardContainer.Visible = True
         End If
-        BoardContainer.Width = NCol * 36
-        BoardContainer.Height = NRow * 36
-        BoardContainer.Location = New Point((Me.Width / 2) - (BoardContainer.Width / 2) - 10, ((Me.Height / 2) - (BoardContainer.Height / 2)) - 70)
+        BoardContainer.Width = NCol * 30
+        BoardContainer.Height = NRow * 30
+        Dim XOffset = (Width / 2) - (BoardContainer.Width / 2) - 10
+        Dim YOffset = 110
+        BoardContainer.Location = New Point(XOffset, YOffset)
         For i = 0 To NRow * NCol - 1
             ButtonArray(i) = New System.Windows.Forms.Button With {
                 .BackColor = ColorTranslator.FromHtml("#93a1a1"),
                 .FlatStyle = 0,
                 .Name = "Button" & i,
-                .Size = New System.Drawing.Size(36, 36),
+                .Size = New System.Drawing.Size(30, 30),
                 .UseVisualStyleBackColor = False,
                 .Text = "",
                 .Padding = New Padding(0),

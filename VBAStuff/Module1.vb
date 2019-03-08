@@ -22,13 +22,14 @@
     '@return - none
     '@remarks - after C++ updates the board.txt file, VBA's array must read in the text file and update.
     Public Sub UpdateArray(array(,) As Char)
+        ReDim smallArray(Minesweeper.NRow, Minesweeper.NCol)
         Dim fileReader As String
         fileReader = My.Computer.FileSystem.ReadAllText("board.txt")
         fileReader = ClearSpaces(fileReader)
         Dim counter As Integer
         counter = 0
-        For i As Integer = 0 To 9
-            For j As Integer = 0 To 9
+        For i = 0 To Minesweeper.NRow - 1
+            For j = 0 To Minesweeper.NCol - 1
                 smallArray(i, j) = fileReader(counter)
                 counter = counter + 1
             Next
@@ -56,7 +57,7 @@
     '@remarks - Closes the C++ program, resets the VBA application. Reports win to user.
     Public Sub RunWinGame()
         MsgBox("You won!")
-        Minesweeper.Show()
+        Minesweeper.Focus()
     End Sub
 
     ''
@@ -65,7 +66,7 @@
     '@remarks - Closes the C++ program, resets the VBA application. Reports loss to user.
     Public Sub RunLoseGame()
         MsgBox("Oh dear! You clicked a mine!")
-        Minesweeper.Show()
+        Minesweeper.Focus()
     End Sub
 
     ''
@@ -76,7 +77,7 @@
         ''MsgBox("We ran flag win")
         mapString = My.Computer.FileSystem.ReadAllText("map.txt")
         MineNum = 0
-        For i = 0 To 99
+        For i = 0 To Minesweeper.NRow * Minesweeper.NCol - 1
             If mapString(i) = "0" Then
                 MineNum = MineNum + 1
             End If
@@ -85,7 +86,7 @@
         Dim counter As Integer = 0
 
         ''first of all, we need to find out which boys have mines.
-        For i = 0 To 99
+        For i = 0 To Minesweeper.NRow * Minesweeper.NCol - 1
             If mapString(i) = "0" Then
                 If Minesweeper.ButtonArray(i).BackColor = Color.FromArgb(0, 0, 0) Then
                     counter = counter + 1
@@ -103,27 +104,16 @@
             RunWinGame()
         End If
     End Sub
-
-    ''
-    '
-    '@return - none
-    '@remarks - Pushes all buttons on FormSmall to the button array.
-    Public Sub AssignButtons()
-        mapString = My.Computer.FileSystem.ReadAllText("map.txt")
-    End Sub
-
     ''
     '
     '@return - none
     '@remarks - Scans the tile array, updates button skins accordingly.
     Public Sub UpdateTiles()
-        Dim i As Integer
-        Dim iStr As String
         Dim secondResult As Integer
         Dim firstResult As Integer
         Dim firstStr As String
         For i = 0 To Minesweeper.NRow * Minesweeper.NCol - 1
-            iStr = CStr(i)
+            Dim iStr = CStr(i)
             If iStr.Length = 1 Then
                 firstResult = 0
             Else
@@ -141,19 +131,6 @@
                 Minesweeper.ButtonArray(i).BackColor = ColorTranslator.FromHtml("#657b83")
                 Minesweeper.ButtonArray(i).Text = smallArray(firstResult, secondResult)
             End If
-        Next
-    End Sub
-
-    Public Sub NearbyMines()
-        'need to count nearby mines with this function and not the above.
-    End Sub
-    ''
-    '
-    '@return - none
-    '@remarks - Resets tiles to default skin.
-    Public Sub ResetTiles()
-        For i = 0 To 99
-            Minesweeper.ButtonArray(i).BackColor = Color.FromArgb(0, 0, 64)
         Next
     End Sub
 

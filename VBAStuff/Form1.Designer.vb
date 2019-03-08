@@ -79,9 +79,9 @@ Partial Class Minesweeper
         Me.ControlBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ControlBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ControlBox.ForeColor = System.Drawing.Color.White
-        Me.ControlBox.Location = New System.Drawing.Point(12, 12)
+        Me.ControlBox.Location = New System.Drawing.Point(12, 13)
         Me.ControlBox.Name = "ControlBox"
-        Me.ControlBox.Size = New System.Drawing.Size(759, 80)
+        Me.ControlBox.Size = New System.Drawing.Size(759, 79)
         Me.ControlBox.TabIndex = 4
         Me.ControlBox.TabStop = False
         Me.ControlBox.Text = "Controls"
@@ -186,7 +186,7 @@ Partial Class Minesweeper
         Me.BoardContainer.Margin = New System.Windows.Forms.Padding(1)
         Me.BoardContainer.MaximumSize = New System.Drawing.Size(1152, 1300)
         Me.BoardContainer.Name = "BoardContainer"
-        Me.BoardContainer.Size = New System.Drawing.Size(759, 454)
+        Me.BoardContainer.Size = New System.Drawing.Size(759, 349)
         Me.BoardContainer.TabIndex = 5
         Me.BoardContainer.Visible = False
         '
@@ -196,21 +196,19 @@ Partial Class Minesweeper
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(7, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(784, 561)
+        Me.ClientSize = New System.Drawing.Size(784, 455)
         Me.Controls.Add(Me.BoardContainer)
         Me.Controls.Add(Me.ControlBox)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PlayButton)
         Me.ForeColor = System.Drawing.Color.Transparent
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
-        Me.MaximumSize = New System.Drawing.Size(1600, 1300)
-        Me.MinimizeBox = False
         Me.MinimumSize = New System.Drawing.Size(800, 400)
         Me.Name = "Minesweeper"
         Me.Padding = New System.Windows.Forms.Padding(10)
+        Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Minesweeper"
-        Me.TopMost = True
         Me.ControlBox.ResumeLayout(False)
         Me.ControlBox.PerformLayout()
         Me.ResumeLayout(False)
