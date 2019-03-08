@@ -159,11 +159,14 @@
     End Sub
 
     Public Sub MessageCPP(message As String)
-        AppActivate(cpp)
-        SendKeys.Send(message)
-        Threading.Thread.Sleep(50)
-        SendKeys.Send("{ENTER}")
-        Threading.Thread.Sleep(50)
+        If (cpp) Then
+            AppActivate(cpp)
+            SendKeys.Send(message)
+            Threading.Thread.Sleep(50)
+            SendKeys.Send("{ENTER}")
+            Threading.Thread.Sleep(50)
+            cpp = If(message = "-9999", 0, cpp)
+        End If
     End Sub
 
 End Module
