@@ -61,7 +61,7 @@
     Private Sub ClickHandler(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs)
         Dim ButtonPushed As Integer = sender.name.Replace("Button", "")
         Dim Row As Integer = ButtonPushed \ NCol
-        Dim Column As Integer = ButtonPushed Mod NRow
+        Dim Column As Integer = ButtonPushed Mod NCol
         If e.Button = Windows.Forms.MouseButtons.Right Then
             If IsNothing(Me.ButtonArray(ButtonPushed).BackgroundImage) Then
                 Me.ButtonArray(ButtonPushed).BackgroundImage = System.Drawing.Image.FromFile("flag.jpg")
@@ -76,7 +76,7 @@
             End If
         ElseIf e.Button = Windows.Forms.MouseButtons.Left Then
             MessageCPP("g" & Format(Row, "00") & "." & Format(Column, "00"))
-            UpdateArray(smallArray)
+            UpdateArray(boardArray)
             UpdateTiles()
             CheckLoss()
             If testCharacter = "L" Then
@@ -88,7 +88,7 @@
     End Sub
 
     Private Sub DrawBoard()
-        'FlagsRemainingLabel.Text = NMines
+        FlagsRemainingLabel.Text = NMines
         ReDim ButtonArray(NRow * NCol - 1)
         If Not ButtonArray Is Nothing Then
             BoardContainer.Visible = False

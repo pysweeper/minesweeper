@@ -13,7 +13,7 @@
     End Function
 
     Public Flags As Integer
-    Public smallArray(Minesweeper.NRow, Minesweeper.NCol) As Char
+    Public boardArray(Minesweeper.NRow - 1, Minesweeper.NCol - 1) As Char
     Public testCharacter As Char
     Public mapString As String
 
@@ -22,7 +22,7 @@
     '@return - none
     '@remarks - after C++ updates the board.txt file, VBA's array must read in the text file and update.
     Public Sub UpdateArray(array(,) As Char)
-        ReDim smallArray(Minesweeper.NRow, Minesweeper.NCol)
+        ReDim boardArray(Minesweeper.NRow - 1, Minesweeper.NCol - 1)
         Dim fileReader As String
         fileReader = My.Computer.FileSystem.ReadAllText("board.txt")
         fileReader = ClearSpaces(fileReader)
@@ -30,7 +30,7 @@
         counter = 0
         For i = 0 To Minesweeper.NRow - 1
             For j = 0 To Minesweeper.NCol - 1
-                smallArray(i, j) = fileReader(counter)
+                boardArray(i, j) = fileReader(counter)
                 counter = counter + 1
             Next
         Next
@@ -85,28 +85,19 @@
     '@return - none
     '@remarks - Scans the tile array, updates button skins accordingly.
     Public Sub UpdateTiles()
-        Dim secondResult As Integer
-        Dim firstResult As Integer
-        Dim firstStr As String
-        For i = 0 To Minesweeper.NRow * Minesweeper.NCol - 1
-            Dim iStr = CStr(i)
-            If iStr.Length = 1 Then
-                firstResult = 0
-            Else
-                firstStr = iStr(0)
-                firstResult = CInt(firstStr)
-            End If
-            iStr = iStr(iStr.Length - 1)
-            secondResult = CInt(iStr)
-            If smallArray(firstResult, secondResult) = "-" Then
+        Dim numButtons = (Minesweeper.NRow * Minesweeper.NCol)
+        For i = 0 To numButtons - 1
+            Dim uRow = i \ Minesweeper.NCol
+            Dim uColumn = i Mod Minesweeper.NCol
+            If boardArray(uRow, uColumn) = "-" Then
                 Minesweeper.ButtonArray(i).Enabled = False
                 Minesweeper.ButtonArray(i).BackgroundImage = Nothing
                 Minesweeper.ButtonArray(i).BackColor = ColorTranslator.FromHtml("#073642")
-            ElseIf smallArray(firstResult, secondResult) = "H" Then
+            ElseIf boardArray(uRow, uColumn) = "H" Then
             Else
                 Minesweeper.ButtonArray(i).Enabled = False
                 Minesweeper.ButtonArray(i).BackColor = ColorTranslator.FromHtml("#657b83")
-                Minesweeper.ButtonArray(i).Text = smallArray(firstResult, secondResult)
+                Minesweeper.ButtonArray(i).Text = boardArray(uRow, uColumn)
             End If
         Next
     End Sub
