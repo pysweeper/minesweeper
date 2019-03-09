@@ -121,6 +121,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="clickedMine.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="flag.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -100,6 +100,8 @@
                 Minesweeper.ButtonArray(i).BackgroundImage = Nothing
             ElseIf boardArray(uRow, uColumn) = "F" Then
                 Minesweeper.ButtonArray(i).BackgroundImage = System.Drawing.Image.FromFile("flag.png")
+            ElseIf boardArray(uRow, uColumn) = "M" Then
+                Minesweeper.ButtonArray(i).BackgroundImage = System.Drawing.Image.FromFile("clickedMine.jpg")
             Else
                 Minesweeper.ButtonArray(i).Enabled = False
                 Minesweeper.ButtonArray(i).BackgroundImage = Nothing

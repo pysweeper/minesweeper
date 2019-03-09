@@ -3,7 +3,6 @@
     Public NCol As Integer = 10
     Private NMines As Integer = 10
     Public ButtonArray(NRow * NCol - 1) As Button
-    Private Cheat As Integer = 0
 
 
     ' Play Button
@@ -128,19 +127,10 @@
     End Sub
 
     Private Sub CheatButton_Click(sender As Object, e As EventArgs) Handles CheatButton.Click
-        Cheat = Cheat + 1
-        If Cheat Mod 2 = 1 Then
-            MessageCPP("h")
-            UpdateArray(boardArray)
-            UpdateTiles()
-        ElseIf Cheat Mod 2 = 0 Then
-            MessageCPP("h")
-            BoardContainer.Controls.Clear()
-            DrawBoard()
-            UpdateArray(boardArray)
-            UpdateTiles()
-            Cheat = 0
-        End If
+        MessageCPP("h")
+        DrawBoard()
+        UpdateArray(boardArray)
+        UpdateTiles()
     End Sub
 
     Private Sub Minesweeper_Load(sender As Object, e As EventArgs) Handles MyBase.Load
