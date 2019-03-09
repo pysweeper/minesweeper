@@ -25,13 +25,12 @@ Partial Class Minesweeper
         Me.PlayButton = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ControlBox = New System.Windows.Forms.GroupBox()
-        Me.CheatButton = New System.Windows.Forms.Button()
         Me.FeaturePanel = New System.Windows.Forms.Panel()
-        Me.HelpButton = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.FeatureMode = New System.Windows.Forms.CheckBox()
+        Me.HelpButton = New System.Windows.Forms.Button()
         Me.FlagsRemainingLabel = New System.Windows.Forms.Label()
         Me.FlagsLabel = New System.Windows.Forms.Label()
         Me.MineBox = New System.Windows.Forms.MaskedTextBox()
@@ -40,11 +39,15 @@ Partial Class Minesweeper
         Me.ColumnLabel = New System.Windows.Forms.Label()
         Me.RowLabel = New System.Windows.Forms.Label()
         Me.RowBox = New System.Windows.Forms.MaskedTextBox()
-        Me.BoardContainer = New System.Windows.Forms.FlowLayoutPanel()
-        Me.Win = New System.Windows.Forms.Label()
+        Me.CheatButton = New System.Windows.Forms.Button()
         Me.Lose = New System.Windows.Forms.Label()
+        Me.Win = New System.Windows.Forms.Label()
+        Me.BoardContainer = New System.Windows.Forms.FlowLayoutPanel()
+        Me.PlayAgain = New System.Windows.Forms.Label()
+        Me.EndBox = New System.Windows.Forms.GroupBox()
         Me.ControlBox.SuspendLayout()
         Me.FeaturePanel.SuspendLayout()
+        Me.EndBox.SuspendLayout()
         Me.SuspendLayout()
         '
         'PlayButton
@@ -78,9 +81,6 @@ Partial Class Minesweeper
         '
         'ControlBox
         '
-        Me.ControlBox.Controls.Add(Me.Lose)
-        Me.ControlBox.Controls.Add(Me.Win)
-        Me.ControlBox.Controls.Add(Me.CheatButton)
         Me.ControlBox.Controls.Add(Me.FeaturePanel)
         Me.ControlBox.Controls.Add(Me.FlagsRemainingLabel)
         Me.ControlBox.Controls.Add(Me.FlagsLabel)
@@ -90,10 +90,11 @@ Partial Class Minesweeper
         Me.ControlBox.Controls.Add(Me.ColumnLabel)
         Me.ControlBox.Controls.Add(Me.RowLabel)
         Me.ControlBox.Controls.Add(Me.RowBox)
+        Me.ControlBox.Controls.Add(Me.CheatButton)
         Me.ControlBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ControlBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
         Me.ControlBox.ForeColor = System.Drawing.Color.White
-        Me.ControlBox.Location = New System.Drawing.Point(12, 13)
+        Me.ControlBox.Location = New System.Drawing.Point(13, 13)
         Me.ControlBox.Name = "ControlBox"
         Me.ControlBox.Size = New System.Drawing.Size(759, 79)
         Me.ControlBox.TabIndex = 4
@@ -101,39 +102,17 @@ Partial Class Minesweeper
         Me.ControlBox.Text = "Controls"
         Me.ControlBox.Visible = False
         '
-        'CheatButton
-        '
-        Me.CheatButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CheatButton.Location = New System.Drawing.Point(309, 27)
-        Me.CheatButton.Name = "CheatButton"
-        Me.CheatButton.Size = New System.Drawing.Size(138, 36)
-        Me.CheatButton.TabIndex = 9
-        Me.CheatButton.Text = "Cheat Mode"
-        Me.CheatButton.UseVisualStyleBackColor = True
-        '
         'FeaturePanel
         '
-        Me.FeaturePanel.Controls.Add(Me.HelpButton)
         Me.FeaturePanel.Controls.Add(Me.Button3)
         Me.FeaturePanel.Controls.Add(Me.Button2)
         Me.FeaturePanel.Controls.Add(Me.Button1)
         Me.FeaturePanel.Controls.Add(Me.FeatureMode)
+        Me.FeaturePanel.Controls.Add(Me.HelpButton)
         Me.FeaturePanel.Location = New System.Drawing.Point(542, 10)
         Me.FeaturePanel.Name = "FeaturePanel"
         Me.FeaturePanel.Size = New System.Drawing.Size(211, 63)
         Me.FeaturePanel.TabIndex = 8
-        '
-        'HelpButton
-        '
-        Me.HelpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.HelpButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
-        Me.HelpButton.ForeColor = System.Drawing.Color.FromArgb(CType(CType(203, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(22, Byte), Integer))
-        Me.HelpButton.Location = New System.Drawing.Point(142, 29)
-        Me.HelpButton.Name = "HelpButton"
-        Me.HelpButton.Size = New System.Drawing.Size(58, 25)
-        Me.HelpButton.TabIndex = 5
-        Me.HelpButton.Text = "Help"
-        Me.HelpButton.UseVisualStyleBackColor = False
         '
         'Button3
         '
@@ -181,6 +160,18 @@ Partial Class Minesweeper
         Me.FeatureMode.TabIndex = 1
         Me.FeatureMode.Text = "Enable Power-up Mode"
         Me.FeatureMode.UseVisualStyleBackColor = True
+        '
+        'HelpButton
+        '
+        Me.HelpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.HelpButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
+        Me.HelpButton.ForeColor = System.Drawing.Color.FromArgb(CType(CType(203, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(22, Byte), Integer))
+        Me.HelpButton.Location = New System.Drawing.Point(142, 29)
+        Me.HelpButton.Name = "HelpButton"
+        Me.HelpButton.Size = New System.Drawing.Size(58, 25)
+        Me.HelpButton.TabIndex = 5
+        Me.HelpButton.Text = "Help"
+        Me.HelpButton.UseVisualStyleBackColor = False
         '
         'FlagsRemainingLabel
         '
@@ -274,30 +265,15 @@ Partial Class Minesweeper
         Me.RowBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.RowBox.ValidatingType = GetType(Integer)
         '
-        'BoardContainer
+        'CheatButton
         '
-        Me.BoardContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.BoardContainer.Location = New System.Drawing.Point(12, 96)
-        Me.BoardContainer.Margin = New System.Windows.Forms.Padding(1)
-        Me.BoardContainer.MaximumSize = New System.Drawing.Size(1152, 1300)
-        Me.BoardContainer.Name = "BoardContainer"
-        Me.BoardContainer.Size = New System.Drawing.Size(759, 349)
-        Me.BoardContainer.TabIndex = 5
-        Me.BoardContainer.Visible = False
-        '
-        'Win
-        '
-        Me.Win.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Win.AutoSize = True
-        Me.Win.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Win.Location = New System.Drawing.Point(-10, 9)
-        Me.Win.Name = "Win"
-        Me.Win.Padding = New System.Windows.Forms.Padding(60, 0, 0, 0)
-        Me.Win.Size = New System.Drawing.Size(836, 55)
-        Me.Win.TabIndex = 6
-        Me.Win.Text = "You Win! Click Here To Play Again!"
-        Me.Win.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.Win.Visible = False
+        Me.CheatButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CheatButton.Location = New System.Drawing.Point(309, 27)
+        Me.CheatButton.Name = "CheatButton"
+        Me.CheatButton.Size = New System.Drawing.Size(138, 36)
+        Me.CheatButton.TabIndex = 9
+        Me.CheatButton.Text = "Cheat Mode"
+        Me.CheatButton.UseVisualStyleBackColor = True
         '
         'Lose
         '
@@ -305,15 +281,74 @@ Partial Class Minesweeper
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Lose.AutoSize = True
-        Me.Lose.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!)
-        Me.Lose.Location = New System.Drawing.Point(28, -15)
+        Me.Lose.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.0!)
+        Me.Lose.Location = New System.Drawing.Point(152, 8)
         Me.Lose.Name = "Lose"
-        Me.Lose.Padding = New System.Windows.Forms.Padding(60, 0, 0, 0)
-        Me.Lose.Size = New System.Drawing.Size(699, 110)
+        Me.Lose.Size = New System.Drawing.Size(507, 44)
         Me.Lose.TabIndex = 10
-        Me.Lose.Text = "Oh dear! You clicked a mine!" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Click Here To Play Again!"
+        Me.Lose.Text = "Oh dear! You clicked a mine!"
         Me.Lose.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.Lose.Visible = False
+        '
+        'Win
+        '
+        Me.Win.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Win.AutoSize = True
+        Me.Win.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Win.Location = New System.Drawing.Point(304, 8)
+        Me.Win.Name = "Win"
+        Me.Win.Size = New System.Drawing.Size(173, 44)
+        Me.Win.TabIndex = 6
+        Me.Win.Text = "You Win!"
+        Me.Win.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.Win.Visible = False
+        '
+        'BoardContainer
+        '
+        Me.BoardContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.BoardContainer.Location = New System.Drawing.Point(8, 101)
+        Me.BoardContainer.Margin = New System.Windows.Forms.Padding(1)
+        Me.BoardContainer.MaximumSize = New System.Drawing.Size(1152, 1300)
+        Me.BoardContainer.Name = "BoardContainer"
+        Me.BoardContainer.Size = New System.Drawing.Size(769, 349)
+        Me.BoardContainer.TabIndex = 5
+        Me.BoardContainer.Visible = False
+        '
+        'PlayAgain
+        '
+        Me.PlayAgain.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.PlayAgain.AutoEllipsis = True
+        Me.PlayAgain.AutoSize = True
+        Me.PlayAgain.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PlayAgain.Location = New System.Drawing.Point(304, 48)
+        Me.PlayAgain.Name = "PlayAgain"
+        Me.PlayAgain.Size = New System.Drawing.Size(187, 37)
+        Me.PlayAgain.TabIndex = 0
+        Me.PlayAgain.Text = "Play Again?"
+        Me.PlayAgain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.PlayAgain.Visible = False
+        '
+        'EndBox
+        '
+        Me.EndBox.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.EndBox.AutoSize = True
+        Me.EndBox.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.EndBox.Controls.Add(Me.Win)
+        Me.EndBox.Controls.Add(Me.PlayAgain)
+        Me.EndBox.Controls.Add(Me.Lose)
+        Me.EndBox.Location = New System.Drawing.Point(4, 2)
+        Me.EndBox.Name = "EndBox"
+        Me.EndBox.Padding = New System.Windows.Forms.Padding(0)
+        Me.EndBox.Size = New System.Drawing.Size(778, 98)
+        Me.EndBox.TabIndex = 10
+        Me.EndBox.TabStop = False
+        Me.EndBox.Visible = False
         '
         'Minesweeper
         '
@@ -323,10 +358,11 @@ Partial Class Minesweeper
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(7, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(66, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(784, 455)
-        Me.Controls.Add(Me.BoardContainer)
+        Me.Controls.Add(Me.EndBox)
         Me.Controls.Add(Me.ControlBox)
-        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PlayButton)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.BoardContainer)
         Me.ForeColor = System.Drawing.Color.Transparent
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MinimumSize = New System.Drawing.Size(800, 400)
@@ -339,7 +375,10 @@ Partial Class Minesweeper
         Me.ControlBox.PerformLayout()
         Me.FeaturePanel.ResumeLayout(False)
         Me.FeaturePanel.PerformLayout()
+        Me.EndBox.ResumeLayout(False)
+        Me.EndBox.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -364,4 +403,6 @@ Partial Class Minesweeper
     Friend WithEvents CheatButton As Button
     Friend WithEvents Win As Label
     Friend WithEvents Lose As Label
+    Friend WithEvents PlayAgain As Label
+    Friend WithEvents EndBox As GroupBox
 End Class

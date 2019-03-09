@@ -1,7 +1,7 @@
 ﻿Public Class Minesweeper
     Public NRow As Integer = 10
     Public NCol As Integer = 10
-    Private NMines As Integer = 10
+    Public NMines As Integer = 10
     Public ButtonArray(NRow * NCol - 1) As Button
 
 
@@ -45,8 +45,8 @@
         If e.KeyChar = vbCr Then
             e.Handled = True
             NCol = sender.Text
-            If NCol >= 40 Then
-                NCol = 40
+            If NCol >= 38 Then
+                NCol = 38
             ElseIf NCol < 2 Then
                 NCol = 2
             End If
@@ -140,16 +140,16 @@
         TopMost = True
     End Sub
 
-    Private Sub Win_Click(sender As Object, e As EventArgs) Handles Win.Click
+    Private Sub PlayAgain_Click(sender As Object, e As EventArgs) Handles PlayAgain.Click
+        EndBox.Hide()
         Win.Hide()
-        Reset()
-        DrawBoard()
-    End Sub
-
-    Private Sub Lose_Click(sender As Object, e As EventArgs) Handles Lose.Click
         Lose.Hide()
+        PlayAgain.Hide()
+        EndBox.SendToBack()
+        BoardContainer.BringToFront()
+        ControlBox.BringToFront()
+        ControlBox.Show()
         Reset()
         DrawBoard()
     End Sub
-
 End Class

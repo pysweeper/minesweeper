@@ -57,8 +57,15 @@
     '@return - none
     '@remarks - Closes the C++ program, resets the VBA application. Reports win to user.
     Public Sub RunWinGame()
+        Minesweeper.BoardContainer.SendToBack()
+        Minesweeper.ControlBox.SendToBack()
+        Minesweeper.ControlBox.Hide()
         Minesweeper.Win.BringToFront()
         Minesweeper.Win.Show()
+        Minesweeper.PlayAgain.BringToFront()
+        Minesweeper.PlayAgain.Show()
+        Minesweeper.EndBox.BringToFront()
+        Minesweeper.EndBox.Show()
         Minesweeper.Focus()
     End Sub
 
@@ -67,8 +74,15 @@
     '@return - none
     '@remarks - Closes the C++ program, resets the VBA application. Reports loss to user.
     Public Sub RunLoseGame()
+        Minesweeper.BoardContainer.SendToBack()
+        Minesweeper.ControlBox.SendToBack()
+        Minesweeper.ControlBox.Hide()
         Minesweeper.Lose.BringToFront()
         Minesweeper.Lose.Show()
+        Minesweeper.PlayAgain.BringToFront()
+        Minesweeper.PlayAgain.Show()
+        Minesweeper.EndBox.BringToFront()
+        Minesweeper.EndBox.Show()
         Minesweeper.Focus()
     End Sub
 
@@ -136,6 +150,9 @@
 
     Public Sub Reset()
         MessageCPP("-9999")
+        Minesweeper.NRow = 10
+        Minesweeper.NCol = 10
+        Minesweeper.NMines = 10
         Threading.Thread.Sleep(100)
         cpp = Shell("MineSweeper.exe")
     End Sub
