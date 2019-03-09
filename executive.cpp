@@ -81,17 +81,21 @@ void executive::Run()
 		}
 		else if (command[0] == 'g')
 		{
-			x = std::stoi(command.substr(1, 2));
-			y = std::stoi(command.substr(4, 2));
-			cheating = false;
-			Read(x, y);
+			if (!cheating)
+			{
+				x = std::stoi(command.substr(1, 2));
+				y = std::stoi(command.substr(4, 2));
+				Read(x, y);
+			}
 		}
 		else if (command[0] == 'f')
 		{
-			x = std::stoi(command.substr(1, 2));
-			y = std::stoi(command.substr(4, 2));
-			cheating = false;
-			flag(x, y);
+			if (!cheating)
+			{
+				x = std::stoi(command.substr(1, 2));
+				y = std::stoi(command.substr(4, 2));
+				flag(x, y);
+			}
 		}
 		else if (command[0] == 'h')
 		{
@@ -99,7 +103,10 @@ void executive::Run()
 		}
 		else if (command[0] == 'p')
 		{
-			cheating = false;
+			if (!cheating)
+			{
+
+			}
 		}
 
 	}
@@ -461,6 +468,8 @@ void executive::BombReveal()
 	outFile.open(newFile);
 	outFile << "L\n";
 	outFile.close();
+
+	showCheatBoard();
 
 }
 
