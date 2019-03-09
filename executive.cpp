@@ -41,6 +41,7 @@ void executive::StartFilesForVBA()
 		}
 		outFile << "\n";
 	}
+	outFile.close();
 }
 
 void executive::Run()

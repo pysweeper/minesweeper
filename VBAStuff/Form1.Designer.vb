@@ -41,6 +41,8 @@ Partial Class Minesweeper
         Me.RowLabel = New System.Windows.Forms.Label()
         Me.RowBox = New System.Windows.Forms.MaskedTextBox()
         Me.BoardContainer = New System.Windows.Forms.FlowLayoutPanel()
+        Me.Win = New System.Windows.Forms.Label()
+        Me.Lose = New System.Windows.Forms.Label()
         Me.ControlBox.SuspendLayout()
         Me.FeaturePanel.SuspendLayout()
         Me.SuspendLayout()
@@ -76,6 +78,8 @@ Partial Class Minesweeper
         '
         'ControlBox
         '
+        Me.ControlBox.Controls.Add(Me.Lose)
+        Me.ControlBox.Controls.Add(Me.Win)
         Me.ControlBox.Controls.Add(Me.CheatButton)
         Me.ControlBox.Controls.Add(Me.FeaturePanel)
         Me.ControlBox.Controls.Add(Me.FlagsRemainingLabel)
@@ -184,7 +188,7 @@ Partial Class Minesweeper
         Me.FlagsRemainingLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FlagsRemainingLabel.Location = New System.Drawing.Point(199, 46)
         Me.FlagsRemainingLabel.Name = "FlagsRemainingLabel"
-        Me.FlagsRemainingLabel.Size = New System.Drawing.Size(46, 18)
+        Me.FlagsRemainingLabel.Size = New System.Drawing.Size(16, 18)
         Me.FlagsRemainingLabel.TabIndex = 7
         Me.FlagsRemainingLabel.Text = "0"
         '
@@ -281,6 +285,36 @@ Partial Class Minesweeper
         Me.BoardContainer.TabIndex = 5
         Me.BoardContainer.Visible = False
         '
+        'Win
+        '
+        Me.Win.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Win.AutoSize = True
+        Me.Win.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Win.Location = New System.Drawing.Point(-10, 9)
+        Me.Win.Name = "Win"
+        Me.Win.Padding = New System.Windows.Forms.Padding(60, 0, 0, 0)
+        Me.Win.Size = New System.Drawing.Size(836, 55)
+        Me.Win.TabIndex = 6
+        Me.Win.Text = "You Win! Click Here To Play Again!"
+        Me.Win.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.Win.Visible = False
+        '
+        'Lose
+        '
+        Me.Lose.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Lose.AutoSize = True
+        Me.Lose.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!)
+        Me.Lose.Location = New System.Drawing.Point(28, -15)
+        Me.Lose.Name = "Lose"
+        Me.Lose.Padding = New System.Windows.Forms.Padding(60, 0, 0, 0)
+        Me.Lose.Size = New System.Drawing.Size(699, 110)
+        Me.Lose.TabIndex = 10
+        Me.Lose.Text = "Oh dear! You clicked a mine!" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Click Here To Play Again!"
+        Me.Lose.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.Lose.Visible = False
+        '
         'Minesweeper
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -328,4 +362,6 @@ Partial Class Minesweeper
     Friend WithEvents Button1 As Button
     Friend WithEvents HelpButton As Button
     Friend WithEvents CheatButton As Button
+    Friend WithEvents Win As Label
+    Friend WithEvents Lose As Label
 End Class

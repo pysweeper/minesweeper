@@ -3,12 +3,13 @@
     Public NCol As Integer = 10
     Private NMines As Integer = 10
     Public ButtonArray(NRow * NCol - 1) As Button
+    Private Cheat As Integer = 0
 
 
     ' Play Button
     Private Sub PlayButton_Click(sender As Object, e As EventArgs) Handles PlayButton.Click
         cpp = Shell("MineSweeper.exe")
-        Dim id As Long = GetCurrentProcessId
+        'Dim id As Long = GetCurrentProcessId
         Flags = 0
         PlayButton.Hide()
         Label1.Hide()
@@ -96,7 +97,7 @@
         FlagsRemainingLabel.Text = Flags
     End Sub
 
-    Private Sub DrawBoard()
+    Public Sub DrawBoard()
         FlagsRemainingLabel.Text = 0
         ReDim ButtonArray(NRow * NCol - 1)
         If Not ButtonArray Is Nothing Then
@@ -127,12 +128,38 @@
     End Sub
 
     Private Sub CheatButton_Click(sender As Object, e As EventArgs) Handles CheatButton.Click
-
+        Cheat = Cheat + 1
+        If Cheat Mod 2 = 1 Then
+            MessageCPP("h")
+            UpdateArray(boardArray)
+            UpdateTiles()
+        ElseIf Cheat Mod 2 = 0 Then
+            MessageCPP("h")
+            BoardContainer.Controls.Clear()
+            DrawBoard()
+            UpdateArray(boardArray)
+            UpdateTiles()
+            Cheat = 0
+        End If
     End Sub
 
     Private Sub Minesweeper_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.FormBorderStyle = FormBorderStyle.FixedSingle
-        Me.MaximizeBox = False
-        Me.MinimizeBox = False
+        FormBorderStyle = FormBorderStyle.FixedSingle
+        MaximizeBox = False
+        MinimizeBox = False
+        TopMost = True
     End Sub
+
+    Private Sub Win_Click(sender As Object, e As EventArgs) Handles Win.Click
+        Win.Hide()
+        Reset()
+        DrawBoard()
+    End Sub
+
+    Private Sub Lose_Click(sender As Object, e As EventArgs) Handles Lose.Click
+        Lose.Hide()
+        Reset()
+        DrawBoard()
+    End Sub
+
 End Class
