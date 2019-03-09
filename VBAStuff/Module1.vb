@@ -24,6 +24,7 @@
     Public Sub UpdateArray(array(,) As Char)
         ReDim boardArray(Minesweeper.NRow - 1, Minesweeper.NCol - 1)
         Dim fileReader As String
+        Threading.Thread.Sleep(100)
         fileReader = My.Computer.FileSystem.ReadAllText("board.txt")
         fileReader = ClearSpaces(fileReader)
         Dim counter As Integer
@@ -56,7 +57,8 @@
     '@return - none
     '@remarks - Closes the C++ program, resets the VBA application. Reports win to user.
     Public Sub RunWinGame()
-        MsgBox("You won!")
+        Minesweeper.Win.BringToFront()
+        Minesweeper.Win.Show()
         Minesweeper.Focus()
     End Sub
 
@@ -65,7 +67,8 @@
     '@return - none
     '@remarks - Closes the C++ program, resets the VBA application. Reports loss to user.
     Public Sub RunLoseGame()
-        MsgBox("Oh dear! You clicked a mine!")
+        Minesweeper.Lose.BringToFront()
+        Minesweeper.Lose.Show()
         Minesweeper.Focus()
     End Sub
 
@@ -130,7 +133,9 @@
     End Sub
 
     Public Sub Reset()
-
+        MessageCPP("-9999")
+        Threading.Thread.Sleep(100)
+        cpp = Shell("MineSweeper.exe")
     End Sub
 
 End Module
