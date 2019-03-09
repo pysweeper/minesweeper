@@ -99,7 +99,7 @@
             ElseIf boardArray(uRow, uColumn) = "H" Then
                 Minesweeper.ButtonArray(i).BackgroundImage = Nothing
             ElseIf boardArray(uRow, uColumn) = "F" Then
-                Minesweeper.ButtonArray(i).BackgroundImage = System.Drawing.Image.FromFile("flag.jpg")
+                Minesweeper.ButtonArray(i).BackgroundImage = System.Drawing.Image.FromFile("flag.png")
             Else
                 Minesweeper.ButtonArray(i).Enabled = False
                 Minesweeper.ButtonArray(i).BackgroundImage = Nothing
