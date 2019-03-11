@@ -117,6 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="HelpText.Text" xml:space="preserve">
+    <value>Left Click to Reveal! 
+Right Click to Flag!
+
+Gain Powerups With Consecutive Wins!
+
+Clear 1:
+Reveal a Space Adjacent to a Mine!
+Clear 2 in a Row:
+Reveal a Space Not Adjacent to a Mine!
+Clear 3 in a Row:
+Have a Non-Flagged Mine Flagged!</value>
+  </data>
   <metadata name="EndBox.SnapToGrid" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>

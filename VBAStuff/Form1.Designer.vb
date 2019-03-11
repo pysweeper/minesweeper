@@ -22,6 +22,7 @@ Partial Class Minesweeper
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Minesweeper))
         Me.PlayButton = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ControlBox = New System.Windows.Forms.GroupBox()
@@ -40,6 +41,8 @@ Partial Class Minesweeper
         Me.RowLabel = New System.Windows.Forms.Label()
         Me.RowBox = New System.Windows.Forms.MaskedTextBox()
         Me.CheatButton = New System.Windows.Forms.Button()
+        Me.HelpBox = New System.Windows.Forms.GroupBox()
+        Me.HelpText = New System.Windows.Forms.Label()
         Me.Lose = New System.Windows.Forms.Label()
         Me.Win = New System.Windows.Forms.Label()
         Me.BoardContainer = New System.Windows.Forms.FlowLayoutPanel()
@@ -47,6 +50,7 @@ Partial Class Minesweeper
         Me.EndBox = New System.Windows.Forms.GroupBox()
         Me.ControlBox.SuspendLayout()
         Me.FeaturePanel.SuspendLayout()
+        Me.HelpBox.SuspendLayout()
         Me.EndBox.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -275,16 +279,38 @@ Partial Class Minesweeper
         Me.CheatButton.Text = "Cheat Mode"
         Me.CheatButton.UseVisualStyleBackColor = True
         '
+        'HelpBox
+        '
+        Me.HelpBox.AutoSize = True
+        Me.HelpBox.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.HelpBox.Controls.Add(Me.HelpText)
+        Me.HelpBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.HelpBox.Location = New System.Drawing.Point(10, 10)
+        Me.HelpBox.Name = "HelpBox"
+        Me.HelpBox.Size = New System.Drawing.Size(764, 435)
+        Me.HelpBox.TabIndex = 6
+        Me.HelpBox.TabStop = False
+        Me.HelpBox.Visible = False
+        '
+        'HelpText
+        '
+        Me.HelpText.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.HelpText.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.HelpText.Location = New System.Drawing.Point(4, 9)
+        Me.HelpText.Name = "HelpText"
+        Me.HelpText.Size = New System.Drawing.Size(756, 422)
+        Me.HelpText.TabIndex = 0
+        Me.HelpText.Text = resources.GetString("HelpText.Text")
+        Me.HelpText.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
         'Lose
         '
-        Me.Lose.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Lose.AutoSize = True
+        Me.Lose.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Lose.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.0!)
-        Me.Lose.Location = New System.Drawing.Point(152, 8)
+        Me.Lose.Location = New System.Drawing.Point(8, 24)
+        Me.Lose.Margin = New System.Windows.Forms.Padding(0)
         Me.Lose.Name = "Lose"
-        Me.Lose.Size = New System.Drawing.Size(507, 44)
+        Me.Lose.Size = New System.Drawing.Size(760, 40)
         Me.Lose.TabIndex = 10
         Me.Lose.Text = "Oh dear! You clicked a mine!"
         Me.Lose.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -292,14 +318,12 @@ Partial Class Minesweeper
         '
         'Win
         '
-        Me.Win.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Win.AutoSize = True
+        Me.Win.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Win.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Win.Location = New System.Drawing.Point(304, 8)
+        Me.Win.Location = New System.Drawing.Point(8, 24)
+        Me.Win.Margin = New System.Windows.Forms.Padding(0)
         Me.Win.Name = "Win"
-        Me.Win.Size = New System.Drawing.Size(173, 44)
+        Me.Win.Size = New System.Drawing.Size(760, 40)
         Me.Win.TabIndex = 6
         Me.Win.Text = "You Win!"
         Me.Win.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -318,15 +342,13 @@ Partial Class Minesweeper
         '
         'PlayAgain
         '
-        Me.PlayAgain.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.PlayAgain.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.PlayAgain.AutoEllipsis = True
-        Me.PlayAgain.AutoSize = True
         Me.PlayAgain.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PlayAgain.Location = New System.Drawing.Point(304, 48)
+        Me.PlayAgain.Location = New System.Drawing.Point(8, 72)
+        Me.PlayAgain.Margin = New System.Windows.Forms.Padding(0)
         Me.PlayAgain.Name = "PlayAgain"
-        Me.PlayAgain.Size = New System.Drawing.Size(187, 37)
+        Me.PlayAgain.Size = New System.Drawing.Size(760, 37)
         Me.PlayAgain.TabIndex = 0
         Me.PlayAgain.Text = "Play Again?"
         Me.PlayAgain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -337,15 +359,14 @@ Partial Class Minesweeper
         Me.EndBox.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.EndBox.AutoSize = True
         Me.EndBox.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.EndBox.Controls.Add(Me.Win)
         Me.EndBox.Controls.Add(Me.PlayAgain)
         Me.EndBox.Controls.Add(Me.Lose)
+        Me.EndBox.Controls.Add(Me.Win)
         Me.EndBox.Location = New System.Drawing.Point(4, 2)
         Me.EndBox.Name = "EndBox"
         Me.EndBox.Padding = New System.Windows.Forms.Padding(0)
-        Me.EndBox.Size = New System.Drawing.Size(778, 98)
+        Me.EndBox.Size = New System.Drawing.Size(776, 128)
         Me.EndBox.TabIndex = 10
         Me.EndBox.TabStop = False
         Me.EndBox.Visible = False
@@ -358,11 +379,12 @@ Partial Class Minesweeper
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(7, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(66, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(784, 455)
-        Me.Controls.Add(Me.EndBox)
-        Me.Controls.Add(Me.ControlBox)
         Me.Controls.Add(Me.PlayButton)
-        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.BoardContainer)
+        Me.Controls.Add(Me.EndBox)
+        Me.Controls.Add(Me.HelpBox)
+        Me.Controls.Add(Me.ControlBox)
+        Me.Controls.Add(Me.Label1)
         Me.ForeColor = System.Drawing.Color.Transparent
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MinimumSize = New System.Drawing.Size(800, 400)
@@ -375,8 +397,8 @@ Partial Class Minesweeper
         Me.ControlBox.PerformLayout()
         Me.FeaturePanel.ResumeLayout(False)
         Me.FeaturePanel.PerformLayout()
+        Me.HelpBox.ResumeLayout(False)
         Me.EndBox.ResumeLayout(False)
-        Me.EndBox.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -405,4 +427,6 @@ Partial Class Minesweeper
     Friend WithEvents Lose As Label
     Friend WithEvents PlayAgain As Label
     Friend WithEvents EndBox As GroupBox
+    Friend WithEvents HelpBox As GroupBox
+    Friend WithEvents HelpText As Label
 End Class

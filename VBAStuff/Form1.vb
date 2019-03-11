@@ -140,7 +140,7 @@
         TopMost = True
     End Sub
 
-    Private Sub PlayAgain_Click(sender As Object, e As EventArgs) Handles PlayAgain.Click
+    Private Sub PlayAgain_Click(sender As Object, e As EventArgs) Handles PlayAgain.Click, Win.Click, Lose.Click
         EndBox.Hide()
         Win.Hide()
         Lose.Hide()
@@ -152,4 +152,19 @@
         Reset()
         DrawBoard()
     End Sub
+
+    Private Sub HelpButton_Click(sender As Object, e As EventArgs) Handles HelpButton.Click
+        ControlBox.Hide()
+        BoardContainer.Hide()
+        HelpText.BringToFront()
+        HelpBox.Show()
+    End Sub
+
+    Private Sub HelpText_Click(sender As Object, e As EventArgs) Handles HelpText.Click
+        HelpBox.Hide()
+        HelpText.SendToBack()
+        ControlBox.Show()
+        BoardContainer.Show()
+    End Sub
+
 End Class
