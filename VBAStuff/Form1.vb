@@ -163,4 +163,11 @@
         BoardContainer.Show()
     End Sub
 
+    Private Sub FeatureMode_CheckedChanged(sender As Object, e As EventArgs) Handles FeatureMode.CheckedChanged
+        If FeatureMode.Checked Then
+            ControlsPanel.Enabled = False
+        Else
+            ControlsPanel.Enabled = True
+        End If
+    End Sub
 End Class

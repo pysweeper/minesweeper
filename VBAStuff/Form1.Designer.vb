@@ -47,10 +47,12 @@ Partial Class Minesweeper
         Me.BoardContainer = New System.Windows.Forms.FlowLayoutPanel()
         Me.PlayAgain = New System.Windows.Forms.Label()
         Me.EndBox = New System.Windows.Forms.GroupBox()
+        Me.ControlsPanel = New System.Windows.Forms.Panel()
         Me.ControlBox.SuspendLayout()
         Me.FeaturePanel.SuspendLayout()
         Me.HelpBox.SuspendLayout()
         Me.EndBox.SuspendLayout()
+        Me.ControlsPanel.SuspendLayout()
         Me.SuspendLayout()
         '
         'PlayButton
@@ -84,16 +86,8 @@ Partial Class Minesweeper
         '
         'ControlBox
         '
+        Me.ControlBox.Controls.Add(Me.ControlsPanel)
         Me.ControlBox.Controls.Add(Me.FeaturePanel)
-        Me.ControlBox.Controls.Add(Me.FlagsRemainingLabel)
-        Me.ControlBox.Controls.Add(Me.FlagsLabel)
-        Me.ControlBox.Controls.Add(Me.MineBox)
-        Me.ControlBox.Controls.Add(Me.MinesLabel)
-        Me.ControlBox.Controls.Add(Me.ColumnsBox)
-        Me.ControlBox.Controls.Add(Me.ColumnLabel)
-        Me.ControlBox.Controls.Add(Me.RowLabel)
-        Me.ControlBox.Controls.Add(Me.RowBox)
-        Me.ControlBox.Controls.Add(Me.CheatButton)
         Me.ControlBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ControlBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
         Me.ControlBox.ForeColor = System.Drawing.Color.White
@@ -180,7 +174,7 @@ Partial Class Minesweeper
         '
         Me.FlagsRemainingLabel.AutoSize = True
         Me.FlagsRemainingLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FlagsRemainingLabel.Location = New System.Drawing.Point(199, 46)
+        Me.FlagsRemainingLabel.Location = New System.Drawing.Point(200, 34)
         Me.FlagsRemainingLabel.Name = "FlagsRemainingLabel"
         Me.FlagsRemainingLabel.Size = New System.Drawing.Size(16, 18)
         Me.FlagsRemainingLabel.TabIndex = 7
@@ -190,7 +184,7 @@ Partial Class Minesweeper
         '
         Me.FlagsLabel.AutoSize = True
         Me.FlagsLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
-        Me.FlagsLabel.Location = New System.Drawing.Point(131, 46)
+        Me.FlagsLabel.Location = New System.Drawing.Point(132, 34)
         Me.FlagsLabel.Name = "FlagsLabel"
         Me.FlagsLabel.Size = New System.Drawing.Size(48, 18)
         Me.FlagsLabel.TabIndex = 6
@@ -201,7 +195,7 @@ Partial Class Minesweeper
         Me.MineBox.BackColor = System.Drawing.Color.White
         Me.MineBox.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.MineBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
-        Me.MineBox.Location = New System.Drawing.Point(202, 22)
+        Me.MineBox.Location = New System.Drawing.Point(203, 10)
         Me.MineBox.Mask = "000"
         Me.MineBox.Name = "MineBox"
         Me.MineBox.Size = New System.Drawing.Size(30, 17)
@@ -214,7 +208,7 @@ Partial Class Minesweeper
         '
         Me.MinesLabel.AutoSize = True
         Me.MinesLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
-        Me.MinesLabel.Location = New System.Drawing.Point(131, 21)
+        Me.MinesLabel.Location = New System.Drawing.Point(132, 9)
         Me.MinesLabel.Name = "MinesLabel"
         Me.MinesLabel.Size = New System.Drawing.Size(52, 18)
         Me.MinesLabel.TabIndex = 4
@@ -225,7 +219,7 @@ Partial Class Minesweeper
         Me.ColumnsBox.BackColor = System.Drawing.Color.White
         Me.ColumnsBox.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.ColumnsBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
-        Me.ColumnsBox.Location = New System.Drawing.Point(88, 45)
+        Me.ColumnsBox.Location = New System.Drawing.Point(89, 33)
         Me.ColumnsBox.Mask = "00"
         Me.ColumnsBox.Name = "ColumnsBox"
         Me.ColumnsBox.Size = New System.Drawing.Size(30, 17)
@@ -238,7 +232,7 @@ Partial Class Minesweeper
         '
         Me.ColumnLabel.AutoSize = True
         Me.ColumnLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
-        Me.ColumnLabel.Location = New System.Drawing.Point(8, 45)
+        Me.ColumnLabel.Location = New System.Drawing.Point(9, 33)
         Me.ColumnLabel.Name = "ColumnLabel"
         Me.ColumnLabel.Size = New System.Drawing.Size(72, 18)
         Me.ColumnLabel.TabIndex = 2
@@ -248,7 +242,7 @@ Partial Class Minesweeper
         '
         Me.RowLabel.AutoSize = True
         Me.RowLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
-        Me.RowLabel.Location = New System.Drawing.Point(35, 21)
+        Me.RowLabel.Location = New System.Drawing.Point(36, 9)
         Me.RowLabel.Name = "RowLabel"
         Me.RowLabel.Size = New System.Drawing.Size(51, 18)
         Me.RowLabel.TabIndex = 1
@@ -259,7 +253,7 @@ Partial Class Minesweeper
         Me.RowBox.BackColor = System.Drawing.Color.White
         Me.RowBox.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.RowBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
-        Me.RowBox.Location = New System.Drawing.Point(88, 21)
+        Me.RowBox.Location = New System.Drawing.Point(89, 9)
         Me.RowBox.Mask = "00"
         Me.RowBox.Name = "RowBox"
         Me.RowBox.Size = New System.Drawing.Size(30, 17)
@@ -271,7 +265,7 @@ Partial Class Minesweeper
         'CheatButton
         '
         Me.CheatButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CheatButton.Location = New System.Drawing.Point(309, 27)
+        Me.CheatButton.Location = New System.Drawing.Point(308, 10)
         Me.CheatButton.Name = "CheatButton"
         Me.CheatButton.Size = New System.Drawing.Size(138, 36)
         Me.CheatButton.TabIndex = 9
@@ -351,6 +345,22 @@ Partial Class Minesweeper
         Me.EndBox.TabStop = False
         Me.EndBox.Visible = False
         '
+        'ControlsPanel
+        '
+        Me.ControlsPanel.Controls.Add(Me.ColumnsBox)
+        Me.ControlsPanel.Controls.Add(Me.RowBox)
+        Me.ControlsPanel.Controls.Add(Me.RowLabel)
+        Me.ControlsPanel.Controls.Add(Me.ColumnLabel)
+        Me.ControlsPanel.Controls.Add(Me.MinesLabel)
+        Me.ControlsPanel.Controls.Add(Me.MineBox)
+        Me.ControlsPanel.Controls.Add(Me.FlagsLabel)
+        Me.ControlsPanel.Controls.Add(Me.FlagsRemainingLabel)
+        Me.ControlsPanel.Controls.Add(Me.CheatButton)
+        Me.ControlsPanel.Location = New System.Drawing.Point(3, 16)
+        Me.ControlsPanel.Name = "ControlsPanel"
+        Me.ControlsPanel.Size = New System.Drawing.Size(533, 57)
+        Me.ControlsPanel.TabIndex = 10
+        '
         'Minesweeper
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -359,12 +369,12 @@ Partial Class Minesweeper
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(7, Byte), Integer), CType(CType(54, Byte), Integer), CType(CType(66, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(784, 455)
+        Me.Controls.Add(Me.ControlBox)
         Me.Controls.Add(Me.PlayButton)
         Me.Controls.Add(Me.BoardContainer)
-        Me.Controls.Add(Me.EndBox)
         Me.Controls.Add(Me.HelpBox)
-        Me.Controls.Add(Me.ControlBox)
         Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.EndBox)
         Me.ForeColor = System.Drawing.Color.Transparent
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MinimumSize = New System.Drawing.Size(800, 400)
@@ -374,11 +384,12 @@ Partial Class Minesweeper
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Minesweeper"
         Me.ControlBox.ResumeLayout(False)
-        Me.ControlBox.PerformLayout()
         Me.FeaturePanel.ResumeLayout(False)
         Me.FeaturePanel.PerformLayout()
         Me.HelpBox.ResumeLayout(False)
         Me.EndBox.ResumeLayout(False)
+        Me.ControlsPanel.ResumeLayout(False)
+        Me.ControlsPanel.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -408,4 +419,5 @@ Partial Class Minesweeper
     Friend WithEvents EndBox As GroupBox
     Friend WithEvents HelpBox As GroupBox
     Friend WithEvents HelpText As Label
+    Friend WithEvents ControlsPanel As Panel
 End Class
