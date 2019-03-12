@@ -24,51 +24,49 @@
         End If
     End Sub
 
-    Private Sub RowBox_Enter(sender As Object, e As KeyPressEventArgs) Handles RowBox.KeyPress
+    Private Sub Box_Enter(sender As Object, e As KeyPressEventArgs) Handles RowBox.KeyPress, ColumnsBox.KeyPress, MineBox.KeyPress
+        ' This is not much better now. Will become cleaner when command is reworked.
         If e.KeyChar = vbCr Then
-            e.Handled = True
-            NRow = sender.Text
-            If NRow >= 20 Then
-                NRow = 20
-            ElseIf NCol < 2 Then
-                NCol = 2
+            Dim value As Integer = sender.Text
+            Dim box = sender.name
+            Dim command As Char
+            If box = "RowBox" Then
+                command = "r"
+                If value > 20 Then
+                    value = 20
+                ElseIf value < 2 Then
+                    value = 2
+                End If
+                RowBox.Text = Format(value, "00")
+                NRow = RowBox.Text
+            ElseIf box = "ColumnsBox" Then
+                command = "c"
+                If value >= 38 Then
+                    value = 38
+                ElseIf value < 2 Then
+                    value = 2
+                End If
+                ColumnsBox.Text = Format(value, "00")
+                NCol = ColumnsBox.Text
+            Else
+                command = "m"
+                If value > NRow * NCol - 1 Then
+                    value = NRow * NCol - 1
+                ElseIf value < 1 Then
+                    value = 1
+                End If
+                MineBox.Text = Format(value, "000")
+                NMines = MineBox.Text
             End If
-            Dim EnteredRows = "r" & Format(NRow, "00")
-            MessageCPP(EnteredRows)
-            DrawBoard()
-            RowLabel.Focus()
-        End If
-    End Sub
-
-    Private Sub ColumnsBox_Enter(sender As Object, e As KeyPressEventArgs) Handles ColumnsBox.KeyPress
-        If e.KeyChar = vbCr Then
-            e.Handled = True
-            NCol = sender.Text
-            If NCol >= 38 Then
-                NCol = 38
-            ElseIf NCol < 2 Then
-                NCol = 2
+            Dim cppCommand As String
+            If command = "r" Or command = "c" Then
+                cppCommand = command & Format(value, "00")
+            Else
+                cppCommand = command & Format(value, "000")
             End If
-            Dim EnteredColumns = "c" & Format(NCol, "00")
-            MessageCPP(EnteredColumns)
+            MessageCPP(cppCommand)
             DrawBoard()
-            ColumnLabel.Focus()
-        End If
-    End Sub
-
-    Private Sub MinesBox_Enter(sender As Object, e As KeyPressEventArgs) Handles MineBox.KeyPress
-        If e.KeyChar = vbCr Then
             e.Handled = True
-            NMines = sender.Text
-            If NMines > NRow * NCol - 1 Then
-                NMines = NRow * NCol - 1
-            ElseIf NMines < 1 Then
-                NMines = 1
-            End If
-            Dim EnteredMines = "m" & Format(NMines, "000")
-            MessageCPP(EnteredMines)
-            DrawBoard()
-            MinesLabel.Focus()
         End If
     End Sub
 

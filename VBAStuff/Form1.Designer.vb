@@ -242,7 +242,7 @@ Partial Class Minesweeper
         '
         Me.RowLabel.AutoSize = True
         Me.RowLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
-        Me.RowLabel.Location = New System.Drawing.Point(36, 9)
+        Me.RowLabel.Location = New System.Drawing.Point(29, 9)
         Me.RowLabel.Name = "RowLabel"
         Me.RowLabel.Size = New System.Drawing.Size(51, 18)
         Me.RowLabel.TabIndex = 1
