@@ -59,11 +59,9 @@
     Public Sub RunGameOver(gameStatus As Char)
         Minesweeper.ControlBox.Hide()
         If gameStatus = "W" Then
-            Minesweeper.Lose.Hide()
-            Minesweeper.Win.Show()
+            Minesweeper.GameOverLabel.Text = "You Win!"
         Else
-            Minesweeper.Lose.Show()
-            Minesweeper.Win.Hide()
+            Minesweeper.GameOverLabel.Text = "Oh dear! You clicked a mine!"
         End If
         Minesweeper.EndBox.Show()
     End Sub

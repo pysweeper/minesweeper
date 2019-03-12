@@ -43,8 +43,7 @@ Partial Class Minesweeper
         Me.CheatButton = New System.Windows.Forms.Button()
         Me.HelpBox = New System.Windows.Forms.GroupBox()
         Me.HelpText = New System.Windows.Forms.Label()
-        Me.Lose = New System.Windows.Forms.Label()
-        Me.Win = New System.Windows.Forms.Label()
+        Me.GameOverLabel = New System.Windows.Forms.Label()
         Me.BoardContainer = New System.Windows.Forms.FlowLayoutPanel()
         Me.PlayAgain = New System.Windows.Forms.Label()
         Me.EndBox = New System.Windows.Forms.GroupBox()
@@ -303,31 +302,17 @@ Partial Class Minesweeper
         Me.HelpText.Text = resources.GetString("HelpText.Text")
         Me.HelpText.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'Lose
+        'GameOverLabel
         '
-        Me.Lose.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Lose.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Lose.Location = New System.Drawing.Point(185, 8)
-        Me.Lose.Margin = New System.Windows.Forms.Padding(0)
-        Me.Lose.Name = "Lose"
-        Me.Lose.Size = New System.Drawing.Size(389, 37)
-        Me.Lose.TabIndex = 10
-        Me.Lose.Text = "Oh dear! You clicked a mine!"
-        Me.Lose.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.Lose.Visible = False
-        '
-        'Win
-        '
-        Me.Win.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Win.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Win.Location = New System.Drawing.Point(185, 8)
-        Me.Win.Margin = New System.Windows.Forms.Padding(0)
-        Me.Win.Name = "Win"
-        Me.Win.Size = New System.Drawing.Size(389, 37)
-        Me.Win.TabIndex = 6
-        Me.Win.Text = "You Win!"
-        Me.Win.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.Win.Visible = False
+        Me.GameOverLabel.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.GameOverLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GameOverLabel.Location = New System.Drawing.Point(185, 8)
+        Me.GameOverLabel.Margin = New System.Windows.Forms.Padding(0)
+        Me.GameOverLabel.Name = "GameOverLabel"
+        Me.GameOverLabel.Size = New System.Drawing.Size(389, 37)
+        Me.GameOverLabel.TabIndex = 6
+        Me.GameOverLabel.Text = "NULL"
+        Me.GameOverLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'BoardContainer
         '
@@ -357,8 +342,7 @@ Partial Class Minesweeper
         '
         Me.EndBox.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.EndBox.Controls.Add(Me.PlayAgain)
-        Me.EndBox.Controls.Add(Me.Lose)
-        Me.EndBox.Controls.Add(Me.Win)
+        Me.EndBox.Controls.Add(Me.GameOverLabel)
         Me.EndBox.Location = New System.Drawing.Point(13, 13)
         Me.EndBox.Name = "EndBox"
         Me.EndBox.Padding = New System.Windows.Forms.Padding(0)
@@ -419,8 +403,7 @@ Partial Class Minesweeper
     Friend WithEvents Button1 As Button
     Friend WithEvents HelpButton As Button
     Friend WithEvents CheatButton As Button
-    Friend WithEvents Win As Label
-    Friend WithEvents Lose As Label
+    Friend WithEvents GameOverLabel As Label
     Friend WithEvents PlayAgain As Label
     Friend WithEvents EndBox As GroupBox
     Friend WithEvents HelpBox As GroupBox

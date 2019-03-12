@@ -13,7 +13,6 @@
         PlayButton.Hide()
         Label1.Hide()
         ControlBox.Show()
-        RowBox.Show()
         BoardContainer.Show()
         DrawBoard()
     End Sub
@@ -140,10 +139,8 @@
         TopMost = True
     End Sub
 
-    Private Sub PlayAgain_Click(sender As Object, e As EventArgs) Handles PlayAgain.Click, Win.Click, Lose.Click
+    Private Sub PlayAgain_Click(sender As Object, e As EventArgs) Handles PlayAgain.Click, GameOverLabel.Click
         EndBox.Hide()
-        Win.Hide()
-        Lose.Hide()
         EndBox.SendToBack()
         BoardContainer.BringToFront()
         ControlBox.BringToFront()
