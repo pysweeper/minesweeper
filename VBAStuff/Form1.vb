@@ -87,9 +87,9 @@
             UpdateTiles()
             CheckLoss()
             If testCharacter = "L" Then
-                RunLoseGame()
+                RunGameOver(testCharacter)
             ElseIf testCharacter = "W" Then
-                RunWinGame()
+                RunGameOver(testCharacter)
             End If
         End If
         CountFlags()

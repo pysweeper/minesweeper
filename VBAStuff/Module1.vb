@@ -56,51 +56,19 @@
     '
     '@return - none
     '@remarks - Closes the C++ program, resets the VBA application. Reports win to user.
-    Public Sub RunWinGame()
-        Minesweeper.Lose.SendToBack()
-        Minesweeper.Lose.Hide()
-        Minesweeper.BoardContainer.SendToBack()
-        Minesweeper.ControlBox.SendToBack()
+    Public Sub RunGameOver(gameStatus As Char)
         Minesweeper.ControlBox.Hide()
-        Minesweeper.EndBox.BringToFront()
-        Minesweeper.EndBox.Show()
-        Minesweeper.PlayAgain.BringToFront()
-        Minesweeper.PlayAgain.Show()
-        Minesweeper.Win.BringToFront()
-        Minesweeper.Win.Show()
-        Minesweeper.Focus()
-    End Sub
-
-    ''
-    '
-    '@return - none
-    '@remarks - Closes the C++ program, resets the VBA application. Reports loss to user.
-    Public Sub RunLoseGame()
-        Minesweeper.Win.SendToBack()
-        Minesweeper.Win.Hide()
-        Minesweeper.BoardContainer.SendToBack()
-        Minesweeper.ControlBox.SendToBack()
-        Minesweeper.ControlBox.Hide()
-        Minesweeper.PlayAgain.BringToFront()
-        Minesweeper.PlayAgain.Show()
-        Minesweeper.Lose.BringToFront()
-        Minesweeper.Lose.Show()
-        Minesweeper.EndBox.BringToFront()
-        Minesweeper.EndBox.Show()
-        Minesweeper.Focus()
-    End Sub
-
-    ''
-    '
-    '@return - none
-    '@remarks - Checks for a win condition based on flag locations. If win, run RunWinGame().
-    Public Sub FlagWin()
-        ''MsgBox("We ran flag win")
-        mapString = My.Computer.FileSystem.ReadAllText("you_lose.txt")
-        If mapString(0) = "W" Then
-            RunWinGame()
+        If gameStatus = "W" Then
+            Minesweeper.Lose.Hide()
+            Minesweeper.Win.Show()
+        Else
+            Minesweeper.Lose.Show()
+            Minesweeper.Win.Hide()
         End If
+        Minesweeper.EndBox.Show()
+        Minesweeper.PlayAgain.Show()
     End Sub
+
     ''
     '
     '@return - none
