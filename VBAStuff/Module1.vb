@@ -120,8 +120,11 @@
     Public Sub Reset()
         MessageCPP("-9999")
         nRow = 10
+        Minesweeper.RowBox.Text = "10"
         nCol = 10
-        NMines = 10
+        Minesweeper.ColumnsBox.Text = "10"
+        nMines = 10
+        Minesweeper.MineBox.Text = "10"
         Threading.Thread.Sleep(100)
         cpp = Shell("MineSweeper.exe")
     End Sub
