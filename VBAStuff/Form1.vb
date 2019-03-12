@@ -1,15 +1,10 @@
 ﻿Public Class Minesweeper
-    Public NRow As Integer = 10
-    Public NCol As Integer = 10
-    Public NMines As Integer = 10
-    Public ButtonArray(NRow * NCol - 1) As Button
-
 
     ' Play Button
     Private Sub PlayButton_Click(sender As Object, e As EventArgs) Handles PlayButton.Click
         cpp = Shell("MineSweeper.exe")
         'Dim id As Long = GetCurrentProcessId
-        Flags = 0
+        nflags = 0
         PlayButton.Hide()
         Label1.Hide()
         ControlBox.Show()
@@ -38,7 +33,7 @@
                     value = 2
                 End If
                 RowBox.Text = Format(value, "00")
-                NRow = RowBox.Text
+                nRow = RowBox.Text
             ElseIf box = "ColumnsBox" Then
                 command = "c"
                 If value >= 38 Then
@@ -47,16 +42,16 @@
                     value = 2
                 End If
                 ColumnsBox.Text = Format(value, "00")
-                NCol = ColumnsBox.Text
+                nCol = ColumnsBox.Text
             Else
                 command = "m"
-                If value > NRow * NCol - 1 Then
-                    value = NRow * NCol - 1
+                If value > nRow * nCol - 1 Then
+                    value = nRow * nCol - 1
                 ElseIf value < 1 Then
                     value = 1
                 End If
                 MineBox.Text = Format(value, "000")
-                NMines = MineBox.Text
+                nMines = MineBox.Text
             End If
             Dim cppCommand As String
             If command = "r" Or command = "c" Then
@@ -72,8 +67,8 @@
 
     Private Sub ClickHandler(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs)
         Dim ButtonPushed As Integer = sender.name.Replace("Button", "")
-        Dim Row As Integer = ButtonPushed \ NCol
-        Dim Column As Integer = ButtonPushed Mod NCol
+        Dim Row As Integer = ButtonPushed \ nCol
+        Dim Column As Integer = ButtonPushed Mod nCol
         If e.Button = Windows.Forms.MouseButtons.Right Then
             MessageCPP("f" & Format(Row, "00") & "." & Format(Column, "00"))
             UpdateArray(boardArray)
@@ -83,31 +78,31 @@
             UpdateArray(boardArray)
             UpdateTiles()
             CheckLoss()
-            If testCharacter = "L" Then
-                RunGameOver(testCharacter)
-            ElseIf testCharacter = "W" Then
-                RunGameOver(testCharacter)
+            If gameState = "L" Then
+                RunGameOver(gameState)
+            ElseIf gameState = "W" Then
+                RunGameOver(gameState)
             End If
         End If
         CountFlags()
-        FlagsRemainingLabel.Text = Flags
+        FlagsRemainingLabel.Text = nflags
     End Sub
 
     Public Sub DrawBoard()
         FlagsRemainingLabel.Text = 0
-        ReDim ButtonArray(NRow * NCol - 1)
-        If Not ButtonArray Is Nothing Then
+        ReDim buttonArray(nRow * nCol - 1)
+        If Not buttonArray Is Nothing Then
             BoardContainer.Visible = False
             BoardContainer.Controls.Clear()
             BoardContainer.Visible = True
         End If
-        BoardContainer.Width = NCol * 30
-        BoardContainer.Height = NRow * 30
+        BoardContainer.Width = nCol * 30
+        BoardContainer.Height = nRow * 30
         Dim XOffset = (Width / 2) - (BoardContainer.Width / 2)
         Dim YOffset = 110
         BoardContainer.Location = New Point(XOffset, YOffset)
-        For i = 0 To NRow * NCol - 1
-            ButtonArray(i) = New System.Windows.Forms.Button With {
+        For i = 0 To nRow * nCol - 1
+            buttonArray(i) = New System.Windows.Forms.Button With {
                 .BackColor = ColorTranslator.FromHtml("#93a1a1"),
                 .FlatStyle = 0,
                 .Name = "Button" & i,
@@ -118,8 +113,8 @@
                 .Margin = New Padding(0),
                 .Anchor = AnchorStyles.Top
                 }
-            BoardContainer.Controls.Add(ButtonArray(i))
-            AddHandler ButtonArray(i).MouseDown, AddressOf ClickHandler
+            BoardContainer.Controls.Add(buttonArray(i))
+            AddHandler buttonArray(i).MouseDown, AddressOf ClickHandler
         Next
     End Sub
 
