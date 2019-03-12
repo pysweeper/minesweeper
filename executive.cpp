@@ -23,15 +23,6 @@ executive::~executive()
 void executive::StartFilesForVBA()
 {
 	std::ofstream outFile;
-	outFile.open("map.txt");
-	for (int i = 0; i < m_row_size; i++)
-	{
-		for (int j = 0; j < m_row_size; j++)
-		{
-			outFile << std::to_string( m_game_board[i][j].Holding());
-		}
-	}
-	outFile.close();
 	outFile.open("board.txt");
 	for (int i = 0; i < m_row_size; i++)
 	{
@@ -149,8 +140,6 @@ void executive::CreateBoard()
 
 	std::ofstream resetFiles;
 	resetFiles.open("you_lose.txt", std::ofstream::out | std::ofstream::trunc);
-	resetFiles.close();
-	resetFiles.open("map.txt", std::ofstream::out | std::ofstream::trunc);
 	resetFiles.close();
 	resetFiles.open("board.txt", std::ofstream::out | std::ofstream::trunc);
 	resetFiles.close();
