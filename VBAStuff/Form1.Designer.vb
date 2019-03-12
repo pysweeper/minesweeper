@@ -63,7 +63,7 @@ Partial Class Minesweeper
         Me.PlayButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.PlayButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.PlayButton.ForeColor = System.Drawing.SystemColors.Menu
-        Me.PlayButton.Location = New System.Drawing.Point(321, 245)
+        Me.PlayButton.Location = New System.Drawing.Point(309, 245)
         Me.PlayButton.Name = "PlayButton"
         Me.PlayButton.Size = New System.Drawing.Size(167, 44)
         Me.PlayButton.TabIndex = 0
@@ -306,11 +306,11 @@ Partial Class Minesweeper
         'Lose
         '
         Me.Lose.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Lose.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.0!)
-        Me.Lose.Location = New System.Drawing.Point(8, 24)
+        Me.Lose.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Lose.Location = New System.Drawing.Point(185, 8)
         Me.Lose.Margin = New System.Windows.Forms.Padding(0)
         Me.Lose.Name = "Lose"
-        Me.Lose.Size = New System.Drawing.Size(760, 40)
+        Me.Lose.Size = New System.Drawing.Size(389, 37)
         Me.Lose.TabIndex = 10
         Me.Lose.Text = "Oh dear! You clicked a mine!"
         Me.Lose.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -319,11 +319,11 @@ Partial Class Minesweeper
         'Win
         '
         Me.Win.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Win.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Win.Location = New System.Drawing.Point(8, 24)
+        Me.Win.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Win.Location = New System.Drawing.Point(185, 8)
         Me.Win.Margin = New System.Windows.Forms.Padding(0)
         Me.Win.Name = "Win"
-        Me.Win.Size = New System.Drawing.Size(760, 40)
+        Me.Win.Size = New System.Drawing.Size(389, 37)
         Me.Win.TabIndex = 6
         Me.Win.Text = "You Win!"
         Me.Win.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -344,28 +344,25 @@ Partial Class Minesweeper
         '
         Me.PlayAgain.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.PlayAgain.AutoEllipsis = True
-        Me.PlayAgain.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PlayAgain.Location = New System.Drawing.Point(8, 72)
+        Me.PlayAgain.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PlayAgain.Location = New System.Drawing.Point(282, 45)
         Me.PlayAgain.Margin = New System.Windows.Forms.Padding(0)
         Me.PlayAgain.Name = "PlayAgain"
-        Me.PlayAgain.Size = New System.Drawing.Size(760, 37)
+        Me.PlayAgain.Size = New System.Drawing.Size(195, 28)
         Me.PlayAgain.TabIndex = 0
         Me.PlayAgain.Text = "Play Again?"
         Me.PlayAgain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'EndBox
         '
-        Me.EndBox.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.EndBox.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.EndBox.Controls.Add(Me.PlayAgain)
         Me.EndBox.Controls.Add(Me.Lose)
         Me.EndBox.Controls.Add(Me.Win)
-        Me.EndBox.Location = New System.Drawing.Point(4, 2)
+        Me.EndBox.Location = New System.Drawing.Point(13, 13)
         Me.EndBox.Name = "EndBox"
         Me.EndBox.Padding = New System.Windows.Forms.Padding(0)
-        Me.EndBox.Size = New System.Drawing.Size(776, 128)
+        Me.EndBox.Size = New System.Drawing.Size(759, 79)
         Me.EndBox.TabIndex = 10
         Me.EndBox.TabStop = False
         Me.EndBox.Visible = False
