@@ -144,7 +144,6 @@
         EndBox.Hide()
         Win.Hide()
         Lose.Hide()
-        PlayAgain.Hide()
         EndBox.SendToBack()
         BoardContainer.BringToFront()
         ControlBox.BringToFront()

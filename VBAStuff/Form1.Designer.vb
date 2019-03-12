@@ -352,7 +352,6 @@ Partial Class Minesweeper
         Me.PlayAgain.TabIndex = 0
         Me.PlayAgain.Text = "Play Again?"
         Me.PlayAgain.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.PlayAgain.Visible = False
         '
         'EndBox
         '

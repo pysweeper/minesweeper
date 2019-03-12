@@ -66,7 +66,6 @@
             Minesweeper.Win.Hide()
         End If
         Minesweeper.EndBox.Show()
-        Minesweeper.PlayAgain.Show()
     End Sub
 
     ''
