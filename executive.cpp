@@ -612,10 +612,11 @@ void executive::power1()
 	{
 		for(int j = 0; j < m_col_size; j++)
 		{
-			if (m_game_board[i][j] == ADJACENT && m_show_board[i][j] == 'H')
+			if (m_game_board[i][j].Holding() == ADJACENT && m_show_board[i][j] == 'H')
 			{
 				//Adjacent space not alredy revealed found
 				Read(i, j);
+				return;
 			}
 		}
 	}
