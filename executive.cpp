@@ -615,7 +615,7 @@ void executive::power1()
 			if (m_game_board[i][j].Holding() == ADJACENT && m_show_board[i][j] == 'H')
 			{
 				//Adjacent space not alredy revealed found
-				AdjacentReveal(i, j);
+				Read(i, j);
 				return;
 			}
 		}
@@ -631,7 +631,7 @@ void executive::power2()
 			if (m_game_board[i][j].Holding() == NONE && m_show_board[i][j] == 'H')
 			{
 				//empty space not alredy revealed found
-				NoneRevealMaster(i, j);
+				Read(i, j);
 				return;
 			}
 		}
