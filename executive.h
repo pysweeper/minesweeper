@@ -137,4 +137,25 @@ public:
  */
  void gameWin();
 
+  /**
+ #Pre - CreateBoard has been called
+ #Param - None
+ #Post - Searches for and then reveals a space adjacent to a mine.
+ */
+ void power1();
+
+   /**
+ #Pre - CreateBoard has been called
+ #Param - None
+ #Post - Searches for and then reveals a space not adjacent to a mine, recursively revealing more spaces
+ */
+ void power2();
+
+   /**
+ #Pre - CreateBoard has been called
+ #Param - None
+ #Post - Searches for and then flags a mine
+ */
+ void power3();
+
 };

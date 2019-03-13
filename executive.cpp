@@ -112,7 +112,18 @@ void executive::Run()
 		{
 			if (!cheating)
 			{
-
+				if (command[1] == '1')
+				{
+					power1();
+				}
+				else if (command[1] == '2')
+				{
+					power2();
+				}
+				else if (command[1] == '3')
+				{
+					power3();
+				}
 			}
 		}
 
@@ -593,4 +604,29 @@ void executive::recReveal(int x, int y)
 			}
 
 	}
+}
+
+void executive::power1()
+{
+	for(int i = 0; i < m_row_size; i++)
+	{
+		for(int j = 0; j < m_col_size; j++)
+		{
+			if (m_game_board[i][j] == ADJACENT && m_show_board[i][j] == 'H')
+			{
+				//Adjacent space not alredy revealed found
+				Read(i, j);
+			}
+		}
+	}
+}
+
+void executive::power2()
+{
+	
+}
+
+void executive::power3()
+{
+	
 }
