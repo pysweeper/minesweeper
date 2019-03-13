@@ -162,9 +162,34 @@
         End If
     End Sub
 
-    Private Sub Power_Click(sender As Object, e As EventArgs) Handles PowerOne.Click, PowerTwo.Click, PowerThree.Click
-        ' Find cell with a number
-        'MessageCPP("p01") or MessageCPP("p02")or MessageCPP("p03")
+    Private Sub Power1_Click(sender As Object, e As EventArgs) Handles PowerOne.Click
+        MessageCPP("p1")
+        DrawBoard()
+        UpdateArray(boardArray)
+        UpdateTiles()
+        CheckLoss()
+        If gameState = "L" Then
+            RunGameOver(gameState)
+        ElseIf gameState = "W" Then
+            RunGameOver(gameState)
+        End If
+    End Sub
+
+    Private Sub Power2_Click(sender As Object, e As EventArgs) Handles PowerTwo.Click
+        MessageCPP("p2")
+        DrawBoard()
+        UpdateArray(boardArray)
+        UpdateTiles()
+        CheckLoss()
+        If gameState = "L" Then
+            RunGameOver(gameState)
+        ElseIf gameState = "W" Then
+            RunGameOver(gameState)
+        End If
+    End Sub
+
+    Private Sub Power3_Click(sender As Object, e As EventArgs) Handles PowerThree.Click
+        MessageCPP("p3")
         DrawBoard()
         UpdateArray(boardArray)
         UpdateTiles()
