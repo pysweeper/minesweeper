@@ -624,10 +624,32 @@ void executive::power1()
 
 void executive::power2()
 {
-	
+	for(int i = 0; i < m_row_size; i++)
+	{
+		for(int j = 0; j < m_col_size; j++)
+		{
+			if (m_game_board[i][j].Holding() == NONE && m_show_board[i][j] == 'H')
+			{
+				//empty space not alredy revealed found
+				Read(i, j);
+				return;
+			}
+		}
+	}
 }
 
 void executive::power3()
 {
-	
+	for(int i = 0; i < m_row_size; i++)
+	{
+		for(int j = 0; j < m_col_size; j++)
+		{
+			if (m_game_board[i][j].Holding() == MINE && m_show_board[i][j] == 'H')
+			{
+				//mine space not alredy flagged found
+				flag(i, j);
+				return;
+			}
+		}
+	}
 }
