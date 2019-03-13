@@ -37,7 +37,7 @@ void executive::StartFilesForVBA()
 
 void executive::Run()
 {
-	int x=0, y=0;
+	int x=0, y=0, z=0;
 	CreateBoard();
 	std::string command = "";
 	while(!gameover)
@@ -49,7 +49,23 @@ void executive::Run()
 		//we felt this was better than allowing the VBA application administrator privileges.
 		if (command == "-9999") return;
 
-		if (command[0] == 'r')
+		//Don't let the resize all command reference memory that doesn't exist
+		if (command.length() == 10)
+		{
+			//should always be true if the gui works right
+			if (command[0] == 'r' && command[3] == 'c' && command[6] == 'm')
+			{
+				x = std::stoi(command.substr(1, 2));
+				y = std::stoi(command.substr(4, 2));
+				z = std::stoi(command.substr(7, 3));
+				m_row_size = x;
+				m_col_size = y;
+				m_mine_number = z;
+				cheating = false;
+				CreateBoard();
+			}
+		}
+		else if (command[0] == 'r')
 		{
 			x = std::stoi(command.substr(1, 2));
 			m_row_size = x;
