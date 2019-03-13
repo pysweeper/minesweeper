@@ -68,6 +68,10 @@ h //activate or deactivate cheat mode and reveal board
 
 p //use powerup (need to finalize how powerups work)
 
+## References
+
+https://wallpapercave.com/w/wp949807
+
 ----
 
 # minesweeper

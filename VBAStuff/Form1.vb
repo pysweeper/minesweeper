@@ -3,7 +3,6 @@
     ' Play Button
     Private Sub PlayButton_Click(sender As Object, e As EventArgs) Handles PlayButton.Click
         cpp = Shell("MineSweeper.exe")
-        'Dim id As Long = GetCurrentProcessId
         nflags = 0
         PlayButton.Hide()
         Label1.Hide()
@@ -20,13 +19,10 @@
     End Sub
 
     Private Sub Box_Enter(sender As Object, e As KeyPressEventArgs) Handles RowBox.KeyPress, ColumnsBox.KeyPress, MineBox.KeyPress
-        ' This is not much better now. Will become cleaner when command is reworked.
         If e.KeyChar = vbCr Then
             Dim value As Integer = sender.Text
             Dim box = sender.name
-            Dim command As Char
             If box = "RowBox" Then
-                command = "r"
                 If value > 20 Then
                     value = 20
                 ElseIf value < 2 Then
@@ -35,8 +31,7 @@
                 RowBox.Text = Format(value, "00")
                 nRow = RowBox.Text
             ElseIf box = "ColumnsBox" Then
-                command = "c"
-                If value >= 38 Then
+                If value > 38 Then
                     value = 38
                 ElseIf value < 2 Then
                     value = 2
@@ -44,7 +39,6 @@
                 ColumnsBox.Text = Format(value, "00")
                 nCol = ColumnsBox.Text
             Else
-                command = "m"
                 If value > nRow * nCol - 1 Then
                     value = nRow * nCol - 1
                 ElseIf value < 1 Then
@@ -54,11 +48,7 @@
                 nMines = MineBox.Text
             End If
             Dim cppCommand As String
-            If command = "r" Or command = "c" Then
-                cppCommand = command & Format(value, "00")
-            Else
-                cppCommand = command & Format(value, "000")
-            End If
+            cppCommand = "r" & RowBox.Text & "c" & ColumnsBox.Text & "m" & MineBox.Text
             MessageCPP(cppCommand)
             DrawBoard()
             e.Handled = True
@@ -158,9 +148,25 @@
 
     Private Sub FeatureMode_CheckedChanged(sender As Object, e As EventArgs) Handles FeatureMode.CheckedChanged
         If FeatureMode.Checked Then
+            DisabledPanel.Show()
+            PowerOne.Enabled = True
+            PowerTwo.Enabled = True
+            PowerThree.Enabled = True
             ControlsPanel.Enabled = False
         Else
+            DisabledPanel.Hide()
+            PowerOne.Enabled = False
+            PowerTwo.Enabled = False
+            PowerThree.Enabled = False
             ControlsPanel.Enabled = True
         End If
+    End Sub
+
+    Private Sub Power_Click(sender As Object, e As EventArgs) Handles PowerOne.Click, PowerTwo.Click, PowerThree.Click
+        ' Find cell with a number
+        'MessageCPP("p01") or MessageCPP("p02")or MessageCPP("p03")
+        DrawBoard()
+        UpdateArray(boardArray)
+        UpdateTiles()
     End Sub
 End Class

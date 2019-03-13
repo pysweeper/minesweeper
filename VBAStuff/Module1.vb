@@ -84,6 +84,7 @@
             ElseIf boardArray(uRow, uColumn) = "F" Then
                 buttonArray(i).BackgroundImage = System.Drawing.Image.FromFile("flag.png")
             ElseIf boardArray(uRow, uColumn) = "M" Then
+                buttonArray(i).Enabled = False
                 buttonArray(i).BackgroundImage = System.Drawing.Image.FromFile("clickedMine.jpg")
             Else
                 buttonArray(i).Enabled = False
