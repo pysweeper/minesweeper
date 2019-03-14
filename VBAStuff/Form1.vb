@@ -5,7 +5,7 @@
         cpp = Shell("MineSweeper.exe")
         nflags = 0
         PlayButton.Hide()
-        Label1.Hide()
+        TitleLabel.Hide()
         ControlBox.Show()
         BoardContainer.Show()
         DrawBoard()
@@ -38,15 +38,16 @@
                 End If
                 ColumnsBox.Text = Format(value, "00")
                 nCol = ColumnsBox.Text
-            Else
-                If value > nRow * nCol - 1 Then
-                    value = nRow * nCol - 1
-                ElseIf value < 1 Then
-                    value = 1
-                End If
-                MineBox.Text = Format(value, "000")
-                nMines = MineBox.Text
             End If
+            ' Update MineBox.Text for all updates.
+            Dim maxMines = nRow * nCol - 1
+            If MineBox.Text > maxMines Then
+                nMines = maxMines
+            ElseIf MineBox.Text < 1 Then
+                nMines = 1
+            End If
+            MineBox.Text = Format(nMines, "000")
+            nMines = MineBox.Text
             Dim cppCommand As String
             cppCommand = "r" & RowBox.Text & "c" & ColumnsBox.Text & "m" & MineBox.Text
             MessageCPP(cppCommand)
@@ -93,7 +94,8 @@
         BoardContainer.Location = New Point(XOffset, YOffset)
         For i = 0 To nRow * nCol - 1
             buttonArray(i) = New System.Windows.Forms.Button With {
-                .BackColor = ColorTranslator.FromHtml("#93a1a1"),
+                .BackColor = ColorTranslator.FromHtml("#073642"),
+                .ForeColor = ColorTranslator.FromHtml("#eee8d5"),
                 .FlatStyle = 0,
                 .Name = "Button" & i,
                 .Size = New System.Drawing.Size(30, 30),
@@ -135,13 +137,11 @@
     Private Sub HelpButton_Click(sender As Object, e As EventArgs) Handles HelpButton.Click
         ControlBox.Hide()
         BoardContainer.Hide()
-        HelpText.BringToFront()
         HelpBox.Show()
     End Sub
 
-    Private Sub HelpText_Click(sender As Object, e As EventArgs) Handles HelpText.Click
+    Private Sub ExitHelp_Click(sender As Object, e As EventArgs) Handles ExitHelp.Click
         HelpBox.Hide()
-        HelpText.SendToBack()
         ControlBox.Show()
         BoardContainer.Show()
     End Sub
@@ -151,7 +151,7 @@
             DisabledPanel.Show()
             ControlsPanel.Enabled = False
         Else
-            Dim answer As Integer = MessageBox.Show("You will lose all Power-Up mode progress if you leave. Leave Power-Up mode?", "Quit Power-Up", MessageBoxButtons.YesNo)
+            Dim answer As Integer = MessageBox.Show("You will lose all Power-Up mode progress if you leave." & vbCr & "Leave Power-Up mode?", "Quit Power-Up", MessageBoxButtons.YesNo)
             If answer = DialogResult.Yes Then
                 DisabledPanel.Hide()
                 PowerOne.Enabled = False
@@ -200,4 +200,5 @@
         UpdateTiles()
         PowerThree.Enabled = False
     End Sub
+
 End Class

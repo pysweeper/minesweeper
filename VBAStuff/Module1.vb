@@ -87,18 +87,18 @@
             If boardArray(uRow, uColumn) = "-" Then
                 buttonArray(i).Enabled = False
                 buttonArray(i).BackgroundImage = Nothing
-                buttonArray(i).BackColor = ColorTranslator.FromHtml("#073642")
+                buttonArray(i).BackColor = ColorTranslator.FromHtml("#93a1a1")
             ElseIf boardArray(uRow, uColumn) = "H" Then
                 buttonArray(i).BackgroundImage = Nothing
             ElseIf boardArray(uRow, uColumn) = "F" Then
-                buttonArray(i).BackgroundImage = System.Drawing.Image.FromFile("flag.png")
+                buttonArray(i).BackgroundImage = System.Drawing.Image.FromFile("images\flag.png")
             ElseIf boardArray(uRow, uColumn) = "M" Then
                 buttonArray(i).Enabled = False
-                buttonArray(i).BackgroundImage = System.Drawing.Image.FromFile("clickedMine.jpg")
+                buttonArray(i).BackgroundImage = System.Drawing.Image.FromFile("images\clickedMine.jpg")
             Else
                 buttonArray(i).Enabled = False
                 buttonArray(i).BackgroundImage = Nothing
-                buttonArray(i).BackColor = ColorTranslator.FromHtml("#657b83")
+                buttonArray(i).BackColor = ColorTranslator.FromHtml("#586e75")
                 buttonArray(i).Text = boardArray(uRow, uColumn)
             End If
         Next
