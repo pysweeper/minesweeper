@@ -149,16 +149,19 @@
     Private Sub FeatureMode_CheckedChanged(sender As Object, e As EventArgs) Handles FeatureMode.CheckedChanged
         If FeatureMode.Checked Then
             DisabledPanel.Show()
-            PowerOne.Enabled = True
-            PowerTwo.Enabled = True
-            PowerThree.Enabled = True
             ControlsPanel.Enabled = False
         Else
-            DisabledPanel.Hide()
-            PowerOne.Enabled = False
-            PowerTwo.Enabled = False
-            PowerThree.Enabled = False
-            ControlsPanel.Enabled = True
+            Dim answer As Integer = MessageBox.Show("You will lose all Power-Up mode progress if you leave. Leave Power-Up mode?", "Quit Power-Up", MessageBoxButtons.YesNo)
+            If answer = DialogResult.Yes Then
+                DisabledPanel.Hide()
+                PowerOne.Enabled = False
+                PowerTwo.Enabled = False
+                PowerThree.Enabled = False
+                ControlsPanel.Enabled = True
+                nWins = 0
+            ElseIf answer = DialogResult.No Then
+                FeatureMode.Checked = True
+            End If
         End If
     End Sub
 
@@ -173,6 +176,7 @@
         ElseIf gameState = "W" Then
             RunGameOver(gameState)
         End If
+        PowerOne.Enabled = False
     End Sub
 
     Private Sub Power2_Click(sender As Object, e As EventArgs) Handles PowerTwo.Click
@@ -186,6 +190,7 @@
         ElseIf gameState = "W" Then
             RunGameOver(gameState)
         End If
+        PowerTwo.Enabled = False
     End Sub
 
     Private Sub Power3_Click(sender As Object, e As EventArgs) Handles PowerThree.Click
@@ -193,5 +198,6 @@
         DrawBoard()
         UpdateArray(boardArray)
         UpdateTiles()
+        PowerThree.Enabled = False
     End Sub
 End Class

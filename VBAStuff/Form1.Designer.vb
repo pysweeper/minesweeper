@@ -49,6 +49,7 @@ Partial Class Minesweeper
         Me.BoardContainer = New System.Windows.Forms.FlowLayoutPanel()
         Me.PlayAgain = New System.Windows.Forms.Label()
         Me.EndBox = New System.Windows.Forms.GroupBox()
+        Me.WinsLabel = New System.Windows.Forms.Label()
         Me.ControlBox.SuspendLayout()
         Me.ControlsPanel.SuspendLayout()
         Me.FeaturePanel.SuspendLayout()
@@ -232,6 +233,7 @@ Partial Class Minesweeper
         '
         'FeaturePanel
         '
+        Me.FeaturePanel.Controls.Add(Me.WinsLabel)
         Me.FeaturePanel.Controls.Add(Me.PowerThree)
         Me.FeaturePanel.Controls.Add(Me.PowerTwo)
         Me.FeaturePanel.Controls.Add(Me.PowerOne)
@@ -287,11 +289,11 @@ Partial Class Minesweeper
         '
         Me.FeatureMode.AutoSize = True
         Me.FeatureMode.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
-        Me.FeatureMode.Location = New System.Drawing.Point(10, 3)
+        Me.FeatureMode.Location = New System.Drawing.Point(7, 3)
         Me.FeatureMode.Name = "FeatureMode"
-        Me.FeatureMode.Size = New System.Drawing.Size(182, 22)
+        Me.FeatureMode.Size = New System.Drawing.Size(133, 22)
         Me.FeatureMode.TabIndex = 1
-        Me.FeatureMode.Text = "Enable Power-up Mode"
+        Me.FeatureMode.Text = "Power-up Mode"
         Me.FeatureMode.UseVisualStyleBackColor = True
         '
         'HelpButton
@@ -380,6 +382,15 @@ Partial Class Minesweeper
         Me.EndBox.TabStop = False
         Me.EndBox.Visible = False
         '
+        'WinsLabel
+        '
+        Me.WinsLabel.AutoSize = True
+        Me.WinsLabel.Location = New System.Drawing.Point(147, 4)
+        Me.WinsLabel.Name = "WinsLabel"
+        Me.WinsLabel.Size = New System.Drawing.Size(50, 18)
+        Me.WinsLabel.TabIndex = 6
+        Me.WinsLabel.Text = "0 wins"
+        '
         'Minesweeper
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -440,4 +451,5 @@ Partial Class Minesweeper
     Friend WithEvents HelpText As Label
     Friend WithEvents ControlsPanel As Panel
     Friend WithEvents DisabledPanel As Panel
+    Friend WithEvents WinsLabel As Label
 End Class

@@ -7,6 +7,7 @@
     Public nCol As Integer = 10
     Public nMines As Integer = 10
     Public nflags As Integer = 0
+    Public nWins As Integer = 0
     Public buttonArray(nRow * nCol - 1) As Button
     Public boardArray(nRow - 1, nCol - 1) As Char
 
@@ -59,8 +60,16 @@
     Public Sub RunGameOver(gameStatus As Char)
         Minesweeper.ControlBox.Hide()
         If gameStatus = "W" Then
+            nWins += 1
+            If nWins > 0 And Minesweeper.FeatureMode.Checked Then Minesweeper.PowerOne.Enabled = True
+            If nWins > 1 And Minesweeper.FeatureMode.Checked Then Minesweeper.PowerTwo.Enabled = True
+            If nWins > 2 And Minesweeper.FeatureMode.Checked Then Minesweeper.PowerThree.Enabled = True
             Minesweeper.GameOverLabel.Text = "You Win!"
         Else
+            nWins = 0
+            Minesweeper.PowerOne.Enabled = False
+            Minesweeper.PowerTwo.Enabled = False
+            Minesweeper.PowerThree.Enabled = False
             Minesweeper.GameOverLabel.Text = "Oh dear! You clicked a mine!"
         End If
         Minesweeper.EndBox.Show()
@@ -126,6 +135,7 @@
         Minesweeper.ColumnsBox.Text = "10"
         nMines = 10
         Minesweeper.MineBox.Text = "10"
+        Minesweeper.WinsLabel.Text = nWins & " Win" & If(nWins = 1, "", "s")
         Threading.Thread.Sleep(100)
         cpp = Shell("MineSweeper.exe")
     End Sub
