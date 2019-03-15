@@ -173,12 +173,12 @@
         UpdateArray(boardArray)
         UpdateTiles()
         CheckLoss()
+        PowerOne.Enabled = False
         If gameState = "L" Then
             RunGameOver(gameState)
         ElseIf gameState = "W" Then
             RunGameOver(gameState)
         End If
-        PowerOne.Enabled = False
     End Sub
 
     Private Sub Power2_Click(sender As Object, e As EventArgs) Handles PowerTwo.Click
@@ -187,12 +187,13 @@
         UpdateArray(boardArray)
         UpdateTiles()
         CheckLoss()
+        PowerTwo.Enabled = False
         If gameState = "L" Then
             RunGameOver(gameState)
         ElseIf gameState = "W" Then
             RunGameOver(gameState)
         End If
-        PowerTwo.Enabled = False
+
     End Sub
 
     Private Sub Power3_Click(sender As Object, e As EventArgs) Handles PowerThree.Click
