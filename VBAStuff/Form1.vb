@@ -38,12 +38,14 @@
                 End If
                 ColumnsBox.Text = Format(value, "00")
                 nCol = ColumnsBox.Text
+            Else
+                nMines = MineBox.Text
             End If
             ' Update MineBox.Text for all updates.
             Dim maxMines = nRow * nCol - 1
-            If MineBox.Text > maxMines Then
+            If nMines > maxMines Then
                 nMines = maxMines
-            ElseIf MineBox.Text < 1 Then
+            ElseIf nMines < 1 Then
                 nMines = 1
             End If
             MineBox.Text = Format(nMines, "000")
