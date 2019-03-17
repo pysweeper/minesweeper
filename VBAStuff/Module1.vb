@@ -119,25 +119,18 @@
     Public Sub MessageCPP(message As String)
         If (cpp) Then
             AppActivate(cpp)
-            Threading.Thread.Sleep(50)
+            Threading.Thread.Sleep(100)
             SendKeys.Send(message)
             SendKeys.Send("{ENTER}")
-            Threading.Thread.Sleep(50)
+            Threading.Thread.Sleep(100)
             cpp = If(message = "-9999", 0, cpp)
         End If
     End Sub
 
     Public Sub Reset()
-        MessageCPP("-9999")
-        nRow = 10
-        Minesweeper.RowBox.Text = "10"
-        nCol = 10
-        Minesweeper.ColumnsBox.Text = "10"
-        nMines = 10
-        Minesweeper.MineBox.Text = "10"
+        MessageCPP("r" & nRow)
         Minesweeper.WinsLabel.Text = nWins & " Win" & If(nWins = 1, "", "s")
         Threading.Thread.Sleep(100)
-        cpp = Shell("MineSweeper.exe")
     End Sub
 
 End Module

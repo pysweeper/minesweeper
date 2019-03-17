@@ -509,7 +509,7 @@ Partial Class Minesweeper
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(259, 24)
         Me.Label13.TabIndex = 14
-        Me.Label13.Text = "The fine print: Controls are disabled during Power-Up mode. " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "If you leave Power-" &
+        Me.Label13.Text = "The fine print: " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "If you leave Power-" &
     "Up mode, your wins and powers will reset!"
         '
         'Label12
