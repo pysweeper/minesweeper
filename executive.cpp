@@ -29,6 +29,8 @@ executive::~executive()
 		delete [] m_cheat_board;
 		delete [] m_show_board;
 		m_game_board = nullptr;
+		m_cheat_board = nullptr;
+		m_show_board = nullptr;
 	}
 }
 
@@ -213,6 +215,8 @@ void executive::CreateBoard()
 		delete [] m_cheat_board;
 		delete [] m_show_board;
 		m_game_board = nullptr;
+		m_cheat_board = nullptr;
+		m_show_board = nullptr;
 	}
 
 	m_game_board = new square*[m_row_size];
