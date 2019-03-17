@@ -143,9 +143,6 @@
     <Content Include="minesweeper.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="images\disabled.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <Content Include="images\flag.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

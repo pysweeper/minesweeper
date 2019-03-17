@@ -43,7 +43,6 @@ Partial Class Minesweeper
         Me.PowerOne = New System.Windows.Forms.Button()
         Me.FeatureMode = New System.Windows.Forms.CheckBox()
         Me.HelpButton = New System.Windows.Forms.Button()
-        Me.DisabledPanel = New System.Windows.Forms.Panel()
         Me.HelpBox = New System.Windows.Forms.GroupBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.PictureBox7 = New System.Windows.Forms.PictureBox()
@@ -122,7 +121,6 @@ Partial Class Minesweeper
         '
         'ControlBox
         '
-        Me.ControlBox.Controls.Add(Me.DisabledPanel)
         Me.ControlBox.Controls.Add(Me.ControlsPanel)
         Me.ControlBox.Controls.Add(Me.FeaturePanel)
         Me.ControlBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -346,16 +344,6 @@ Partial Class Minesweeper
         Me.HelpButton.TabIndex = 5
         Me.HelpButton.Text = "Help"
         Me.HelpButton.UseVisualStyleBackColor = False
-        '
-        'DisabledPanel
-        '
-        Me.DisabledPanel.BackgroundImage = CType(resources.GetObject("DisabledPanel.BackgroundImage"), System.Drawing.Image)
-        Me.DisabledPanel.ForeColor = System.Drawing.Color.Transparent
-        Me.DisabledPanel.Location = New System.Drawing.Point(8, 16)
-        Me.DisabledPanel.Name = "DisabledPanel"
-        Me.DisabledPanel.Size = New System.Drawing.Size(525, 54)
-        Me.DisabledPanel.TabIndex = 11
-        Me.DisabledPanel.Visible = False
         '
         'HelpBox
         '
@@ -784,7 +772,6 @@ Partial Class Minesweeper
     Friend WithEvents EndBox As GroupBox
     Friend WithEvents HelpBox As GroupBox
     Friend WithEvents ControlsPanel As Panel
-    Friend WithEvents DisabledPanel As Panel
     Friend WithEvents WinsLabel As Label
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label2 As Label

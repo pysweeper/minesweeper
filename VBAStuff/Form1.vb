@@ -150,17 +150,16 @@
 
     Private Sub FeatureMode_CheckedChanged(sender As Object, e As EventArgs) Handles FeatureMode.CheckedChanged
         If FeatureMode.Checked Then
-            DisabledPanel.Show()
-            ControlsPanel.Enabled = False
+            ControlsPanel.Enabled = True
         Else
             Dim answer As Integer = MessageBox.Show("You will lose all Power-Up mode progress if you leave." & vbCr & "Leave Power-Up mode?", "Quit Power-Up", MessageBoxButtons.YesNo)
             If answer = DialogResult.Yes Then
-                DisabledPanel.Hide()
                 PowerOne.Enabled = False
                 PowerTwo.Enabled = False
                 PowerThree.Enabled = False
                 ControlsPanel.Enabled = True
                 nWins = 0
+                WinsLabel.Text = nWins & " Win" & If(nWins = 1, "", "s")
             ElseIf answer = DialogResult.No Then
                 FeatureMode.Checked = True
             End If
@@ -169,7 +168,6 @@
 
     Private Sub Power1_Click(sender As Object, e As EventArgs) Handles PowerOne.Click
         MessageCPP("p1")
-        DrawBoard()
         UpdateArray(boardArray)
         UpdateTiles()
         CheckLoss()
@@ -183,7 +181,6 @@
 
     Private Sub Power2_Click(sender As Object, e As EventArgs) Handles PowerTwo.Click
         MessageCPP("p2")
-        DrawBoard()
         UpdateArray(boardArray)
         UpdateTiles()
         CheckLoss()
@@ -198,7 +195,6 @@
 
     Private Sub Power3_Click(sender As Object, e As EventArgs) Handles PowerThree.Click
         MessageCPP("p3")
-        DrawBoard()
         UpdateArray(boardArray)
         UpdateTiles()
         PowerThree.Enabled = False

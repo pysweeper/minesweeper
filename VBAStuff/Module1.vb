@@ -119,8 +119,8 @@
     Public Sub MessageCPP(message As String)
         If (cpp) Then
             AppActivate(cpp)
-            SendKeys.Send(message)
             Threading.Thread.Sleep(50)
+            SendKeys.Send(message)
             SendKeys.Send("{ENTER}")
             Threading.Thread.Sleep(50)
             cpp = If(message = "-9999", 0, cpp)
