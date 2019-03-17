@@ -17,6 +17,19 @@ executive::executive()
 
 executive::~executive()
 {
+	if (m_game_board != nullptr)
+	{
+		for (int i = 0; i < m_row_size; i++)
+		{
+			delete [] m_game_board[i];
+			delete [] m_cheat_board[i];
+			delete [] m_show_board[i];
+		}
+		delete [] m_game_board;
+		delete [] m_cheat_board;
+		delete [] m_show_board;
+		m_game_board = nullptr;
+	}
 }
 
 
@@ -188,6 +201,19 @@ void executive::CreateBoard()
 		m_mine_number = m_row_size * m_col_size - 1;
 	}
 
+	if (m_game_board != nullptr)
+	{
+		for (int i = 0; i < m_row_size; i++)
+		{
+			delete [] m_game_board[i];
+			delete [] m_cheat_board[i];
+			delete [] m_show_board[i];
+		}
+		delete [] m_game_board;
+		delete [] m_cheat_board;
+		delete [] m_show_board;
+		m_game_board = nullptr;
+	}
 
 	m_game_board = new square*[m_row_size];
 	for (int i = 0; i < m_row_size;i++)
