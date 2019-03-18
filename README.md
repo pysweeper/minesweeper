@@ -1,4 +1,5 @@
-# Pysweeper Joins the Battle!
+# Pysweeper Joins the Battle! 
+#The New and Improved Minesweeper:
 
 ## Py Enthusiasts:
 
@@ -7,74 +8,17 @@
 3. Jon Volden
 4. Thomas Smithey
 
-### Goals as laid out by [Project 2](https://canvas.instructure.com/courses/1516832/assignments/10826093)
+### Requirements:
+Windows 10
 
-#### Goal 1: Up to Code
-
-Code Requirements and how they pertain to our adopted project:
-1. Must use C++/VBA
-2. Attempt two phases of refactoring prior to feature implimentation
-    * Minimize - Write it once.
-    * Optimize - Write it better.
-3. Any other drastic changes? Ask Kline.
-
-#### Goal 2: Cheat Mode
-
-Reveal then hide board via button press.
-
-#### Goal 3: Custom Addition:
-
-Professor approval by Wednesday? __No later than Friday__
-
-__Ideas from each team member:__
-
-Jon - Power ups. When you win a game in 'normal' mode, you get a one time use "reveal a cell near a mine." After you win again, it becomes "reveal a cell not next to a mine." The third time you can "auto flag" a mine.
-
-Benjamin - 
-
-Jeff - 
-
-Thomas - 
-
-## TODO:
-
-1. Migrate FormSmall/SmallPickBomb into Module1.vb.
-2. Make single UI form with complete functionality.
-3. Adjust C++ backend to accept updated commands.
-   1. r## - Rows 
-   2. c## - Columns 
-   3. m### - Mines
-   4. g##.## - Guess g[Row].[Col]
-   4. s# - [S]how 0 or 1 / Cheat Mode. Do this in GUI only?
-   5. f# - [F]eature/ Game mode
-   6. q - Quit/Start over during any state.
-4. Refactor
-5. Refactor
-6. ...
-
-## Interface Between Front and Back End:
-
-r## //set number of rows to ## and recreate board
-
-c## //set number of columns to ## and recreate board
-
-m### //set number of mines to ### and recreate 
-
-g##.## //reveal space at row ##. and column .##
-
-f##.## //flag space at row ##. and column .##
-
-h //activate or deactivate cheat mode and reveal board
-
-p //use powerup (need to finalize how powerups work)
-
-## References
-
-https://wallpapercave.com/w/wp949807
+###Installation:
+1. Git clone or download the zip archive from [this project](https://github.com/pysweeper/minesweeper.git).
+2. Inside of the PLAY folder, extract the archive Minesweeper.zip.
+3. Open the extracted folder and run MinesweeperGUI.exe.
 
 ----
 
-# minesweeper
+# minesweeper (OLD VERSION README FROM TEAM ROCKET)
 ## Team Rocket's Minesweeper (Alex, Sandy, Clay, Evan)
 
 ## Welcome to our project! 
