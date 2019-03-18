@@ -1,5 +1,4 @@
-# Pysweeper Joins the Battle! 
-#The New and Improved Minesweeper:
+# Pysweeper Joins the Battle! --- The New and Improved Minesweeper:
 
 ## Py Enthusiasts:
 
