@@ -1,0 +1,129 @@
+\subsection*{Py Enthusiasts\+:}
+
+
+\begin{DoxyEnumerate}
+\item Benjamin Wyss
+\item Jeff Kissick
+\item Jon Volden
+\item Thomas Smithey
+\end{DoxyEnumerate}
+
+\subsubsection*{Goals as laid out by \href{https://canvas.instructure.com/courses/1516832/assignments/10826093}{\texttt{ Project 2}}}
+
+\paragraph*{Goal 1\+: Up to Code}
+
+Code Requirements and how they pertain to our adopted project\+:
+\begin{DoxyEnumerate}
+\item Must use C++/\+V\+BA
+\item Attempt two phases of refactoring prior to feature implimentation
+\begin{DoxyItemize}
+\item Minimize -\/ Write it once.
+\item Optimize -\/ Write it better.
+\end{DoxyItemize}
+\item Any other drastic changes? Ask Kline.
+\end{DoxyEnumerate}
+
+\paragraph*{Goal 2\+: Cheat Mode}
+
+Reveal then hide board via button press.
+
+\paragraph*{Goal 3\+: Custom Addition\+:}
+
+Professor approval by Wednesday? {\bfseries{No later than Friday}}
+
+{\bfseries{Ideas from each team member\+:}}
+
+Jon -\/ Power ups. When you win a game in \textquotesingle{}normal\textquotesingle{} mode, you get a one time use \char`\"{}reveal a cell near a mine.\char`\"{} After you win again, it becomes \char`\"{}reveal a cell not next to a mine.\char`\"{} The third time you can \char`\"{}auto flag\char`\"{} a mine.
+
+Benjamin -\/
+
+Jeff -\/
+
+Thomas -\/
+
+\subsection*{T\+O\+DO\+:}
+
+
+\begin{DoxyEnumerate}
+\item Migrate Form\+Small/\+Small\+Pick\+Bomb into Module1.\+vb.
+\item Make single UI form with complete functionality.
+\item Adjust C++ backend to accept updated commands.
+\begin{DoxyEnumerate}
+\item r\#\# -\/ Rows
+\item c\#\# -\/ Columns
+\item m\#\#\# -\/ Mines
+\item g\#\#.\#\# -\/ Guess g\mbox{[}Row\mbox{]}.\mbox{[}Col\mbox{]}
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item s\# -\/ \mbox{[}S\mbox{]}how 0 or 1 / Cheat Mode. Do this in G\+UI only?
+\item f\# -\/ \mbox{[}F\mbox{]}eature/ Game mode
+\item q -\/ Quit/\+Start over during any state.
+\end{DoxyEnumerate}
+\item Refactor
+\item Refactor
+\item ...
+\end{DoxyEnumerate}
+
+\subsection*{Interface Between Front and Back End\+:}
+
+r\#\# //set number of rows to \#\# and recreate board
+
+c\#\# //set number of columns to \#\# and recreate board
+
+m\#\#\# //set number of mines to \#\#\# and recreate
+
+g\#\#.\#\# //reveal space at row \#\#. and column .\#\#
+
+f\#\#.\#\# //flag space at row \#\#. and column .\#\#
+
+h //activate or deactivate cheat mode and reveal board
+
+p //use powerup (need to finalize how powerups work)
+
+\subsection*{References}
+
+\href{https://wallpapercave.com/w/wp949807}{\texttt{ https\+://wallpapercave.\+com/w/wp949807}}
+
+
+
+
+
+\section*{minesweeper}
+
+\subsection*{Team Rocket\textquotesingle{}s Minesweeper (Alex, Sandy, Clay, Evan)}
+
+\subsection*{Welcome to our project!}
+
+\subsubsection*{To Play\+:}
+
+Inside the \char`\"{}\+P\+L\+A\+Y\char`\"{} folder is a .zip. Inside this .zip are the most recent compiled executables and resource files for this version of Minesweeper. To play, extract the .zip somewhere, open the folder, and click Mine\+Sweeper\+G\+U\+I.\+exe. Now you\textquotesingle{}re playing!
+
+\subsubsection*{Documentation\+:}
+
+To view our documentation please go to the Documentation folder $>$ H\+T\+ML $>$ and click any of the files ending in .html. (Do this on your local machine after cloning the repo, if you do that from github it will just show you the H\+T\+ML code.)
+
+\subsubsection*{From the creators}
+
+You\textquotesingle{}ll find that this program is actually {\bfseries{T\+WO}} programs. There is a {\bfseries{C++ component}}, and a {\bfseries{V\+BA component}}. V\+BA handles all of the user interface. C++ is more of a backend. To launch the program, the user would launch the V\+BA executable on a Windows machine. The V\+BA executable will automatically open and close the C++ backend as it is needed. V\+BA communicates with C++ through the V\+B.\+N\+ET Send\+Keys method. When the user clicks a button, the VB executable gives focus to the minimized C++ terminal, and types user input to it (dependant upon which button the user has clicked). In reality, this game could be a standalone C++ terminal app. V\+BA exists in this application for the sole purpose of creating a more attractive user interface.
+
+In the final release of the application it is necessary that the following be in a folder together \+:
+\begin{DoxyItemize}
+\item 1.\+png
+\item 2.\+png
+\item 3.\+png
+\item 4.\+png
+\item 5.\+png
+\item 6.\+png
+\item 7.\+png
+\item 8.\+png
+\item flag.\+jpg
+\item board.\+txt
+\item map.\+txt
+\item you\+\_\+lose.\+txt
+\item Mine\+Sweeper.\+exe (This is the C++ application)
+\item Mine\+Sweeper\+G\+U\+I.\+exe (This is the V\+BA application)
+\end{DoxyItemize}
+
+All that is needed to launch and run the program is for the user to click Mine\+Sweeper\+G\+U\+I.\+exe If we had more time, we would have liked to have created an installer that automatically places these files somewhere {\itshape safe} and creates a link to the Mine\+Sweeper\+G\+U\+I.\+exe.
+
+Hope that\textquotesingle{}s helpful. 
