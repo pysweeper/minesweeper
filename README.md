@@ -10,7 +10,7 @@
 ### Requirements:
 Windows 10
 
-###Installation:
+### Installation:
 1. Git clone or download the zip archive from [this project](https://github.com/pysweeper/minesweeper.git).
 2. Inside of the PLAY folder, extract the archive Minesweeper.zip.
 3. Open the extracted folder and run MinesweeperGUI.exe.
