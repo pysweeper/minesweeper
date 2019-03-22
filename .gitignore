@@ -4,6 +4,7 @@
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
 Play/Minesweeper/*
+Play/Minesweeper2/*
 .vscode/*
 board.txt
 
